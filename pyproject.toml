@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codemigrate"
+version = "0.1.0"
+description = "Evidence-grounded detection of breaking API changes when upgrading Django."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.7", "python-dotenv", "typer", "pyyaml", "rank-bm25", "numpy",
+  "sentence-transformers", "faiss-cpu", "scikit-learn", "libcst", "httpx",
+  "fastapi", "uvicorn[standard]", "sqlmodel", "bcrypt", "pyjwt", "python-multipart",
+  "pandas", "matplotlib", "scipy", "reportlab",
+  "anthropic", "openai", "google-genai",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "ruff", "django-upgrade", "pyupgrade"]
+
+[project.scripts]
+codemigrate = "codemigrate.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["benchmark/cases", "frontend", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: needs model downloads or network", "docker: needs docker"]

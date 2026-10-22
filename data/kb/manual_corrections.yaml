@@ -1,0 +1,124 @@
+# Manual corrections applied after automatic parsing (see build_kb.apply_corrections).
+# Every entry was checked by hand against the release-note text at the pinned commit.
+# Counts of auto-parsed vs corrected/added/dropped entries are written to build_report.json.
+
+set:
+  - id: django-4.0-incompatible-settings_static_url
+    reason: leading-slash handling of STATIC_URL changed; nothing is removed
+    fields: {change_type: behavior_changed, severity: info}
+  - id: django-5.0-removed-settings_use_tz
+    reason: default value changed, setting still exists
+    fields: {change_type: behavior_changed}
+  - id: django-4.0-removed-django_forms_fields_nullbooleanfield
+    reason: notes refer to the model field, resolver picked the forms field
+    fields:
+      affected_api: django.db.models.NullBooleanField
+      aliases: [NullBooleanField, django.db.models.fields.NullBooleanField, models.NullBooleanField]
+  - id: django-4.1-deprecated-django_core_handlers_asgi_asgihandler_chunk_size
+    reason: subject is QuerySet.iterator() without chunk_size; resolver matched an unrelated attribute
+    fields:
+      affected_api: django.db.models.query.QuerySet.iterator
+      aliases: [QuerySet.iterator, iterator]
+  - id: django-5.0-removed-django_core_handlers_asgi_asgihandler_chunk_size
+    reason: same as the 4.1 deprecation entry
+    fields:
+      affected_api: django.db.models.query.QuerySet.iterator
+      aliases: [QuerySet.iterator, iterator]
+  - id: django-5.0-deprecated-django_http_request
+    reason: subject is ModelAdmin.lookup_allowed() (request added to signature)
+    fields:
+      affected_api: django.contrib.admin.ModelAdmin.lookup_allowed
+      aliases: [ModelAdmin.lookup_allowed, lookup_allowed, django.contrib.admin.options.ModelAdmin.lookup_allowed]
+  - id: django-4.2-deprecated-django_template_defaultfilters_length_is
+    reason: template filter, used from templates rather than imported
+    fields:
+      affected_api: template:length_is
+      aliases: [length_is, django.template.defaultfilters.length_is]
+      symbol_kind: template
+      replacement: null
+      mechanical_fix: false
+  - id: django-5.1-removed-django_template_defaultfilters_length_is
+    reason: template filter, used from templates rather than imported
+    fields:
+      affected_api: template:length_is
+      aliases: [length_is, django.template.defaultfilters.length_is]
+      symbol_kind: template
+  - id: django-4.2-deprecated-django_contrib_gis_admin_options_geomodeladmin_map_height
+    reason: attribute belongs to BaseGeometryWidget, resolver picked GeoModelAdmin
+    fields:
+      affected_api: django.contrib.gis.forms.BaseGeometryWidget.map_height
+      aliases: [BaseGeometryWidget.map_height, django.contrib.gis.forms.widgets.BaseGeometryWidget.map_height]
+  - id: django-4.2-deprecated-django_contrib_gis_admin_options_geomodeladmin_map_width
+    reason: attribute belongs to BaseGeometryWidget, resolver picked GeoModelAdmin
+    fields:
+      affected_api: django.contrib.gis.forms.BaseGeometryWidget.map_width
+      aliases: [BaseGeometryWidget.map_width, django.contrib.gis.forms.widgets.BaseGeometryWidget.map_width]
+  - id: django-5.1-removed-django_contrib_gis_admin_options_geomodeladmin_map_height
+    reason: attribute belongs to BaseGeometryWidget, resolver picked GeoModelAdmin
+    fields:
+      affected_api: django.contrib.gis.forms.BaseGeometryWidget.map_height
+      aliases: [BaseGeometryWidget.map_height, django.contrib.gis.forms.widgets.BaseGeometryWidget.map_height]
+  - id: django-5.1-removed-django_contrib_gis_admin_options_geomodeladmin_map_width
+    reason: attribute belongs to BaseGeometryWidget, resolver picked GeoModelAdmin
+    fields:
+      affected_api: django.contrib.gis.forms.BaseGeometryWidget.map_width
+      aliases: [BaseGeometryWidget.map_width, django.contrib.gis.forms.widgets.BaseGeometryWidget.map_width]
+  - id: django-5.1-removed-django_forms_fields_jsonfield
+    reason: notes refer to the model JSONField and its lookups
+    fields:
+      affected_api: django.db.models.JSONField
+      aliases: [JSONField, models.JSONField, django.db.models.fields.json.JSONField]
+      change_type: behavior_changed
+
+drop:
+  - id: django-5.0-removed-django_utils_safestring_safestring
+    reason: SafeString is the object of the sentence; the subject (ErrorDict/ErrorList) has its own entries
+  - id: django-5.0-incompatible-django_contrib_sitemaps_ping_google_2
+    reason: duplicate created for the management command of the same name
+
+add:
+  - id: django-4.2-deprecated-meta_index_together
+    library: django
+    version_introduced: "4.2"
+    change_type: deprecated
+    affected_api: Meta.index_together
+    aliases: [index_together, Options.index_together]
+    description: "The Meta.index_together option is deprecated in favor of the indexes option."
+    replacement: Meta.indexes
+    source_url: "https://docs.djangoproject.com/en/dev/releases/4.2/#features-deprecated-in-4-2"
+    source_section: "Features deprecated in 4.2 / index_together option is deprecated in favor of indexes"
+    severity: warning
+    symbol_kind: model_meta
+  - id: django-5.1-removed-meta_index_together
+    library: django
+    version_introduced: "5.1"
+    change_type: removed
+    affected_api: Meta.index_together
+    aliases: [index_together, Options.index_together]
+    description: "The model's Meta.index_together option is removed."
+    replacement: Meta.indexes
+    source_url: "https://docs.djangoproject.com/en/dev/releases/5.1/#features-removed-in-5-1"
+    source_section: "Features removed in 5.1"
+    severity: error
+    symbol_kind: model_meta
+  - id: django-5.1-deprecated-django_db_models_model_save
+    library: django
+    version_introduced: "5.1"
+    change_type: deprecated
+    affected_api: django.db.models.Model.save
+    aliases: [Model.save, django.db.models.base.Model.save]
+    description: "Passing positional arguments to Model.save() and Model.asave() is deprecated in favor of keyword-only arguments."
+    source_url: "https://docs.djangoproject.com/en/dev/releases/5.1/#features-deprecated-in-5-1"
+    source_section: "Features deprecated in 5.1"
+    severity: warning
+  - id: django-4.1-removed-default_app_config
+    library: django
+    version_introduced: "4.1"
+    change_type: removed
+    affected_api: default_app_config
+    aliases: [default_app_config]
+    description: "The default_app_config application configuration variable is removed."
+    source_url: "https://docs.djangoproject.com/en/dev/releases/4.1/#features-removed-in-4-1"
+    source_section: "Features removed in 4.1"
+    severity: error
+    symbol_kind: module_variable

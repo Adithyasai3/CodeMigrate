@@ -1,0 +1,16 @@
+# Data-driven KB sources. Adding a library/version = adding an entry here (+ a parser if
+# the notes format differs). Notes are fetched at a pinned commit for reproducibility.
+libraries:
+  django:
+    notes_url: "https://raw.githubusercontent.com/django/django/{commit}/docs/releases/{version}.txt"
+    commit: "79502d08405dbf24efa39e8731320f31035b9e9c"   # django/django main @ 2026-10-22
+    docs_url: "https://docs.djangoproject.com/en/dev/releases/{version}/#{anchor}"
+    # Django wheels whose source is AST-indexed to resolve short names to dotted paths.
+    index_versions: ["4.0.*", "4.1.*", "4.2.*", "5.0.*", "5.1.*", "5.2.*"]
+    versions:
+      - {version: "4.0"}
+      - {version: "4.1"}
+      - {version: "4.2"}
+      - {version: "5.0"}
+      - {version: "5.1"}
+      - {version: "5.2"}

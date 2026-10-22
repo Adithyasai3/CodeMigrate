@@ -11,3 +11,10 @@ node_modules/
 dist/
 .cache/
 *.egg-info/
+data/kb/django_src/
+*.db
+results/_runs/
+benchmark/_work/
+paper/*.aux
+paper/*.log
+paper/*.pdf
