@@ -14,3 +14,6 @@ Format: date — decision — reason.
 - 2026-10-22 — `source_url` points at the section anchor on docs.djangoproject.com/en/dev (sub-section anchors aren't stable). Every anchor is checked online at build time. — Gives verifiable links.
 - 2026-10-22 — Gemini free tier is the primary real LLM (user choice: free only). An OpenAI-compatible adapter also covers Groq. Calls are throttled (`LLM_MIN_INTERVAL_S`) and cached on disk.
 - 2026-10-22 — Manual corrections live in `data/kb/manual_corrections.yaml`, each with a reason; counts go to build_report.json. Phase 1: 293 entries auto-parsed and unchanged, 13 corrected, 4 added, 2 dropped.
+- 2026-10-22 — The analyzer resolves `self.x` through the first library base class of the enclosing class (e.g. `class V(LogoutView)`), and emits overridden methods as `Base.method`. — Real Django code reaches most changed APIs through subclassing (views, test cases, backends).
+- 2026-10-22 — Calls on unknown receivers are only reported for distinctive KB member names. Generic names (`save`, `iterator`, `asc`, ...) are reported only when the receiver class is known. — Precision; documented as a recall limitation.
+- 2026-10-22 — The retrieval benchmark derives queries from KB usage snippets, so it favors exact matching. It's reported as a sanity check; the end-to-end benchmark is the main evidence.
