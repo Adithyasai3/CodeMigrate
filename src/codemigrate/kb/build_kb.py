@@ -287,6 +287,15 @@ def classify(section: str, text: str) -> tuple[ChangeType, Severity]:
     t = text.lower()
     renamed = " renamed" in t or " alias to " in t or " alias of " in t
     removed = bool(re.search(r"\b(is|are|was|were|been) removed\b|\bremoved\.$", t))
+    # "Support for <a usage pattern/format> is removed" changes behavior; the API itself stays.
+    if (
+        removed
+        and t.startswith("support for")
+        and not re.search(r"argument|positional|passing|calling|parameter", t)
+    ):
+        removed = False
+        if section == "removed":
+            return ChangeType.BEHAVIOR_CHANGED, Severity.ERROR
     if section == "deprecated":
         return (ChangeType.RENAMED if renamed else ChangeType.DEPRECATED), Severity.WARNING
     if section == "removed":

@@ -17,3 +17,7 @@ Format: date — decision — reason.
 - 2026-10-22 — The analyzer resolves `self.x` through the first library base class of the enclosing class (e.g. `class V(LogoutView)`), and emits overridden methods as `Base.method`. — Real Django code reaches most changed APIs through subclassing (views, test cases, backends).
 - 2026-10-22 — Calls on unknown receivers are only reported for distinctive KB member names. Generic names (`save`, `iterator`, `asc`, ...) are reported only when the receiver class is known. — Precision; documented as a recall limitation.
 - 2026-10-22 — The retrieval benchmark derives queries from KB usage snippets, so it favors exact matching. It's reported as a sanity check; the end-to-end benchmark is the main evidence.
+- 2026-10-22 — The offline reasoner parses the same prompt payload the LLM gets, and cites retrieved entries whose names match the referenced symbol. Behavior changes aren't flagged, and argument-specific entries only count when the call passes that argument. It's never cached.
+- 2026-10-22 — "Support for <usage pattern> is removed" (no argument or call involved) is classified as `behavior_changed`. — The API still exists, and running the code doesn't fail.
+- 2026-10-22 — Systems C and D share the same LLM outputs; D applies the validator after the fact. — This isolates the validator's effect and halves LLM calls (free-tier limits).
+- 2026-10-22 — The patcher only handles same-parent renames and cross-module moves to an importable path, and rejects any patch that doesn't parse. — No patch is better than a wrong one.
