@@ -6,18 +6,24 @@ import os
 
 from codemigrate.llm.base import LLMClient, LLMResponse
 
+REQUEST_TIMEOUT_MS = 180_000
+
 
 class GeminiClient(LLMClient):
     provider = "gemini"
 
     def __init__(self, model: str | None = None, **kw) -> None:
         from google import genai
+        from google.genai import types
 
         key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
         if not key:
             raise RuntimeError("GEMINI_API_KEY is not set (see .env.example)")
         super().__init__(model or os.getenv("GEMINI_MODEL", "gemini-2.5-flash"), **kw)
-        self._client = genai.Client(api_key=key)
+        # without a timeout a stalled request blocks forever (seen in a benchmark run)
+        self._client = genai.Client(
+            api_key=key, http_options=types.HttpOptions(timeout=REQUEST_TIMEOUT_MS)
+        )
 
     def _call(self, system, prompt, temperature, seed, json_mode) -> LLMResponse:
         from google.genai import types

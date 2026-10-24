@@ -5,6 +5,7 @@ import pytest
 from codemigrate.llm.base import (
     BudgetExceeded,
     LLMClient,
+    LLMError,
     LLMResponse,
     UsageTracker,
     parse_json_object,
@@ -53,6 +54,20 @@ def test_call_cap_enforced(tmp_path):
         c.complete("s", "p2")
 
 
+def test_daily_quota_fails_fast_instead_of_sleeping(tmp_path, monkeypatch):
+    class QuotaClient(FakeClient):
+        def _call(self, system, prompt, temperature, seed, json_mode):
+            self.n += 1
+            raise RuntimeError("429 RESOURCE_EXHAUSTED ... {'retryDelay': '71114s'}")
+
+    sleeps = []
+    monkeypatch.setattr("codemigrate.llm.base.time.sleep", sleeps.append)
+    c = QuotaClient([], tmp_path)
+    with pytest.raises(LLMError, match="quota exhausted"):
+        c.complete("s", "p")
+    assert c.n == 1 and not sleeps
+
+
 def test_parse_json_variants():
     assert parse_json_object('```json\n{"findings": []}\n```') == {"findings": []}
     assert parse_json_object('Sure! {"findings": [1]} done') == {"findings": [1]}
@@ -78,3 +93,5 @@ def test_argument_condition():
     cond = argument_condition("Passing positional arguments to Signer is deprecated")
     assert cond[0] == "positional"
     assert argument_condition("django.utils.baseconv module is removed.") is None
+    no_args = "Support for calling format_html() without passing args or kwargs is deprecated."
+    assert argument_condition(no_args) == ("no_args", set())

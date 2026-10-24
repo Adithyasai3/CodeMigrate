@@ -15,6 +15,8 @@ from codemigrate.config import get_settings
 from codemigrate.llm.cache import DiskCache, cache_key
 
 log = logging.getLogger(__name__)
+# A provider "retry after" longer than this means a daily quota, not a rate limit: fail fast.
+MAX_RETRY_WAIT_S = 300.0
 
 
 class BudgetExceeded(RuntimeError):
@@ -164,6 +166,12 @@ class LLMClient(ABC):
                 )
                 if attempt == max_retries:
                     raise LLMError(f"{self.provider}/{self.model}: {exc}") from exc
+                if retry_after and retry_after > MAX_RETRY_WAIT_S:
+                    # e.g. a per-day quota ("retry in 19h"): waiting would just hang the run
+                    raise LLMError(
+                        f"{self.provider}/{self.model}: quota exhausted, provider asks to wait "
+                        f"{retry_after / 3600:.1f} h: {str(exc)[:200]}"
+                    ) from exc
                 time.sleep(retry_after or delay)
                 delay = min(delay * 2, 120)
         self.tracker.record(resp)
