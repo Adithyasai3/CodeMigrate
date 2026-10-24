@@ -1,0 +1,26 @@
+{
+ "case_id": "syn-mixed-12",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:email_validator_whitelist+sha1_hashers+was_modified_since_size",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "was_modified_since_size",
+   "email_validator_whitelist",
+   "sha1_hashers"
+  ]
+ },
+ "intended": [
+  "django-4.1-incompatible-django_views_static_was_modified_since",
+  "django-4.1-removed-django_core_validators_emailvalidator_domain_whitel",
+  "django-5.1-removed-django_contrib_auth_hashers_sha1passwordhasher",
+  "django-5.1-removed-django_contrib_auth_hashers_unsaltedmd5passwordhash"
+ ]
+}

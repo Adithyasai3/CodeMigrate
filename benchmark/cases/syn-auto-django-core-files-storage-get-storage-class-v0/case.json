@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-core-files-storage-get-storage-class-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.core.files.storage.get_storage_class",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-deprecated-django_core_files_storage_get_storage_class"
+ ]
+}

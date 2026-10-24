@@ -1,0 +1,32 @@
+# Open-source packages released for the Django 4.0 era (Dec 2021 - mid 2022), permissively
+# licensed (license recorded per case from PKG-INFO). Source = PyPI sdist at the exact version;
+# sdist sha256 is recorded per case in case.json and real_provenance.json.
+# The same versions are installed in every labeling venv (see harness/Dockerfile) so package-
+# relative imports resolve.
+packages:
+  - {name: djangorestframework, version: "3.13.1", package_dir: rest_framework,
+     repository: "https://github.com/encode/django-rest-framework", installed_apps: [rest_framework]}
+  - {name: django-filter, version: "21.1", package_dir: django_filters,
+     repository: "https://github.com/carltongibson/django-filter", installed_apps: [django_filters]}
+  - {name: django-debug-toolbar, version: "3.2.4", package_dir: debug_toolbar,
+     repository: "https://github.com/jazzband/django-debug-toolbar", installed_apps: [debug_toolbar]}
+  - {name: django-taggit, version: "2.1.0", package_dir: taggit,
+     repository: "https://github.com/jazzband/django-taggit", installed_apps: [taggit]}
+  - {name: django-import-export, version: "2.8.0", package_dir: import_export,
+     repository: "https://github.com/django-import-export/django-import-export", installed_apps: [import_export]}
+  - {name: django-money, version: "2.1.1", package_dir: djmoney,
+     repository: "https://github.com/django-money/django-money", installed_apps: [djmoney]}
+  - {name: django-extensions, version: "3.1.5", package_dir: django_extensions,
+     repository: "https://github.com/django-extensions/django-extensions", installed_apps: [django_extensions]}
+  - {name: django-constance, version: "2.8.0", package_dir: constance,
+     repository: "https://github.com/jazzband/django-constance", installed_apps: [constance]}
+  - {name: django-model-utils, version: "4.2.0", package_dir: model_utils,
+     repository: "https://github.com/jazzband/django-model-utils", installed_apps: [model_utils]}
+  - {name: django-mptt, version: "0.13.4", package_dir: mptt,
+     repository: "https://github.com/django-mptt/django-mptt", installed_apps: [mptt]}
+  - {name: django-polymorphic, version: "3.1.0", package_dir: polymorphic,
+     repository: "https://github.com/django-polymorphic/django-polymorphic", installed_apps: [polymorphic]}
+  - {name: django-simple-history, version: "3.1.1", package_dir: simple_history,
+     repository: "https://github.com/jazzband/django-simple-history", installed_apps: [simple_history]}
+  - {name: django-cors-headers, version: "3.11.0", package_dir: src/corsheaders, import_root: src,
+     repository: "https://github.com/adamchainz/django-cors-headers", installed_apps: [corsheaders]}

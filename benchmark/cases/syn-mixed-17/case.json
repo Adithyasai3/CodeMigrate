@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-17",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:format_html_no_args+logout_get_next_page_override+pickle_serializer",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "logout_get_next_page_override",
+   "pickle_serializer",
+   "format_html_no_args"
+  ]
+ },
+ "intended": [
+  "django-4.1-deprecated-django_contrib_auth_views_logoutview_get_next_pa",
+  "django-5.0-removed-django_contrib_sessions_serializers_pickleserialize",
+  "django-5.0-deprecated-django_utils_html_format_html"
+ ]
+}

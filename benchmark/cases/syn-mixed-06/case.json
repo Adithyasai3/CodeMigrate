@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-06",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:parse_header_import+pickle_serializer+register_converter_override",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "pickle_serializer",
+   "register_converter_override",
+   "parse_header_import"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_sessions_serializers_pickleserialize",
+  "django-5.1-deprecated-django_urls_register_converter",
+  "django-4.2-incompatible-django_http_multipartparser_parse_header"
+ ]
+}

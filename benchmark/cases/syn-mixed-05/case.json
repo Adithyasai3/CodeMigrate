@@ -1,0 +1,26 @@
+{
+ "case_id": "syn-mixed-05",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:crypt_hasher+get_storage_class_call+sha1_hashers",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "crypt_hasher",
+   "get_storage_class_call",
+   "sha1_hashers"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_auth_hashers_cryptpasswordhasher",
+  "django-5.1-removed-django_core_files_storage_get_storage_class",
+  "django-5.1-removed-django_contrib_auth_hashers_sha1passwordhasher",
+  "django-5.1-removed-django_contrib_auth_hashers_unsaltedmd5passwordhash"
+ ]
+}

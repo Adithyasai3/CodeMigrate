@@ -1,0 +1,39 @@
+{
+ "case_id": "real-django-constance-constance-init",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-constance",
+ "labels": [],
+ "ignored_lines": [
+  {
+   "file": "constance/__init__.py",
+   "line": 2,
+   "reason": "fails under 4.0: ImportError: attempted relative import with no known parent package"
+  }
+ ],
+ "scored_lines": {
+  "constance/__init__.py": [
+   1,
+   2,
+   4,
+   6,
+   9,
+   10,
+   15
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

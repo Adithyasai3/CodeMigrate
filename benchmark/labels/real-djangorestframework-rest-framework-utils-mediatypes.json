@@ -1,0 +1,77 @@
+{
+ "case_id": "real-djangorestframework-rest-framework-utils-mediatypes",
+ "kind": "real",
+ "split": "dev",
+ "group": "real:djangorestframework",
+ "labels": [
+  {
+   "file": "rest_framework/utils/mediatypes.py",
+   "line": 6,
+   "stmt_start": 6,
+   "stmt_end": 6,
+   "symbol": "django.http.multipartparser.parse_header",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/4.2.30/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/5.0.14/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/5.1.15/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "rest_framework/utils/mediatypes.py": [
+   1,
+   6,
+   8,
+   11,
+   29,
+   46,
+   47,
+   52,
+   66,
+   67,
+   79
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

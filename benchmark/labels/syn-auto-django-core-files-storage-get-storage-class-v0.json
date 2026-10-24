@@ -1,0 +1,54 @@
+{
+ "case_id": "syn-auto-django-core-files-storage-get-storage-class-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.core.files.storage.get_storage_class",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 5,
+   "stmt_start": 5,
+   "stmt_end": 5,
+   "symbol": "django.core.files.storage.get_storage_class",
+   "first_version": "5.1.15",
+   "evidence": [
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'get_storage_class' from 'django.core.files.storage' (/venvs/5.1.15/lib/python3.10/site-packages/django/core/files/storage/__init__.py)",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 7,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   5,
+   7
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

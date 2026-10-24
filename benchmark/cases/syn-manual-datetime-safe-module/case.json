@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-datetime-safe-module",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:datetime_safe_module",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "datetime_safe_module"
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_datetime_safe"
+ ]
+}

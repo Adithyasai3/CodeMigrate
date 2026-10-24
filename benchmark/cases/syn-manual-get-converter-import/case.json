@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-get-converter-import",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:get_converter_import",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "get_converter_import"
+ },
+ "intended": [
+  "django-5.1-incompatible-django_urls_converters_get_converter"
+ ]
+}

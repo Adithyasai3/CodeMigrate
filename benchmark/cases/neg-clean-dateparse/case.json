@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-dateparse",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_dateparse",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_dateparse",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

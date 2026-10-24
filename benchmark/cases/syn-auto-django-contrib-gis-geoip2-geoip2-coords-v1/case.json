@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-gis-geoip2-geoip2-coords-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.gis.geoip2.GeoIP2.coords",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.1-deprecated-django_contrib_gis_geoip2_geoip2_coords"
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-is-iterable-call",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:is_iterable_call",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "is_iterable_call"
+ },
+ "intended": [
+  "django-5.1-deprecated-django_utils_itercompat_is_iterable"
+ ]
+}

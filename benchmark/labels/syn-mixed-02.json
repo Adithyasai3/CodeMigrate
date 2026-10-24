@@ -1,0 +1,113 @@
+{
+ "case_id": "syn-mixed-02",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:admin_helpers_checkbox+parse_header_import+trunc_is_dst",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 3,
+   "stmt_start": 3,
+   "stmt_end": 3,
+   "symbol": "django.http.multipartparser.parse_header",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/4.2.30/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/5.0.14/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/5.1.15/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    }
+   ]
+  },
+  {
+   "file": "case.py",
+   "line": 4,
+   "stmt_start": 4,
+   "stmt_end": 4,
+   "symbol": "django.contrib.admin.helpers.checkbox",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'checkbox' from 'django.contrib.admin.helpers' (/venvs/5.0.14/lib/python3.10/site-packages/django/contrib/admin/helpers.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'checkbox' from 'django.contrib.admin.helpers' (/venvs/5.1.15/lib/python3.10/site-packages/django/contrib/admin/helpers.py)",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 17,
+   "reason": "cascade"
+  },
+  {
+   "file": "case.py",
+   "line": 20,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "case.py": [
+   1,
+   2,
+   3,
+   4,
+   7,
+   9,
+   12,
+   13,
+   14,
+   17,
+   20,
+   21
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

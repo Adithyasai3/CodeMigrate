@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-encoding",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_encoding",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_encoding",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-core-signing-timestampsigner-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.core.signing.TimestampSigner",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-deprecated-django_core_signing_timestampsigner"
+ ]
+}

@@ -1,0 +1,84 @@
+{
+ "case_id": "syn-manual-crypt-hasher",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:crypt_hasher",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 1,
+   "stmt_start": 1,
+   "stmt_end": 1,
+   "symbol": "django.contrib.auth.hashers.CryptPasswordHasher",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'CryptPasswordHasher' from 'django.contrib.auth.hashers' (/venvs/5.0.14/lib/python3.10/site-packages/django/contrib/auth/hashers.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'CryptPasswordHasher' from 'django.contrib.auth.hashers' (/venvs/5.1.15/lib/python3.10/site-packages/django/contrib/auth/hashers.py)",
+     "attribution": "traceback"
+    }
+   ]
+  },
+  {
+   "file": "case.py",
+   "line": 3,
+   "stmt_start": 3,
+   "stmt_end": 3,
+   "symbol": "django.contrib.auth.hashers.CryptPasswordHasher",
+   "first_version": "4.1.13",
+   "evidence": [
+    {
+     "version": "4.1.13",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "django.contrib.auth.hashers.CryptPasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "django.contrib.auth.hashers.CryptPasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 4,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   4
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

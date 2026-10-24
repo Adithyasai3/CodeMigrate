@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-utc-attribute",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:utc_attribute",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "utc_attribute"
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_timezone_utc"
+ ]
+}

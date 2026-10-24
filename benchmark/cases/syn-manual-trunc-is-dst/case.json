@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-manual-trunc-is-dst",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:trunc_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "trunc_is_dst"
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_functions_trunc",
+  "django-5.0-removed-django_db_models_functions_truncday"
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-make-aware-is-dst",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:make_aware_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "make_aware_is_dst"
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_timezone_make_aware"
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "case_id": "syn-mixed-19",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:email_validator_whitelist+trunc_month_week_is_dst+utc_import_alias",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "email_validator_whitelist",
+   "utc_import_alias",
+   "trunc_month_week_is_dst"
+  ]
+ },
+ "intended": [
+  "django-4.1-removed-django_core_validators_emailvalidator_domain_whitel",
+  "django-5.0-removed-django_utils_timezone_utc",
+  "django-5.0-removed-django_db_models_functions_truncmonth",
+  "django-5.0-removed-django_db_models_functions_truncweek"
+ ]
+}

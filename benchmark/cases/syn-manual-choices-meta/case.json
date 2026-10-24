@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-choices-meta",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:choices_meta",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "choices_meta"
+ },
+ "intended": [
+  "django-5.0-deprecated-django_db_models_enums_choicesmeta"
+ ]
+}

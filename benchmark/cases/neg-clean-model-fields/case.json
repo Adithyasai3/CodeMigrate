@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-model-fields",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_model_fields",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_model_fields",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

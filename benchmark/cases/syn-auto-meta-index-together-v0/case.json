@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-meta-index-together-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "Meta.index_together",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-deprecated-meta_index_together"
+ ]
+}

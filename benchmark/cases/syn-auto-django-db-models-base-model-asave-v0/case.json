@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-base-model-asave-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.db.models.base.Model.asave",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.1-deprecated-django_db_models_base_model_asave"
+ ]
+}

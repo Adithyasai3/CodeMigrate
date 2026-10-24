@@ -1,0 +1,65 @@
+{
+ "case_id": "real-django-polymorphic-polymorphic-base",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-polymorphic",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "polymorphic/base.py": [
+   1,
+   4,
+   5,
+   6,
+   7,
+   9,
+   10,
+   11,
+   12,
+   13,
+   15,
+   16,
+   20,
+   22,
+   25,
+   26,
+   33,
+   34,
+   57,
+   95,
+   96,
+   119,
+   120,
+   127,
+   128,
+   158,
+   159,
+   168,
+   169,
+   179,
+   180
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

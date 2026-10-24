@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-query-prefetch-get-current-queryset-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.db.models.query.Prefetch.get_current_queryset",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.0-deprecated-django_db_models_query_prefetch_get_current_queryset"
+ ]
+}

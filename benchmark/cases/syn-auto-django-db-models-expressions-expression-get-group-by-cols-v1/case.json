@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-expressions-expression-get-group-by-cols-v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.db.models.expressions.Expression.get_group_by_cols",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.2-incompatible-django_db_models_expressions_expression_get_group_by_cols"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-13",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:assert_formset_error_attr+cached_property_name+format_html_no_args",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "format_html_no_args",
+   "assert_formset_error_attr",
+   "cached_property_name"
+  ]
+ },
+ "intended": [
+  "django-5.0-deprecated-django_utils_html_format_html",
+  "django-5.1-removed-django_test_testcases_simpletestcase_assertformsete",
+  "django-5.0-removed-django_utils_functional_cached_property"
+ ]
+}

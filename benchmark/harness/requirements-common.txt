@@ -1,0 +1,10 @@
+# Installed in every Django venv (pinned). Real-case packages are installed with --no-deps.
+psycopg2-binary==2.9.10
+jinja2==3.1.4
+pytz==2024.2
+sqlparse==0.5.1
+tablib==3.5.0
+diff-match-patch==20230430
+py-moneyed==1.2
+babel==2.16.0
+django-js-asset==2.0.0

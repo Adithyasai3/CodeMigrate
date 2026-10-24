@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-register-converter-override",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:register_converter_override",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "register_converter_override"
+ },
+ "intended": [
+  "django-5.1-deprecated-django_urls_register_converter"
+ ]
+}

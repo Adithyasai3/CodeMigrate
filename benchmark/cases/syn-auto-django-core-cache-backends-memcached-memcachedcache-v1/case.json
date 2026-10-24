@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-core-cache-backends-memcached-memcachedcache-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.core.cache.backends.memcached.MemcachedCache",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.1-removed-django_core_cache_backends_memcached_memcachedcache"
+ ]
+}

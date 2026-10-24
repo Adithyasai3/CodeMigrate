@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-constraints-checkconstraint-v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.db.models.constraints.CheckConstraint",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.1-deprecated-django_db_models_constraints_checkconstraint"
+ ]
+}

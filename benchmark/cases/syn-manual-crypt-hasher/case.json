@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-crypt-hasher",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:crypt_hasher",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "crypt_hasher"
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_auth_hashers_cryptpasswordhasher"
+ ]
+}

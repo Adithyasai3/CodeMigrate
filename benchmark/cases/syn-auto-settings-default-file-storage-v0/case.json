@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-auto-settings-default-file-storage-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "settings.DEFAULT_FILE_STORAGE",
+ "files": [
+  {
+   "path": "settings.py",
+   "module": null
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-deprecated-settings_default_file_storage"
+ ],
+ "settings_file": "settings.py"
+}

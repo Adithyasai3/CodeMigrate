@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-backends-mysql-features-databasefeatures-allows-gr-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.db.backends.mysql.features.DatabaseFeatures.allows_group_by_pk",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-incompatible-django_db_backends_mysql_features_databasefeatures_allows_gr"
+ ]
+}

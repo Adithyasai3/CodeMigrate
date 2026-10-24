@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-auth-base-user-baseusermanager-make-random-pa-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.auth.base_user.BaseUserManager.make_random_password",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-deprecated-django_contrib_auth_base_user_baseusermanager_make_random_pa"
+ ]
+}

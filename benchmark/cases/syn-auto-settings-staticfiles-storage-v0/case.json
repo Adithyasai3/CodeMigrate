@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-auto-settings-staticfiles-storage-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "settings.STATICFILES_STORAGE",
+ "files": [
+  {
+   "path": "settings.py",
+   "module": null
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-deprecated-settings_staticfiles_storage"
+ ],
+ "settings_file": "settings.py"
+}

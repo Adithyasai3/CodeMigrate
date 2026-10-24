@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-manual-trunc-month-week-is-dst",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:trunc_month_week_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "trunc_month_week_is_dst"
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_functions_truncmonth",
+  "django-5.0-removed-django_db_models_functions_truncweek"
+ ]
+}

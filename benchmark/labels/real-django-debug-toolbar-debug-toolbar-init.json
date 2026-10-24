@@ -1,0 +1,43 @@
+{
+ "case_id": "real-django-debug-toolbar-debug-toolbar-init",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-debug-toolbar",
+ "labels": [],
+ "ignored_lines": [
+  {
+   "file": "debug_toolbar/__init__.py",
+   "line": 3,
+   "reason": "transitive"
+  },
+  {
+   "file": "debug_toolbar/__init__.py",
+   "line": 14,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "debug_toolbar/__init__.py": [
+   1,
+   3,
+   5,
+   10,
+   14,
+   16
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

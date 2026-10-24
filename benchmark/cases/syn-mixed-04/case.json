@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-04",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:cached_property_name+get_storage_class_call+is_iterable_call",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "cached_property_name",
+   "get_storage_class_call",
+   "is_iterable_call"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_functional_cached_property",
+  "django-5.1-removed-django_core_files_storage_get_storage_class",
+  "django-5.1-deprecated-django_utils_itercompat_is_iterable"
+ ]
+}

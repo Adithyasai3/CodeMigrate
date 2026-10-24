@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-model-save-positional",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:model_save_positional",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "model_save_positional"
+ },
+ "intended": [
+  "django-5.1-deprecated-django_db_models_model_save"
+ ]
+}

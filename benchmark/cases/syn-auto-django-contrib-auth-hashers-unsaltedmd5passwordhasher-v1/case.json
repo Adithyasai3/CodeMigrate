@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-auth-hashers-unsaltedmd5passwordhasher-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.auth.hashers.UnsaltedMD5PasswordHasher",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.2-deprecated-django_contrib_auth_hashers_unsaltedmd5passwordhasher"
+ ]
+}

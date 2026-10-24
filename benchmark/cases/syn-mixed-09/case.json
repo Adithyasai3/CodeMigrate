@@ -1,0 +1,26 @@
+{
+ "case_id": "syn-mixed-09",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:index_together_model+index_together_with_indexes+sha1_hashers",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "sha1_hashers",
+   "index_together_with_indexes",
+   "index_together_model"
+  ]
+ },
+ "intended": [
+  "django-5.1-removed-django_contrib_auth_hashers_sha1passwordhasher",
+  "django-5.1-removed-django_contrib_auth_hashers_unsaltedmd5passwordhash",
+  "django-5.1-removed-meta_index_together",
+  "django-5.1-removed-meta_index_together"
+ ]
+}

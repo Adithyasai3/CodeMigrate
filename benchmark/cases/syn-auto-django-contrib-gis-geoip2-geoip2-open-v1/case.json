@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-gis-geoip2-geoip2-open-v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.contrib.gis.geoip2.GeoIP2.open",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.1-deprecated-django_contrib_gis_geoip2_geoip2_open"
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-filter-django-filters-conf",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-filter",
+ "files": [
+  {
+   "path": "django_filters/conf.py",
+   "module": "django_filters.conf"
+  }
+ ],
+ "origin": {
+  "package": "django-filter",
+  "version": "21.1",
+  "repository": "https://github.com/carltongibson/django-filter",
+  "license": "BSD; OSI Approved :: BSD License",
+  "sdist": "django-filter-21.1.tar.gz",
+  "sdist_sha256": "632a251fa8f1aadb4b8cceff932bb52fe2f826dd7dfe7f3eac40e5c463d6836e",
+  "path": "django_filters/conf.py",
+  "selected_by": "random_sample"
+ },
+ "intended": [],
+ "installed_apps": [
+  "django_filters"
+ ],
+ "add_case_dir_to_path": false
+}

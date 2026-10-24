@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-exists-negated",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:exists_negated",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "exists_negated"
+ },
+ "intended": [
+  "django-4.2-incompatible-django_db_models_exists"
+ ]
+}

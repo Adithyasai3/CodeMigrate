@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-format-html-no-args",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:format_html_no_args",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "format_html_no_args"
+ },
+ "intended": [
+  "django-5.0-deprecated-django_utils_html_format_html"
+ ]
+}

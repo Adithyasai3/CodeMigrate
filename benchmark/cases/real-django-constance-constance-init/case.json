@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-constance-constance-init",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-constance",
+ "files": [
+  {
+   "path": "constance/__init__.py",
+   "module": "constance"
+  }
+ ],
+ "origin": {
+  "package": "django-constance",
+  "version": "2.8.0",
+  "repository": "https://github.com/jazzband/django-constance",
+  "license": "BSD; OSI Approved :: BSD License",
+  "sdist": "django-constance-2.8.0.tar.gz",
+  "sdist_sha256": "0a492454acc78799ce7b9f7a28a00c53427d513f34f8bf6fdc90a46d8864b2af",
+  "path": "constance/__init__.py",
+  "selected_by": "kb_name_grep"
+ },
+ "intended": [],
+ "installed_apps": [
+  "constance"
+ ],
+ "add_case_dir_to_path": false
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-utc-import-alias",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:utc_import_alias",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "utc_import_alias"
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_timezone_utc"
+ ]
+}

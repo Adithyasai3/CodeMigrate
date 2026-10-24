@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-expressions-expression-asc-v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.db.models.expressions.Expression.asc",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.1-deprecated-django_db_models_expressions_expression_asc"
+ ]
+}

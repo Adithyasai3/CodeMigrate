@@ -1,0 +1,61 @@
+{
+ "case_id": "syn-auto-settings-csrf-cookie-masked-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "settings.CSRF_COOKIE_MASKED",
+ "labels": [
+  {
+   "file": "settings.py",
+   "line": 10,
+   "stmt_start": 10,
+   "stmt_end": 10,
+   "symbol": "settings.CSRF_COOKIE_MASKED",
+   "first_version": "4.1.13",
+   "evidence": [
+    {
+     "version": "4.1.13",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The CSRF_COOKIE_MASKED transitional setting is deprecated. Support for it will be removed in Django 5.0.",
+     "attribution": "message"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The CSRF_COOKIE_MASKED transitional setting is deprecated. Support for it will be removed in Django 5.0.",
+     "attribution": "message"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "settings.py": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

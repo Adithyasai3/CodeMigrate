@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-manual-sha1-hashers",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:sha1_hashers",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "sha1_hashers"
+ },
+ "intended": [
+  "django-5.1-removed-django_contrib_auth_hashers_sha1passwordhasher",
+  "django-5.1-removed-django_contrib_auth_hashers_unsaltedmd5passwordhash"
+ ]
+}

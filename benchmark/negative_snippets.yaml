@@ -1,0 +1,313 @@
+# Clean files (no breaking usages expected) and near-misses that look similar to a breaking
+# usage but are not (replacement APIs, user-defined lookalikes, safe argument forms).
+# Execution decides the labels; a "negative" that produces a Django warning gets labeled.
+
+- name: clean_timezone_now
+  kind: clean
+  code: |
+    from django.utils import timezone
+
+    NOW = timezone.now()
+    TODAY = timezone.localdate()
+
+- name: clean_model_fields
+  kind: clean
+  code: |
+    from django.db import models
+
+
+    class Book(models.Model):
+        title = models.CharField(max_length=200)
+        published = models.DateField(null=True)
+
+        class Meta:
+            app_label = "sessions"
+            ordering = ["title"]
+            indexes = [models.Index(fields=["title", "published"])]
+
+- name: clean_forms
+  kind: clean
+  code: |
+    from django import forms
+
+
+    class SignupForm(forms.Form):
+        email = forms.EmailField()
+        age = forms.IntegerField(min_value=0)
+
+
+    FORM = SignupForm(data={"email": "a@example.com", "age": 3})
+    OK = FORM.is_valid()
+
+- name: clean_q_f_expressions
+  kind: clean
+  code: |
+    from django.db.models import Count, F, Q, Value
+
+    FILTER = Q(active=True) | Q(staff=True)
+    ORDER = F("created").desc(nulls_last=True)
+    ANNOTATION = Count("id")
+    LABEL = Value("x")
+
+- name: clean_html_utils
+  kind: clean
+  code: |
+    from django.utils.html import escape, format_html, strip_tags
+
+    SAFE = format_html("<b>{}</b>", "<script>")
+    TEXT = strip_tags("<p>hi</p>")
+    ESC = escape("<a>")
+
+- name: clean_text_utils
+  kind: clean
+  code: |
+    from django.utils.text import capfirst, slugify, Truncator
+
+    SLUG = slugify("Hello World")
+    CAP = capfirst("django")
+    SHORT = Truncator("long text here").chars(5)
+
+- name: clean_encoding
+  kind: clean
+  code: |
+    from django.utils.encoding import force_bytes, force_str, smart_str
+
+    A = force_str(b"abc")
+    B = force_bytes("abc")
+    C = smart_str(1)
+
+- name: clean_translation
+  kind: clean
+  code: |
+    from django.utils.translation import gettext, gettext_lazy as _, ngettext
+
+    TITLE = _("Title")
+    HELLO = gettext("Hello")
+    ITEMS = ngettext("item", "items", 2)
+
+- name: clean_signing_keywords
+  kind: near_miss
+  code: |
+    from django.core.signing import Signer, TimestampSigner
+
+    signer = Signer(key="secret-key-1", sep=":")
+    stamp = TimestampSigner(key="secret-key-2")
+    TOKEN = signer.sign("hello")
+
+- name: clean_make_aware_no_is_dst
+  kind: near_miss
+  code: |
+    import datetime
+
+    from django.utils import timezone
+
+    naive = datetime.datetime(2022, 3, 27, 2, 30)
+    aware = timezone.make_aware(naive, datetime.timezone.utc)
+
+- name: clean_trunc_no_is_dst
+  kind: near_miss
+  code: |
+    from django.db.models import DateTimeField
+    from django.db.models.functions import Trunc, TruncDay
+
+    by_day = Trunc("created", "day", output_field=DateTimeField())
+    by_day2 = TruncDay("created")
+
+- name: clean_cached_property
+  kind: near_miss
+  code: |
+    from django.utils.functional import cached_property
+
+
+    class Box:
+        @cached_property
+        def area(self):
+            return 4
+
+
+    BOX = Box()
+
+- name: user_defined_utc
+  kind: near_miss
+  code: |
+    import datetime
+
+    utc = datetime.timezone.utc
+    STAMP = datetime.datetime(2020, 1, 1, tzinfo=utc)
+
+- name: datetime_timezone_utc
+  kind: near_miss
+  code: |
+    import datetime
+
+    from django.utils import timezone
+
+    EPOCH = datetime.datetime(1970, 1, 1, tzinfo=datetime.timezone.utc)
+    NOW = timezone.now()
+
+- name: user_class_lookalike_methods
+  kind: near_miss
+  code: |
+    class Inventory:
+        def assertQuerysetEqual(self, a, b):
+            return list(a) == list(b)
+
+        def make_random_password(self):
+            return "not-random"
+
+
+    INV = Inventory()
+    SAME = INV.assertQuerysetEqual([1], [1])
+    PW = INV.make_random_password()
+
+- name: user_function_is_iterable
+  kind: near_miss
+  code: |
+    def is_iterable(value):
+        try:
+            iter(value)
+        except TypeError:
+            return False
+        return True
+
+
+    OK = is_iterable([1])
+
+- name: iterator_with_chunk_size
+  kind: near_miss
+  uses_models: true
+  code: |
+    rows = list(Note.objects.prefetch_related("tag").iterator(chunk_size=50))
+    plain = list(Note.objects.iterator())
+
+- name: model_save_keywords
+  kind: near_miss
+  uses_models: true
+  code: |
+    note = Note(text="hello", tag=tag)
+    note.save(force_insert=True)
+    note.text = "bye"
+    note.save(update_fields=["text"])
+
+- name: nulls_last_true
+  kind: near_miss
+  code: |
+    from django.db.models import F, OrderBy
+
+    a = F("created").asc(nulls_last=True)
+    b = OrderBy(F("created"), nulls_first=True)
+
+- name: storages_like_dict
+  kind: near_miss
+  code: |
+    STORAGE_OPTIONS = {"default": {"BACKEND": "django.core.files.storage.FileSystemStorage"}}
+    BACKEND = STORAGE_OPTIONS["default"]["BACKEND"]
+
+- name: clean_urls
+  kind: clean
+  code: |
+    from django.urls import path, re_path
+
+
+    def index(request):
+        return None
+
+
+    urlpatterns = [
+        path("", index, name="index"),
+        re_path(r"^about/$", index, name="about"),
+    ]
+
+- name: clean_paginator
+  kind: clean
+  code: |
+    from django.core.paginator import Paginator
+
+    pages = Paginator(list(range(100)), 10)
+    FIRST = pages.page(1).object_list
+
+- name: clean_validators
+  kind: clean
+  code: |
+    from django.core.validators import EmailValidator, MaxValueValidator, URLValidator
+
+    email = EmailValidator(allowlist=["localhost"])
+    url = URLValidator()
+    small = MaxValueValidator(10)
+
+- name: clean_cache_locmem
+  kind: clean
+  code: |
+    from django.core.cache.backends.locmem import LocMemCache
+
+    cache = LocMemCache("default", {})
+    cache.set("k", 1)
+    VALUE = cache.get("k")
+
+- name: clean_json_response
+  kind: clean
+  code: |
+    from django.http import HttpResponse, JsonResponse
+
+    RESP = JsonResponse({"ok": True})
+    TEXT = HttpResponse("hi", content_type="text/plain")
+
+- name: clean_crypto
+  kind: clean
+  code: |
+    from django.utils.crypto import constant_time_compare, get_random_string
+
+    TOKEN = get_random_string(12)
+    SAME = constant_time_compare("a", "a")
+
+- name: clean_dateparse
+  kind: clean
+  code: |
+    from django.utils.dateparse import parse_date, parse_datetime
+
+    DAY = parse_date("2024-01-02")
+    WHEN = parse_datetime("2024-01-02T03:04:05")
+
+- name: clean_models_with_model_ops
+  kind: clean
+  uses_models: true
+  code: |
+    tag2 = Tag.objects.create(name="extra")
+    COUNT = Tag.objects.count()
+    NAMES = list(Tag.objects.values_list("name", flat=True))
+
+- name: clean_password_hashers
+  kind: clean
+  code: |
+    from django.contrib.auth.hashers import PBKDF2PasswordHasher, make_password
+
+    hasher = PBKDF2PasswordHasher()
+    HASHED = make_password("secret", hasher="pbkdf2_sha256")
+
+- name: clean_template_engine
+  kind: clean
+  code: |
+    from django.template import Context, Engine
+
+    engine = Engine()
+    OUT = engine.from_string("{{ value|length }}").render(Context({"value": [1, 2]}))
+
+- name: clean_settings_module
+  kind: clean
+  settings: true
+  code: |
+    SECRET_KEY = "x"
+    DEBUG = False
+    USE_TZ = True
+    INSTALLED_APPS = ["django.contrib.contenttypes", "django.contrib.auth"]
+    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
+    MIDDLEWARE = ["django.middleware.common.CommonMiddleware"]
+    PASSWORD_HASHERS = ["django.contrib.auth.hashers.PBKDF2PasswordHasher"]
+    DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+- name: clean_template_length
+  kind: clean
+  template: true
+  code: |
+    {% if items|length == 2 %}two{% endif %}
+    {{ value|upper }}

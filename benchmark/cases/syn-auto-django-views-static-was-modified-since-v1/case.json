@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-views-static-was-modified-since-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.views.static.was_modified_since",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.1-incompatible-django_views_static_was_modified_since"
+ ]
+}

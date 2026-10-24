@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-auto-settings-serialize-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "settings.SERIALIZE",
+ "files": [
+  {
+   "path": "settings.py",
+   "module": null
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-removed-settings_serialize"
+ ],
+ "settings_file": "settings.py"
+}

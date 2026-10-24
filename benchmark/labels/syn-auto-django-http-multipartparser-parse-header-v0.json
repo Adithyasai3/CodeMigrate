@@ -1,0 +1,68 @@
+{
+ "case_id": "syn-auto-django-http-multipartparser-parse-header-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.http.multipartparser.parse_header",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 5,
+   "stmt_start": 5,
+   "stmt_end": 5,
+   "symbol": "django.http.multipartparser.parse_header",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/4.2.30/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/5.0.14/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'parse_header' from 'django.http.multipartparser' (/venvs/5.1.15/lib/python3.10/site-packages/django/http/multipartparser.py)",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 7,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   5,
+   7
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

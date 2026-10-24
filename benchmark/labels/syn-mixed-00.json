@@ -1,0 +1,139 @@
+{
+ "case_id": "syn-mixed-00",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:crypt_hasher+index_together_with_indexes+trunc_month_week_is_dst",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 3,
+   "stmt_start": 3,
+   "stmt_end": 3,
+   "symbol": "django.contrib.auth.hashers.CryptPasswordHasher",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'CryptPasswordHasher' from 'django.contrib.auth.hashers' (/venvs/5.0.14/lib/python3.10/site-packages/django/contrib/auth/hashers.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'CryptPasswordHasher' from 'django.contrib.auth.hashers' (/venvs/5.1.15/lib/python3.10/site-packages/django/contrib/auth/hashers.py)",
+     "attribution": "traceback"
+    }
+   ]
+  },
+  {
+   "file": "case.py",
+   "line": 24,
+   "stmt_start": 17,
+   "stmt_end": 24,
+   "symbol": "Meta.index_together",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "'index_together' is deprecated. Use 'Meta.indexes' in 'sessions.Event' instead.",
+     "attribution": "statement"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "'index_together' is deprecated. Use 'Meta.indexes' in 'sessions.Event' instead.",
+     "attribution": "statement"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "TypeError",
+     "message": "'class Meta' got invalid attribute(s): index_together",
+     "attribution": "traceback"
+    }
+   ],
+   "line_refined_from": 17
+  },
+  {
+   "file": "case.py",
+   "line": 27,
+   "stmt_start": 27,
+   "stmt_end": 27,
+   "symbol": "django.contrib.auth.hashers.CryptPasswordHasher",
+   "first_version": "4.1.13",
+   "evidence": [
+    {
+     "version": "4.1.13",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "django.contrib.auth.hashers.CryptPasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "django.contrib.auth.hashers.CryptPasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 28,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "case.py": [
+   1,
+   2,
+   3,
+   6,
+   8,
+   11,
+   12,
+   13,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   27,
+   28
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

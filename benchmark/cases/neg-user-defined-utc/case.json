@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-user-defined-utc",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:user_defined_utc",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "user_defined_utc",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

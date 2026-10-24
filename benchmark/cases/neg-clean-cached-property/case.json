@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-cached-property",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:clean_cached_property",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_cached_property",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

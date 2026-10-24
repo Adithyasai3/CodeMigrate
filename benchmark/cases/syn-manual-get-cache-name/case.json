@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-get-cache-name",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:get_cache_name",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "get_cache_name"
+ },
+ "intended": [
+  "django-5.1-deprecated-django_db_models_fields_related_relatedfield_get"
+ ]
+}

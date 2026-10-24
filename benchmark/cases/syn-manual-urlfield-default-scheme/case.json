@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-urlfield-default-scheme",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:urlfield_default_scheme",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "urlfield_default_scheme"
+ },
+ "intended": [
+  "django-5.0-deprecated-django_forms_urlfield"
+ ]
+}

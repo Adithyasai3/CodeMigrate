@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-10",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:get_storage_class_call+utc_import_alias+was_modified_since_size",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "was_modified_since_size",
+   "get_storage_class_call",
+   "utc_import_alias"
+  ]
+ },
+ "intended": [
+  "django-4.1-incompatible-django_views_static_was_modified_since",
+  "django-5.1-removed-django_core_files_storage_get_storage_class",
+  "django-5.0-removed-django_utils_timezone_utc"
+ ]
+}

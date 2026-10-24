@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-template-engine",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:clean_template_engine",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_template_engine",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

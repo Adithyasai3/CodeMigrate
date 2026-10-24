@@ -1,0 +1,61 @@
+{
+ "case_id": "syn-auto-settings-forms-urlfield-assume-https-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "settings.FORMS_URLFIELD_ASSUME_HTTPS",
+ "labels": [
+  {
+   "file": "settings.py",
+   "line": 10,
+   "stmt_start": 10,
+   "stmt_end": 10,
+   "symbol": "settings.FORMS_URLFIELD_ASSUME_HTTPS",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "The FORMS_URLFIELD_ASSUME_HTTPS transitional setting is deprecated.",
+     "attribution": "message"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "The FORMS_URLFIELD_ASSUME_HTTPS transitional setting is deprecated.",
+     "attribution": "message"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "settings.py": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

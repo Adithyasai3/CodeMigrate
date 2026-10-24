@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-postgres-fields-citext-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.postgres.fields.CIText",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.2-deprecated-django_contrib_postgres_fields_citext"
+ ]
+}

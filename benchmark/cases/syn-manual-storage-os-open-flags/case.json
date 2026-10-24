@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-storage-os-open-flags",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:storage_os_open_flags",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "storage_os_open_flags"
+ },
+ "intended": [
+  "django-5.1-deprecated-django_core_files_storage_filesystemstorage_os_o"
+ ]
+}

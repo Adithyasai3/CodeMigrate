@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-urls-register-converter-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.urls.register_converter",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.1-deprecated-django_urls_register_converter"
+ ]
+}

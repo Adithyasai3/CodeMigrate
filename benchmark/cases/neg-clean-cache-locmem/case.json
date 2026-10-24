@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-cache-locmem",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_cache_locmem",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_cache_locmem",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

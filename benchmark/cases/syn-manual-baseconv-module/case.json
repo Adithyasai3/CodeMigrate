@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-baseconv-module",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:baseconv_module",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "baseconv_module"
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_baseconv"
+ ]
+}

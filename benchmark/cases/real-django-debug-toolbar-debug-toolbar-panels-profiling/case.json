@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-debug-toolbar-debug-toolbar-panels-profiling",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-debug-toolbar",
+ "files": [
+  {
+   "path": "debug_toolbar/panels/profiling.py",
+   "module": "debug_toolbar.panels.profiling"
+  }
+ ],
+ "origin": {
+  "package": "django-debug-toolbar",
+  "version": "3.2.4",
+  "repository": "https://github.com/jazzband/django-debug-toolbar",
+  "license": "BSD; OSI Approved :: BSD License",
+  "sdist": "django-debug-toolbar-3.2.4.tar.gz",
+  "sdist_sha256": "644bbd5c428d3283aa9115722471769cac1bec189edf3a0c855fd8ff870375a9",
+  "path": "debug_toolbar/panels/profiling.py",
+  "selected_by": "kb_name_grep"
+ },
+ "intended": [],
+ "installed_apps": [
+  "debug_toolbar"
+ ],
+ "add_case_dir_to_path": false
+}

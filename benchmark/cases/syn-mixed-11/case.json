@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-11",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:get_storage_class_call+make_random_password+memcached_cache",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "get_storage_class_call",
+   "memcached_cache",
+   "make_random_password"
+  ]
+ },
+ "intended": [
+  "django-5.1-removed-django_core_files_storage_get_storage_class",
+  "django-4.1-removed-django_core_cache_backends_memcached_memcachedcache",
+  "django-5.1-removed-django_contrib_auth_base_user_baseusermanager_make_"
+ ]
+}

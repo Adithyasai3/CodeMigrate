@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-01",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:get_storage_class_call+html_output+memcached_cache",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "html_output",
+   "get_storage_class_call",
+   "memcached_cache"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_forms_forms_baseform_html_output",
+  "django-5.1-removed-django_core_files_storage_get_storage_class",
+  "django-4.1-removed-django_core_cache_backends_memcached_memcachedcache"
+ ]
+}

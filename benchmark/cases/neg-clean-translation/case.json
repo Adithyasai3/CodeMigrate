@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-translation",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_translation",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_translation",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

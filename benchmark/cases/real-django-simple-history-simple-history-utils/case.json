@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-simple-history-simple-history-utils",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-simple-history",
+ "files": [
+  {
+   "path": "simple_history/utils.py",
+   "module": "simple_history.utils"
+  }
+ ],
+ "origin": {
+  "package": "django-simple-history",
+  "version": "3.1.1",
+  "repository": "https://github.com/jazzband/django-simple-history",
+  "license": "OSI Approved :: BSD License",
+  "sdist": "django-simple-history-3.1.1.tar.gz",
+  "sdist_sha256": "eab6dbddb7da756cc5579f7d6f28a32b2e8bb1697a5c37794d96309793ffec38",
+  "path": "simple_history/utils.py",
+  "selected_by": "random_sample"
+ },
+ "intended": [],
+ "installed_apps": [
+  "simple_history"
+ ],
+ "add_case_dir_to_path": false
+}

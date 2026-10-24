@@ -1,0 +1,28 @@
+{
+ "case_id": "real-django-polymorphic-polymorphic-contrib-guardian",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-polymorphic",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "polymorphic/contrib/guardian.py": [
+   1,
+   4
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

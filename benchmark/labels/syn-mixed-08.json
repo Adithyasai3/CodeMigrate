@@ -1,0 +1,164 @@
+{
+ "case_id": "syn-mixed-08",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:cached_property_name+choices_meta+utc_import_alias",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 3,
+   "stmt_start": 3,
+   "stmt_end": 3,
+   "symbol": "django.utils.timezone.utc",
+   "first_version": "4.1.13",
+   "evidence": [
+    {
+     "version": "4.1.13",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The django.utils.timezone.utc alias is deprecated. Please update your code to use datetime.timezone.utc instead.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The django.utils.timezone.utc alias is deprecated. Please update your code to use datetime.timezone.utc instead.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'utc' from 'django.utils.timezone' (/venvs/5.0.14/lib/python3.10/site-packages/django/utils/timezone.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'utc' from 'django.utils.timezone' (/venvs/5.1.15/lib/python3.10/site-packages/django/utils/timezone.py)",
+     "attribution": "traceback"
+    }
+   ]
+  },
+  {
+   "file": "case.py",
+   "line": 5,
+   "stmt_start": 5,
+   "stmt_end": 5,
+   "symbol": "django.db.models.enums.ChoicesMeta",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "ChoicesMeta is deprecated in favor of ChoicesType.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "ChoicesMeta is deprecated in favor of ChoicesType.",
+     "attribution": "warning_location"
+    }
+   ]
+  },
+  {
+   "file": "case.py",
+   "line": 18,
+   "stmt_start": 14,
+   "stmt_end": 18,
+   "symbol": "cached_property",
+   "first_version": "4.1.13",
+   "evidence": [
+    {
+     "version": "4.1.13",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The name argument is deprecated as it's unnecessary as of Python 3.6.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The name argument is deprecated as it's unnecessary as of Python 3.6.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "TypeError",
+     "message": "cached_property.__init__() got an unexpected keyword argument 'name'",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "TypeError",
+     "message": "cached_property.__init__() got an unexpected keyword argument 'name'",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 21,
+   "reason": "cascade"
+  },
+  {
+   "file": "case.py",
+   "line": 25,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "case.py": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   8,
+   10,
+   14,
+   15,
+   16,
+   17,
+   18,
+   21,
+   25,
+   26,
+   30,
+   31,
+   34
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

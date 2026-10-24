@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-mptt-mptt-compat",
+ "kind": "real",
+ "split": "dev",
+ "group": "real:django-mptt",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "mptt/compat.py": [
+   1
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-utils-itercompat-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.utils.itercompat",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.1-deprecated-django_utils_itercompat"
+ ]
+}

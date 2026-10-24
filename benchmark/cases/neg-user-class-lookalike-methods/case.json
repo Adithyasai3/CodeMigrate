@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-user-class-lookalike-methods",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:user_class_lookalike_methods",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "user_class_lookalike_methods",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

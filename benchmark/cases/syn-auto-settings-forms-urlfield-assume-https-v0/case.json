@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-auto-settings-forms-urlfield-assume-https-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "settings.FORMS_URLFIELD_ASSUME_HTTPS",
+ "files": [
+  {
+   "path": "settings.py",
+   "module": null
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-deprecated-settings_forms_urlfield_assume_https"
+ ],
+ "settings_file": "settings.py"
+}

@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-forms",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_forms",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_forms",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

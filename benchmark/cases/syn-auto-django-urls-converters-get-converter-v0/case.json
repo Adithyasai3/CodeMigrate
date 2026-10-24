@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-urls-converters-get-converter-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.urls.converters.get_converter",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.1-incompatible-django_urls_converters_get_converter"
+ ]
+}

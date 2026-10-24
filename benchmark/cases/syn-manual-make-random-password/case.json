@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-make-random-password",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:make_random_password",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "make_random_password"
+ },
+ "intended": [
+  "django-5.1-removed-django_contrib_auth_base_user_baseusermanager_make_"
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-09",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:index_together_model+index_together_with_indexes+sha1_hashers",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {},
+ "status": "invalid_source",
+ "notes": [
+  "4.0 setup failed: SyntaxError: invalid syntax (case.py, line 2)\nTraceback (most recent call last):\n  File \"/harness/driver.py\", line 323, in main\n    run_python(rec, case_dir, rel, entry.get(\"module\") or Path(rel).stem)\n  File \"/harness/driver.py\", line 148, in run_python\n    tree = ast.parse(source, filename=str(pat"
+ ],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

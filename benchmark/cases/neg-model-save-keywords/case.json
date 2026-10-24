@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-model-save-keywords",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:model_save_keywords",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "model_save_keywords",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-admin-helpers-checkbox",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:admin_helpers_checkbox",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "admin_helpers_checkbox"
+ },
+ "intended": [
+  "django-5.0-incompatible-django_contrib_admin_helpers_checkbox"
+ ]
+}

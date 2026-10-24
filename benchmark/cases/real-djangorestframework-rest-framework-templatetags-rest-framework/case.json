@@ -1,0 +1,27 @@
+{
+ "case_id": "real-djangorestframework-rest-framework-templatetags-rest-framework",
+ "kind": "real",
+ "split": "dev",
+ "group": "real:djangorestframework",
+ "files": [
+  {
+   "path": "rest_framework/templatetags/rest_framework.py",
+   "module": "rest_framework.templatetags.rest_framework"
+  }
+ ],
+ "origin": {
+  "package": "djangorestframework",
+  "version": "3.13.1",
+  "repository": "https://github.com/encode/django-rest-framework",
+  "license": "BSD; OSI Approved :: BSD License",
+  "sdist": "djangorestframework-3.13.1.tar.gz",
+  "sdist_sha256": "0c33407ce23acc68eca2a6e46424b008c9c02eceb8cf18581921d0092bc1f2ee",
+  "path": "rest_framework/templatetags/rest_framework.py",
+  "selected_by": "kb_name_grep"
+ },
+ "intended": [],
+ "installed_apps": [
+  "rest_framework"
+ ],
+ "add_case_dir_to_path": false
+}

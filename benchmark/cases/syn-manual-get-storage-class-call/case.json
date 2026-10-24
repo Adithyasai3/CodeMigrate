@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-get-storage-class-call",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:get_storage_class_call",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "get_storage_class_call"
+ },
+ "intended": [
+  "django-5.1-removed-django_core_files_storage_get_storage_class"
+ ]
+}

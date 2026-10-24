@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-check-constraint-check-kwarg",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:check_constraint_check_kwarg",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "check_constraint_check_kwarg"
+ },
+ "intended": [
+  "django-5.1-deprecated-django_db_models_constraints_checkconstraint"
+ ]
+}

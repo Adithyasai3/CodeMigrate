@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-07",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:choices_meta+register_converter_override+utc_attribute",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "utc_attribute",
+   "choices_meta",
+   "register_converter_override"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_timezone_utc",
+  "django-5.0-deprecated-django_db_models_enums_choicesmeta",
+  "django-5.1-deprecated-django_urls_register_converter"
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "case_id": "syn-manual-cached-property-name",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:cached_property_name",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 8,
+   "stmt_start": 4,
+   "stmt_end": 8,
+   "symbol": "cached_property",
+   "first_version": "4.1.13",
+   "evidence": [
+    {
+     "version": "4.1.13",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The name argument is deprecated as it's unnecessary as of Python 3.6.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The name argument is deprecated as it's unnecessary as of Python 3.6.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "TypeError",
+     "message": "cached_property.__init__() got an unexpected keyword argument 'name'",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "TypeError",
+     "message": "cached_property.__init__() got an unexpected keyword argument 'name'",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 11,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "case.py": [
+   1,
+   4,
+   5,
+   6,
+   7,
+   8,
+   11
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

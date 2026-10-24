@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-user-function-is-iterable",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:user_function_is_iterable",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "user_function_is_iterable",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-cached-property-name",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:cached_property_name",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "cached_property_name"
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_functional_cached_property"
+ ]
+}

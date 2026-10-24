@@ -1,0 +1,68 @@
+{
+ "case_id": "syn-manual-urlfield-default-scheme",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:urlfield_default_scheme",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 6,
+   "stmt_start": 4,
+   "stmt_end": 6,
+   "symbol": "django.forms.URLField",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "The default scheme will be changed from 'http' to 'https' in Django 6.0. Pass the forms.URLField.assume_scheme argument to silence this warning, or set the FORMS_URLFIELD_ASSUME_HTTPS transitional setting to True to opt into using 'https' as the new default scheme.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "The default scheme will be changed from 'http' to 'https' in Django 6.0. Pass the forms.URLField.assume_scheme argument to silence this warning, or set the FORMS_URLFIELD_ASSUME_HTTPS transitional setting to True to opt into using 'https' as the new default scheme.",
+     "attribution": "warning_location"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "<string>": [
+   1
+  ],
+  "case.py": [
+   1,
+   4,
+   5,
+   6,
+   9,
+   10
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

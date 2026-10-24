@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-forms-forms-baseform-html-output-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.forms.forms.BaseForm._html_output",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.0-removed-django_forms_forms_baseform_html_output"
+ ]
+}

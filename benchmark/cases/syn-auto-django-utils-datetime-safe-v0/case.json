@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-utils-datetime-safe-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.utils.datetime_safe",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_datetime_safe"
+ ]
+}

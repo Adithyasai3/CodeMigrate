@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-admin-models-logentrymanager-log-action-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.contrib.admin.models.LogEntryManager.log_action",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.1-deprecated-django_contrib_admin_models_logentrymanager_log_action"
+ ]
+}

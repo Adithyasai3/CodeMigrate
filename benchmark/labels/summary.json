@@ -1,0 +1,14 @@
+{
+ "status": {
+  "ok": 235,
+  "silent_injection": 116,
+  "invalid_source": 35
+ },
+ "by_kind": {
+  "negative/ok": 32,
+  "real/ok": 98,
+  "synthetic/silent_injection": 116,
+  "synthetic/ok": 105,
+  "synthetic/invalid_source": 35
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-email-validator-whitelist",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:email_validator_whitelist",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "email_validator_whitelist"
+ },
+ "intended": [
+  "django-4.1-removed-django_core_validators_emailvalidator_domain_whitel"
+ ]
+}

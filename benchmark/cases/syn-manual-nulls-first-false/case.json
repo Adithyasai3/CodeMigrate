@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-manual-nulls-first-false",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:nulls_first_false",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "nulls_first_false"
+ },
+ "intended": [
+  "django-4.1-deprecated-django_db_models_expressions_expression_asc",
+  "django-4.1-deprecated-django_db_models_orderby"
+ ]
+}

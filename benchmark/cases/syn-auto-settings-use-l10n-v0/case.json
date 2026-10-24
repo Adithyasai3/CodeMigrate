@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-auto-settings-use-l10n-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "settings.USE_L10N",
+ "files": [
+  {
+   "path": "settings.py",
+   "module": null
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-removed-settings_use_l10n"
+ ],
+ "settings_file": "settings.py"
+}

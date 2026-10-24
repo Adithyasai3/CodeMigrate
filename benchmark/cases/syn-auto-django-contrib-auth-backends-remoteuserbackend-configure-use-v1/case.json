@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-auth-backends-remoteuserbackend-configure-use-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.auth.backends.RemoteUserBackend.configure_user",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.1-deprecated-django_contrib_auth_backends_remoteuserbackend_configure_use"
+ ]
+}

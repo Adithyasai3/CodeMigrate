@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-admin-helpers-checkbox-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.admin.helpers.checkbox",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-incompatible-django_contrib_admin_helpers_checkbox"
+ ]
+}

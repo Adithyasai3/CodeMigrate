@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-query-queryset-datetimes-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.db.models.query.QuerySet.datetimes",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_query_queryset_datetimes"
+ ]
+}

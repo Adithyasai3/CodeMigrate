@@ -1,0 +1,47 @@
+{
+ "case_id": "syn-manual-is-iterable-call",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:is_iterable_call",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 4,
+   "stmt_start": 4,
+   "stmt_end": 4,
+   "symbol": "django.utils.itercompat.is_iterable",
+   "first_version": "5.1.15",
+   "evidence": [
+    {
+     "version": "5.1.15",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "django.utils.itercompat.is_iterable() is deprecated. Use isinstance(..., collections.abc.Iterable) instead.",
+     "attribution": "warning_location"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   4
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

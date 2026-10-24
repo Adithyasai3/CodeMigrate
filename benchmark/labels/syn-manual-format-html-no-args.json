@@ -1,0 +1,54 @@
+{
+ "case_id": "syn-manual-format-html-no-args",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:format_html_no_args",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 3,
+   "stmt_start": 3,
+   "stmt_end": 3,
+   "symbol": "django.utils.html.format_html",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "Calling format_html() without passing args or kwargs is deprecated.",
+     "attribution": "statement"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "warning",
+     "type": "RemovedInDjango60Warning",
+     "message": "Calling format_html() without passing args or kwargs is deprecated.",
+     "attribution": "warning_location"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   4
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

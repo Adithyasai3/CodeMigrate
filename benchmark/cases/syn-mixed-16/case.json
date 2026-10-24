@@ -1,0 +1,27 @@
+{
+ "case_id": "syn-mixed-16",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:baseconv_module+sitemaps_ping_google+trunc_month_week_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "trunc_month_week_is_dst",
+   "baseconv_module",
+   "sitemaps_ping_google"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_functions_truncmonth",
+  "django-5.0-removed-django_db_models_functions_truncweek",
+  "django-5.0-removed-django_utils_baseconv",
+  "django-5.0-incompatible-django_contrib_sitemaps_ping_google",
+  "django-5.0-incompatible-django_contrib_sitemaps_sitemapnotfound"
+ ]
+}

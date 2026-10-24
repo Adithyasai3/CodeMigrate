@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-15",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:assert_queryset_equal+datetime_safe_module+html_output",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "assert_queryset_equal",
+   "datetime_safe_module",
+   "html_output"
+  ]
+ },
+ "intended": [
+  "django-5.1-removed-django_test_testcases_transactiontestcase_assertque",
+  "django-5.0-removed-django_utils_datetime_safe",
+  "django-5.0-removed-django_forms_forms_baseform_html_output"
+ ]
+}

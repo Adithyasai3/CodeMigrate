@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-mptt-mptt-templatetags-mptt-admin",
+ "kind": "real",
+ "split": "dev",
+ "group": "real:django-mptt",
+ "files": [
+  {
+   "path": "mptt/templatetags/mptt_admin.py",
+   "module": "mptt.templatetags.mptt_admin"
+  }
+ ],
+ "origin": {
+  "package": "django-mptt",
+  "version": "0.13.4",
+  "repository": "https://github.com/django-mptt/django-mptt",
+  "license": "MIT-License; OSI Approved :: BSD License",
+  "sdist": "django-mptt-0.13.4.tar.gz",
+  "sdist_sha256": "80c9fb34df7796a4e5af0cb6b8ade3697555b1aa438bd07a01f32b3ab5202b63",
+  "path": "mptt/templatetags/mptt_admin.py",
+  "selected_by": "kb_name_grep"
+ },
+ "intended": [],
+ "installed_apps": [
+  "mptt"
+ ],
+ "add_case_dir_to_path": false
+}

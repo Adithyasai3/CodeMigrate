@@ -1,0 +1,433 @@
+# Hand-written synthetic cases for API changes that need a call (or setup) to be observable.
+# `intended` lists the KB entries the author meant to exercise. It is NOT a label: labels come
+# only from execution (label_by_execution.py). Code must be valid under Django 4.0.
+# Shared model scaffolding is prepended by build_benchmark.py when `uses_models: true`.
+
+- name: make_aware_is_dst
+  intended: [django-5.0-removed-django_utils_timezone_make_aware]
+  code: |
+    import datetime
+
+    from django.utils import timezone
+
+    naive = datetime.datetime(2022, 3, 27, 2, 30)
+    aware = timezone.make_aware(naive, datetime.timezone.utc, is_dst=False)
+
+- name: trunc_is_dst
+  intended: [django-5.0-removed-django_db_models_functions_trunc, django-5.0-removed-django_db_models_functions_truncday]
+  code: |
+    from django.db.models import DateTimeField
+    from django.db.models.functions import Trunc, TruncDay, TruncHour
+
+    by_day = Trunc("created", "day", output_field=DateTimeField(), is_dst=False)
+    by_day2 = TruncDay("created", is_dst=True)
+    by_hour = TruncHour("created")
+
+- name: trunc_month_week_is_dst
+  intended: [django-5.0-removed-django_db_models_functions_truncmonth, django-5.0-removed-django_db_models_functions_truncweek]
+  code: |
+    from django.db.models.functions import TruncMonth, TruncWeek, TruncYear
+
+    month = TruncMonth("created", is_dst=False)
+    week = TruncWeek("created", is_dst=False)
+    year = TruncYear("created")
+
+- name: cached_property_name
+  intended: [django-5.0-removed-django_utils_functional_cached_property]
+  code: |
+    from django.utils.functional import cached_property
+
+
+    class Box:
+        def _area(self):
+            return 4
+
+        area = cached_property(_area, name="area")
+
+
+    BOX = Box()
+
+- name: signer_positional
+  intended: [django-5.1-removed-django_core_signing_timestampsigner]
+  code: |
+    from django.core.signing import Signer, TimestampSigner
+
+    signer = Signer("secret-key-1", ":")
+    stamp = TimestampSigner("secret-key-2")
+    token = signer.sign("hello")
+
+- name: format_html_no_args
+  intended: [django-5.0-deprecated-django_utils_html_format_html]
+  code: |
+    from django.utils.html import format_html
+
+    banner = format_html("<b>Static banner</b>")
+    greeting = format_html("<i>{}</i>", "hi")
+
+- name: get_storage_class_call
+  intended: [django-5.1-removed-django_core_files_storage_get_storage_class]
+  code: |
+    from django.core.files.storage import get_storage_class
+
+    StorageClass = get_storage_class("django.core.files.storage.FileSystemStorage")
+    storage = StorageClass(location="/tmp")
+
+- name: is_iterable_call
+  intended: [django-5.1-deprecated-django_utils_itercompat_is_iterable]
+  code: |
+    from django.utils.itercompat import is_iterable
+
+    ITEMS = [1, 2, 3]
+    ok = is_iterable(ITEMS)
+
+- name: pickle_serializer
+  intended: [django-5.0-removed-django_contrib_sessions_serializers_pickleserialize]
+  code: |
+    from django.contrib.sessions.serializers import PickleSerializer
+
+    payload = PickleSerializer().dumps({"cart": [1, 2]})
+
+- name: crypt_hasher
+  intended: [django-5.0-removed-django_contrib_auth_hashers_cryptpasswordhasher]
+  code: |
+    from django.contrib.auth.hashers import CryptPasswordHasher
+
+    hasher = CryptPasswordHasher()
+    algorithm = hasher.algorithm
+
+- name: sha1_hashers
+  intended: [django-5.1-removed-django_contrib_auth_hashers_sha1passwordhasher, django-5.1-removed-django_contrib_auth_hashers_unsaltedmd5passwordhash]
+  code: |
+    from django.contrib.auth.hashers import (
+        PBKDF2PasswordHasher,
+        SHA1PasswordHasher,
+        UnsaltedMD5PasswordHasher,
+    )
+
+    legacy = SHA1PasswordHasher()
+    very_legacy = UnsaltedMD5PasswordHasher()
+    modern = PBKDF2PasswordHasher()
+
+- name: choices_meta
+  intended: [django-5.0-deprecated-django_db_models_enums_choicesmeta]
+  code: |
+    from django.db import models
+    from django.db.models.enums import ChoicesMeta
+
+
+    class Color(models.TextChoices):
+        RED = "r", "Red"
+
+
+    IS_META = isinstance(Color, ChoicesMeta)
+
+- name: urlfield_default_scheme
+  intended: [django-5.0-deprecated-django_forms_urlfield]
+  code: |
+    from django import forms
+
+
+    class ProfileForm(forms.Form):
+        name = forms.CharField(max_length=50)
+        homepage = forms.URLField(required=False)
+
+
+    FORM = ProfileForm(data={"name": "a", "homepage": "example.com"})
+    VALID = FORM.is_valid()
+
+- name: check_constraint_check_kwarg
+  intended: [django-5.1-deprecated-django_db_models_constraints_checkconstraint]
+  code: |
+    from django.db.models import CheckConstraint, Q, UniqueConstraint
+
+    adult = CheckConstraint(check=Q(age__gte=18), name="adult")
+    unique_email = UniqueConstraint(fields=["email"], name="unique_email")
+
+- name: base_constraint_positional
+  intended: [django-5.0-deprecated-django_db_models_constraints_baseconstraint_viol]
+  code: |
+    from django.db.models import BaseConstraint
+
+    constraint = BaseConstraint("my_constraint")
+
+- name: model_save_positional
+  intended: [django-5.1-deprecated-django_db_models_model_save]
+  uses_models: true
+  code: |
+    note = Note(text="hello", tag=tag)
+    note.save(False, False)
+    note.save(force_update=True)
+
+- name: iterator_prefetch_no_chunk
+  intended: [django-4.1-deprecated-django_core_handlers_asgi_asgihandler_chunk_size]
+  uses_models: true
+  code: |
+    rows = list(Note.objects.prefetch_related("tag").iterator())
+    rows_ok = list(Note.objects.prefetch_related("tag").iterator(chunk_size=10))
+
+- name: datetimes_is_dst
+  intended: [django-5.0-removed-django_db_models_query_queryset_datetimes]
+  uses_models: true
+  code: |
+    days = list(Note.objects.datetimes("created", "day", is_dst=False))
+    months = list(Note.objects.datetimes("created", "month"))
+
+- name: nulls_first_false
+  intended: [django-4.1-deprecated-django_db_models_expressions_expression_asc, django-4.1-deprecated-django_db_models_orderby]
+  code: |
+    from django.db.models import F, OrderBy
+
+    newest = F("created").desc(nulls_last=False)
+    oldest = F("created").asc(nulls_first=False)
+    explicit = OrderBy(F("created"), nulls_first=False)
+    fine = F("created").asc(nulls_last=True)
+
+- name: exclusion_constraint_opclasses
+  intended: [django-5.0-removed-django_contrib_postgres_constraints_exclusionconstr]
+  code: |
+    from django.contrib.postgres.constraints import ExclusionConstraint
+
+    no_overlap = ExclusionConstraint(
+        name="no_overlap",
+        expressions=[("span", "&&")],
+        opclasses=["range_ops"],
+    )
+
+- name: index_together_model
+  intended: [django-5.1-removed-meta_index_together]
+  code: |
+    from django.db import models
+
+
+    class Visit(models.Model):
+        path = models.CharField(max_length=200)
+        day = models.DateField()
+
+        class Meta:
+            app_label = "sessions"
+            index_together = [["path", "day"]]
+
+- name: index_together_with_indexes
+  intended: [django-5.1-removed-meta_index_together]
+  code: |
+    from django.db import models
+
+
+    class Event(models.Model):
+        kind = models.CharField(max_length=20)
+        at = models.DateTimeField()
+
+        class Meta:
+            app_label = "sessions"
+            indexes = [models.Index(fields=["kind"])]
+            index_together = (("kind", "at"),)
+
+- name: assert_queryset_equal
+  intended: [django-5.1-removed-django_test_testcases_transactiontestcase_assertque]
+  code: |
+    from django.test import TransactionTestCase
+
+
+    class Checks(TransactionTestCase):
+        def runTest(self):
+            pass
+
+
+    CASE = Checks()
+    CASE.assertQuerysetEqual([1, 2], [1, 2])
+    CASE.assertEqual(1, 1)
+
+- name: assert_formset_error_attr
+  intended: [django-5.1-removed-django_test_testcases_simpletestcase_assertformsete]
+  code: |
+    from django.test import SimpleTestCase
+
+    CHECKER = SimpleTestCase.assertFormsetError
+    OTHER = SimpleTestCase.assertFormError
+
+- name: make_random_password
+  intended: [django-5.1-removed-django_contrib_auth_base_user_baseusermanager_make_]
+  code: |
+    from django.contrib.auth.base_user import BaseUserManager
+
+    manager = BaseUserManager()
+    password = manager.make_random_password(length=12)
+
+- name: logout_get_next_page_override
+  intended: [django-4.1-deprecated-django_contrib_auth_views_logoutview_get_next_pa]
+  code: |
+    from django.contrib.auth.views import LogoutView
+
+
+    class SiteLogoutView(LogoutView):
+        def get_next_page(self):
+            return "/goodbye/"
+
+- name: html_output
+  intended: [django-5.0-removed-django_forms_forms_baseform_html_output]
+  code: |
+    from django import forms
+
+
+    class ContactForm(forms.Form):
+        name = forms.CharField()
+
+
+    FORM = ContactForm()
+    HTML = FORM._html_output(
+        normal_row="<p>%(field)s</p>",
+        error_row="%s",
+        row_ender="</p>",
+        help_text_html=" %s",
+        errors_on_separate_row=False,
+    )
+
+- name: register_converter_override
+  intended: [django-5.1-deprecated-django_urls_register_converter]
+  code: |
+    from django.urls import register_converter
+
+
+    class FourDigitYear:
+        regex = "[0-9]{4}"
+
+        def to_python(self, value):
+            return int(value)
+
+        def to_url(self, value):
+            return "%04d" % value
+
+
+    register_converter(FourDigitYear, "yyyy")
+    register_converter(FourDigitYear, "int")
+
+- name: get_converter_import
+  intended: [django-5.1-incompatible-django_urls_converters_get_converter]
+  code: |
+    from django.urls.converters import get_converter
+
+    INT_CONVERTER = get_converter("int")
+
+- name: sitemaps_ping_google
+  intended: [django-5.0-incompatible-django_contrib_sitemaps_ping_google, django-5.0-incompatible-django_contrib_sitemaps_sitemapnotfound]
+  code: |
+    from django.contrib.sitemaps import Sitemap, SitemapNotFound, ping_google
+
+
+    class StaticSitemap(Sitemap):
+        def items(self):
+            return []
+
+
+    HANDLERS = (ping_google, SitemapNotFound)
+
+- name: admin_helpers_checkbox
+  intended: [django-5.0-incompatible-django_contrib_admin_helpers_checkbox]
+  code: |
+    from django.contrib.admin.helpers import ACTION_CHECKBOX_NAME, checkbox
+
+    WIDGET = checkbox
+    NAME = ACTION_CHECKBOX_NAME
+
+- name: email_validator_whitelist
+  intended: [django-4.1-removed-django_core_validators_emailvalidator_domain_whitel]
+  code: |
+    from django.core.validators import EmailValidator
+
+    validator = EmailValidator(whitelist=["localhost"])
+    allowed = validator.domain_whitelist
+
+- name: memcached_cache
+  intended: [django-4.1-removed-django_core_cache_backends_memcached_memcachedcache]
+  code: |
+    from django.core.cache.backends.memcached import MemcachedCache
+
+    cache = MemcachedCache("127.0.0.1:11211", {})
+
+- name: baseconv_module
+  intended: [django-5.0-removed-django_utils_baseconv]
+  code: |
+    from django.utils import baseconv
+
+    encoded = baseconv.base62.encode(12345)
+
+- name: datetime_safe_module
+  intended: [django-5.0-removed-django_utils_datetime_safe]
+  code: |
+    import datetime
+
+    from django.utils import datetime_safe
+
+    stamp = datetime_safe.new_datetime(datetime.datetime(1850, 1, 1))
+
+- name: parse_header_import
+  intended: [django-4.2-incompatible-django_http_multipartparser_parse_header]
+  code: |
+    from django.http.multipartparser import parse_header
+
+    content_type, params = parse_header(b"text/plain; charset=utf-8")
+
+- name: was_modified_since_size
+  intended: [django-4.1-incompatible-django_views_static_was_modified_since]
+  code: |
+    from django.views.static import was_modified_since
+
+    MODIFIED = was_modified_since(None, 0, 0)
+
+- name: exists_negated
+  intended: [django-4.2-incompatible-django_db_models_exists]
+  uses_models: true
+  code: |
+    from django.db.models import Exists
+
+    has_none = Exists(Note.objects.all(), negated=True)
+
+- name: storage_os_open_flags
+  intended: [django-5.1-deprecated-django_core_files_storage_filesystemstorage_os_o]
+  code: |
+    from django.core.files.storage import FileSystemStorage
+
+    storage = FileSystemStorage(location="/tmp")
+    FLAGS = storage.OS_OPEN_FLAGS
+
+- name: get_cache_name
+  intended: [django-5.1-deprecated-django_db_models_fields_related_relatedfield_get]
+  uses_models: true
+  code: |
+    field = Note._meta.get_field("tag")
+    cache_key = field.get_cache_name()
+
+- name: prefetch_get_current_queryset
+  intended: [django-5.0-deprecated-django_db_models_query_prefetch_get_current_quer]
+  code: |
+    from django.db.models import Prefetch
+
+    lookup = Prefetch("tag")
+    current = lookup.get_current_queryset(1)
+
+- name: get_joining_columns
+  intended: [django-5.0-deprecated-django_db_models_fields_related_foreignobject_ge]
+  uses_models: true
+  code: |
+    field = Note._meta.get_field("tag")
+    columns = field.get_joining_columns()
+
+- name: utc_attribute
+  intended: [django-5.0-removed-django_utils_timezone_utc]
+  code: |
+    import datetime
+
+    from django.utils import timezone
+
+    EPOCH = datetime.datetime(1970, 1, 1, tzinfo=timezone.utc)
+    NOW = timezone.now()
+
+- name: utc_import_alias
+  intended: [django-5.0-removed-django_utils_timezone_utc]
+  code: |
+    import datetime
+
+    from django.utils.timezone import now, utc as UTC
+
+    START = datetime.datetime(2020, 1, 1, tzinfo=UTC)
+    TODAY = now()

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-gis-forms-basegeometrywidget-map-width-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.gis.forms.BaseGeometryWidget.map_width",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.2-deprecated-django_contrib_gis_admin_options_geomodeladmin_map_width"
+ ]
+}

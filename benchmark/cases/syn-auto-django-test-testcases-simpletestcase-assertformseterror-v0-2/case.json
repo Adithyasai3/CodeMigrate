@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-test-testcases-simpletestcase-assertformseterror-v0-2",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.test.testcases.SimpleTestCase.assertFormsetError",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.1-deprecated-django_test_testcases_simpletestcase_assertformseterror_2"
+ ]
+}

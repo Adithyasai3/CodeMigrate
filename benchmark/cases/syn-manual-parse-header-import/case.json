@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-parse-header-import",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:parse_header_import",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "parse_header_import"
+ },
+ "intended": [
+  "django-4.2-incompatible-django_http_multipartparser_parse_header"
+ ]
+}

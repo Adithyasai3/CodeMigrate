@@ -1,0 +1,36 @@
+{
+ "case_id": "syn-auto-settings-serialize-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "settings.SERIALIZE",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "settings.py": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ "status": "silent_injection",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-money-djmoney-forms-widgets",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-money",
+ "files": [
+  {
+   "path": "djmoney/forms/widgets.py",
+   "module": "djmoney.forms.widgets"
+  }
+ ],
+ "origin": {
+  "package": "django-money",
+  "version": "2.1.1",
+  "repository": "https://github.com/django-money/django-money",
+  "license": "BSD; OSI Approved :: BSD License",
+  "sdist": "django-money-2.1.1.tar.gz",
+  "sdist_sha256": "4d06041fac5c565ad049a7f8fb4bc33de5c68047b0693efa18a9931cebffb606",
+  "path": "djmoney/forms/widgets.py",
+  "selected_by": "random_sample"
+ },
+ "intended": [],
+ "installed_apps": [
+  "djmoney"
+ ],
+ "add_case_dir_to_path": false
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-exclusion-constraint-opclasses",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:exclusion_constraint_opclasses",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "exclusion_constraint_opclasses"
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_postgres_constraints_exclusionconstr"
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-memcached-cache",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:memcached_cache",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "memcached_cache"
+ },
+ "intended": [
+  "django-4.1-removed-django_core_cache_backends_memcached_memcachedcache"
+ ]
+}

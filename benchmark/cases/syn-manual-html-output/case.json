@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-html-output",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:html_output",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "html_output"
+ },
+ "intended": [
+  "django-5.0-removed-django_forms_forms_baseform_html_output"
+ ]
+}

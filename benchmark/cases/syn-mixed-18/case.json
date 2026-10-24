@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-18",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "mixed:assert_queryset_equal+get_storage_class_call+utc_attribute",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "utc_attribute",
+   "assert_queryset_equal",
+   "get_storage_class_call"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_timezone_utc",
+  "django-5.1-removed-django_test_testcases_transactiontestcase_assertque",
+  "django-5.1-removed-django_core_files_storage_get_storage_class"
+ ]
+}

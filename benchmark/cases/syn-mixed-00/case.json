@@ -1,0 +1,26 @@
+{
+ "case_id": "syn-mixed-00",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:crypt_hasher+index_together_with_indexes+trunc_month_week_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "trunc_month_week_is_dst",
+   "index_together_with_indexes",
+   "crypt_hasher"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_functions_truncmonth",
+  "django-5.0-removed-django_db_models_functions_truncweek",
+  "django-5.1-removed-meta_index_together",
+  "django-5.0-removed-django_contrib_auth_hashers_cryptpasswordhasher"
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "case_id": "real-django-debug-toolbar-debug-toolbar-panels-history-views",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-debug-toolbar",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "debug_toolbar/panels/history/views.py": [
+   1,
+   2,
+   4,
+   5,
+   6,
+   7,
+   10,
+   11,
+   12,
+   40,
+   41,
+   42
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-gis-admin-geomodeladmin-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.gis.admin.GeoModelAdmin",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_gis_admin_geomodeladmin"
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-gis-admin-osmgeoadmin-v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.contrib.gis.admin.OSMGeoAdmin",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_gis_admin_osmgeoadmin"
+ ]
+}

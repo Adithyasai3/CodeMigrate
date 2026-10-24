@@ -1,0 +1,108 @@
+{
+ "case_id": "syn-manual-sha1-hashers",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:sha1_hashers",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 3,
+   "stmt_start": 1,
+   "stmt_end": 5,
+   "symbol": "django.contrib.auth.hashers.SHA1PasswordHasher",
+   "first_version": "5.1.15",
+   "evidence": [
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'SHA1PasswordHasher' from 'django.contrib.auth.hashers' (/venvs/5.1.15/lib/python3.10/site-packages/django/contrib/auth/hashers.py)",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'UnsaltedMD5PasswordHasher' from 'django.contrib.auth.hashers' (/venvs/5.1.15/lib/python3.10/site-packages/django/contrib/auth/hashers.py)",
+     "attribution": "traceback"
+    }
+   ],
+   "line_refined_from": 1
+  },
+  {
+   "file": "case.py",
+   "line": 7,
+   "stmt_start": 7,
+   "stmt_end": 7,
+   "symbol": "django.contrib.auth.hashers.SHA1PasswordHasher",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "django.contrib.auth.hashers.SHA1PasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "django.contrib.auth.hashers.SHA1PasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    }
+   ]
+  },
+  {
+   "file": "case.py",
+   "line": 8,
+   "stmt_start": 8,
+   "stmt_end": 8,
+   "symbol": null,
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "django.contrib.auth.hashers.UnsaltedMD5PasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "django.contrib.auth.hashers.UnsaltedMD5PasswordHasher is deprecated.",
+     "attribution": "warning_location"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "case.py": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   7,
+   8,
+   9
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-logout-get-next-page-override",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:logout_get_next_page_override",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "logout_get_next_page_override"
+ },
+ "intended": [
+  "django-4.1-deprecated-django_contrib_auth_views_logoutview_get_next_pa"
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-cors-headers-corsheaders-conf",
+ "kind": "real",
+ "split": "dev",
+ "group": "real:django-cors-headers",
+ "files": [
+  {
+   "path": "corsheaders/conf.py",
+   "module": "corsheaders.conf"
+  }
+ ],
+ "origin": {
+  "package": "django-cors-headers",
+  "version": "3.11.0",
+  "repository": "https://github.com/adamchainz/django-cors-headers",
+  "license": "MIT License; OSI Approved :: MIT License",
+  "sdist": "django-cors-headers-3.11.0.tar.gz",
+  "sdist_sha256": "eb98389bf7a2afc5d374806af4a9149697e3a6955b5a2dc2bf049f7d33647456",
+  "path": "src/corsheaders/conf.py",
+  "selected_by": "random_sample"
+ },
+ "intended": [],
+ "installed_apps": [
+  "corsheaders"
+ ],
+ "add_case_dir_to_path": false
+}

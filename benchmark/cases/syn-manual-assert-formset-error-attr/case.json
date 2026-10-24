@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-assert-formset-error-attr",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:assert_formset_error_attr",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "assert_formset_error_attr"
+ },
+ "intended": [
+  "django-5.1-removed-django_test_testcases_simpletestcase_assertformsete"
+ ]
+}

@@ -1,0 +1,61 @@
+{
+ "case_id": "syn-auto-settings-staticfiles-storage-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "settings.STATICFILES_STORAGE",
+ "labels": [
+  {
+   "file": "settings.py",
+   "line": 10,
+   "stmt_start": 10,
+   "stmt_end": 10,
+   "symbol": "settings.STATICFILES_STORAGE",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "The STATICFILES_STORAGE setting is deprecated. Use STORAGES instead.",
+     "attribution": "message"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "The STATICFILES_STORAGE setting is deprecated. Use STORAGES instead.",
+     "attribution": "message"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "settings.py": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

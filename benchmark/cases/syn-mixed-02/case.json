@@ -1,0 +1,26 @@
+{
+ "case_id": "syn-mixed-02",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:admin_helpers_checkbox+parse_header_import+trunc_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "trunc_is_dst",
+   "parse_header_import",
+   "admin_helpers_checkbox"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_functions_trunc",
+  "django-5.0-removed-django_db_models_functions_truncday",
+  "django-4.2-incompatible-django_http_multipartparser_parse_header",
+  "django-5.0-incompatible-django_contrib_admin_helpers_checkbox"
+ ]
+}

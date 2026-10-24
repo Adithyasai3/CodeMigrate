@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-text-utils",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:clean_text_utils",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_text_utils",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

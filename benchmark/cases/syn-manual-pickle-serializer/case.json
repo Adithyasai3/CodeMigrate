@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-pickle-serializer",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:pickle_serializer",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "pickle_serializer"
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_sessions_serializers_pickleserialize"
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "case_id": "syn-auto-default-app-config-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "default_app_config",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "caseapp/__init__.py": [
+   1
+  ]
+ },
+ "status": "silent_injection",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

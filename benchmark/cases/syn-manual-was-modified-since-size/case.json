@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-was-modified-since-size",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:was_modified_since_size",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "was_modified_since_size"
+ },
+ "intended": [
+  "django-4.1-incompatible-django_views_static_was_modified_since"
+ ]
+}

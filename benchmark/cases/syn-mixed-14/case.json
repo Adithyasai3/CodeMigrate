@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-14",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:choices_meta+html_output+signer_positional",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "html_output",
+   "choices_meta",
+   "signer_positional"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_forms_forms_baseform_html_output",
+  "django-5.0-deprecated-django_db_models_enums_choicesmeta",
+  "django-5.1-removed-django_core_signing_timestampsigner"
+ ]
+}

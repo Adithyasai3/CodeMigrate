@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-timezone-now",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:clean_timezone_now",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_timezone_now",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

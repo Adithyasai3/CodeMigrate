@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-sitemaps-views-sitemapindexitem-str-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.sitemaps.views.SitemapIndexItem.__str__",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-removed-django_contrib_sitemaps_views_sitemapindexitem_str"
+ ]
+}

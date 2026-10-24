@@ -1,0 +1,99 @@
+{
+ "case_id": "syn-manual-signer-positional",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:signer_positional",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 3,
+   "stmt_start": 3,
+   "stmt_end": 3,
+   "symbol": null,
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "Passing positional arguments to Signer is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "Passing positional arguments to Signer is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "TypeError",
+     "message": "Signer.__init__() takes 1 positional argument but 3 were given",
+     "attribution": "traceback"
+    }
+   ]
+  },
+  {
+   "file": "case.py",
+   "line": 4,
+   "stmt_start": 4,
+   "stmt_end": 4,
+   "symbol": "django.core.signing.TimestampSigner",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "Passing positional arguments to TimestampSigner is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "Passing positional arguments to TimestampSigner is deprecated.",
+     "attribution": "warning_location"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "TypeError",
+     "message": "Signer.__init__() takes 1 positional argument but 2 were given",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 5,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   4,
+   5
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

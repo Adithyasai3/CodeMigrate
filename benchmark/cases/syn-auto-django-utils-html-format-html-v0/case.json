@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-utils-html-format-html-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.utils.html.format_html",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-deprecated-django_utils_html_format_html"
+ ]
+}

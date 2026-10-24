@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-signer-positional",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:signer_positional",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "signer_positional"
+ },
+ "intended": [
+  "django-5.1-removed-django_core_signing_timestampsigner"
+ ]
+}

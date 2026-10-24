@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-utils-functional-cached-property-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.utils.functional.cached_property",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.1-deprecated-django_utils_functional_cached_property"
+ ]
+}

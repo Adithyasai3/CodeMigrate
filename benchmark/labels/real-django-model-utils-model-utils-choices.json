@@ -1,0 +1,44 @@
+{
+ "case_id": "real-django-model-utils-model-utils-choices",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-model-utils",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "model_utils/choices.py": [
+   1,
+   4,
+   5,
+   44,
+   58,
+   65,
+   97,
+   100,
+   103,
+   106,
+   112,
+   115,
+   122,
+   127,
+   132,
+   138,
+   141,
+   144
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-models-with-model-ops",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:clean_models_with_model_ops",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_models_with_model_ops",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

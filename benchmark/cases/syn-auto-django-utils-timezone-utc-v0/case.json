@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-utils-timezone-utc-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.utils.timezone.utc",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.1-deprecated-django_utils_timezone_utc"
+ ]
+}

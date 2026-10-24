@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-08",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:cached_property_name+choices_meta+utc_import_alias",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "cached_property_name",
+   "utc_import_alias",
+   "choices_meta"
+  ]
+ },
+ "intended": [
+  "django-5.0-removed-django_utils_functional_cached_property",
+  "django-5.0-removed-django_utils_timezone_utc",
+  "django-5.0-deprecated-django_db_models_enums_choicesmeta"
+ ]
+}

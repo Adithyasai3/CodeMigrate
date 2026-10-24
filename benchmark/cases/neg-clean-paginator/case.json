@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-paginator",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_paginator",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_paginator",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-datetime-timezone-utc",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:datetime_timezone_utc",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "datetime_timezone_utc",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

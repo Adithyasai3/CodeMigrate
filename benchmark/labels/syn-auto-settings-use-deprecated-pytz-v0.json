@@ -1,0 +1,68 @@
+{
+ "case_id": "syn-auto-settings-use-deprecated-pytz-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "settings.USE_DEPRECATED_PYTZ",
+ "labels": [
+  {
+   "file": "settings.py",
+   "line": 10,
+   "stmt_start": 10,
+   "stmt_end": 10,
+   "symbol": "settings.USE_DEPRECATED_PYTZ",
+   "first_version": "4.0.10",
+   "evidence": [
+    {
+     "version": "4.0.10",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The USE_DEPRECATED_PYTZ setting, and support for pytz timezones is deprecated in favor of the stdlib zoneinfo module. Please update your code to use zoneinfo and remove the USE_DEPRECATED_PYTZ setting.",
+     "attribution": "message"
+    },
+    {
+     "version": "4.1.13",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The USE_DEPRECATED_PYTZ setting, and support for pytz timezones is deprecated in favor of the stdlib zoneinfo module. Please update your code to use zoneinfo and remove the USE_DEPRECATED_PYTZ setting.",
+     "attribution": "message"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango50Warning",
+     "message": "The USE_DEPRECATED_PYTZ setting, and support for pytz timezones is deprecated in favor of the stdlib zoneinfo module. Please update your code to use zoneinfo and remove the USE_DEPRECATED_PYTZ setting.",
+     "attribution": "message"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "settings.py": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

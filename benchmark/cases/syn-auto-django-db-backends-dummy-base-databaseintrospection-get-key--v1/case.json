@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-backends-dummy-base-databaseintrospection-get-key--v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.db.backends.dummy.base.DatabaseIntrospection.get_key_columns",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.1-incompatible-django_db_backends_dummy_base_databaseintrospection_get_key_"
+ ]
+}

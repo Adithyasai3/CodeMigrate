@@ -1,0 +1,59 @@
+{
+ "case_id": "syn-auto-template-length-is-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "template:length_is",
+ "labels": [
+  {
+   "file": "templates/case.html",
+   "line": 1,
+   "stmt_start": 1,
+   "stmt_end": 1,
+   "symbol": "template:length_is",
+   "first_version": "4.2.30",
+   "evidence": [
+    {
+     "version": "4.2.30",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "The length_is template filter is deprecated in favor of the length template filter and the == operator within an {% if %} tag.",
+     "attribution": "message"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "warning",
+     "type": "RemovedInDjango51Warning",
+     "message": "The length_is template filter is deprecated in favor of the length template filter and the == operator within an {% if %} tag.",
+     "attribution": "message"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "TemplateSyntaxError",
+     "message": "Invalid filter: 'length_is'",
+     "attribution": "template_debug"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "templates/case.html": [
+   1
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

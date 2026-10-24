@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-extensions-django-extensions-init",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-extensions",
+ "files": [
+  {
+   "path": "django_extensions/__init__.py",
+   "module": "django_extensions"
+  }
+ ],
+ "origin": {
+  "package": "django-extensions",
+  "version": "3.1.5",
+  "repository": "https://github.com/django-extensions/django-extensions",
+  "license": "MIT License; OSI Approved :: MIT License",
+  "sdist": "django-extensions-3.1.5.tar.gz",
+  "sdist_sha256": "28e1e1bf49f0e00307ba574d645b0af3564c981a6dfc87209d48cb98f77d0b1a",
+  "path": "django_extensions/__init__.py",
+  "selected_by": "kb_name_grep"
+ },
+ "intended": [],
+ "installed_apps": [
+  "django_extensions"
+ ],
+ "add_case_dir_to_path": false
+}

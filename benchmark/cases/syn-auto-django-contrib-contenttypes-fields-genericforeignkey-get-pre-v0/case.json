@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-contenttypes-fields-genericforeignkey-get-pre-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.contrib.contenttypes.fields.GenericForeignKey.get_prefetch_queryset",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-deprecated-django_contrib_contenttypes_fields_genericforeignkey_get_pre"
+ ]
+}

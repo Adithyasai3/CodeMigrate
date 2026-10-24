@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-default-app-config-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "default_app_config",
+ "files": [
+  {
+   "path": "caseapp/__init__.py",
+   "module": "caseapp"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.1-removed-default_app_config"
+ ]
+}

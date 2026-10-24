@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-password-hashers",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_password_hashers",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_password_hashers",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

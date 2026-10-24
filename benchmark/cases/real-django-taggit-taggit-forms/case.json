@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-taggit-taggit-forms",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-taggit",
+ "files": [
+  {
+   "path": "taggit/forms.py",
+   "module": "taggit.forms"
+  }
+ ],
+ "origin": {
+  "package": "django-taggit",
+  "version": "2.1.0",
+  "repository": "https://github.com/jazzband/django-taggit",
+  "license": "BSD; OSI Approved :: BSD License",
+  "sdist": "django-taggit-2.1.0.tar.gz",
+  "sdist_sha256": "a9f41e4ad58efe4b28d86f274728ee87eb98eeae90c9eb4b4efad39e5068184e",
+  "path": "taggit/forms.py",
+  "selected_by": "random_sample"
+ },
+ "intended": [],
+ "installed_apps": [
+  "taggit"
+ ],
+ "add_case_dir_to_path": false
+}

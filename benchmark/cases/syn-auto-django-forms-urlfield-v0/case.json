@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-forms-urlfield-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.forms.URLField",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-5.0-deprecated-django_forms_urlfield"
+ ]
+}

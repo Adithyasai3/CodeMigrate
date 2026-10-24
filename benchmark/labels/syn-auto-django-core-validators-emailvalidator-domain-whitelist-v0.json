@@ -1,0 +1,69 @@
+{
+ "case_id": "syn-auto-django-core-validators-emailvalidator-domain-whitelist-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.core.validators.EmailValidator.domain_whitelist",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 7,
+   "stmt_start": 7,
+   "stmt_end": 7,
+   "symbol": "EmailValidator.domain_whitelist",
+   "first_version": "4.1.13",
+   "evidence": [
+    {
+     "version": "4.1.13",
+     "kind": "error",
+     "type": "AttributeError",
+     "message": "type object 'EmailValidator' has no attribute 'domain_whitelist'",
+     "attribution": "traceback"
+    },
+    {
+     "version": "4.2.30",
+     "kind": "error",
+     "type": "AttributeError",
+     "message": "type object 'EmailValidator' has no attribute 'domain_whitelist'",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "AttributeError",
+     "message": "type object 'EmailValidator' has no attribute 'domain_whitelist'",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "AttributeError",
+     "message": "type object 'EmailValidator' has no attribute 'domain_whitelist'",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   5,
+   7
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

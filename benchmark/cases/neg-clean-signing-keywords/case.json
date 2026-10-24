@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-signing-keywords",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_signing_keywords",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_signing_keywords",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-json-response",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_json_response",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_json_response",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

@@ -1,0 +1,25 @@
+{
+ "case_id": "syn-mixed-03",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "mixed:admin_helpers_checkbox+get_converter_import+prefetch_get_current_queryset",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "mixed",
+  "parts": [
+   "prefetch_get_current_queryset",
+   "admin_helpers_checkbox",
+   "get_converter_import"
+  ]
+ },
+ "intended": [
+  "django-5.0-deprecated-django_db_models_query_prefetch_get_current_quer",
+  "django-5.0-incompatible-django_contrib_admin_helpers_checkbox",
+  "django-5.1-incompatible-django_urls_converters_get_converter"
+ ]
+}

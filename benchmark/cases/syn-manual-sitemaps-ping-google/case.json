@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-manual-sitemaps-ping-google",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:sitemaps_ping_google",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "sitemaps_ping_google"
+ },
+ "intended": [
+  "django-5.0-incompatible-django_contrib_sitemaps_ping_google",
+  "django-5.0-incompatible-django_contrib_sitemaps_sitemapnotfound"
+ ]
+}

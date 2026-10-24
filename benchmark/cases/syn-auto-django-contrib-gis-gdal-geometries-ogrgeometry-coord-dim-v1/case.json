@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-contrib-gis-gdal-geometries-ogrgeometry-coord-dim-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.contrib.gis.gdal.geometries.OGRGeometry.coord_dim",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.1-deprecated-django_contrib_gis_gdal_geometries_ogrgeometry_coord_dim"
+ ]
+}

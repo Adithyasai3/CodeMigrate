@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-iterator-with-chunk-size",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:iterator_with_chunk_size",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "iterator_with_chunk_size",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-money-djmoney-contrib-exchange-models",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-money",
+ "files": [
+  {
+   "path": "djmoney/contrib/exchange/models.py",
+   "module": "djmoney.contrib.exchange.models"
+  }
+ ],
+ "origin": {
+  "package": "django-money",
+  "version": "2.1.1",
+  "repository": "https://github.com/django-money/django-money",
+  "license": "BSD; OSI Approved :: BSD License",
+  "sdist": "django-money-2.1.1.tar.gz",
+  "sdist_sha256": "4d06041fac5c565ad049a7f8fb4bc33de5c68047b0693efa18a9931cebffb606",
+  "path": "djmoney/contrib/exchange/models.py",
+  "selected_by": "kb_name_grep"
+ },
+ "intended": [],
+ "installed_apps": [
+  "djmoney"
+ ],
+ "add_case_dir_to_path": false
+}

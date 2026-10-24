@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-trunc-no-is-dst",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_trunc_no_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_trunc_no_is_dst",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

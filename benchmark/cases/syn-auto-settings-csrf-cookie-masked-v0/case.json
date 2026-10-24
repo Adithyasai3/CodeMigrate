@@ -1,0 +1,20 @@
+{
+ "case_id": "syn-auto-settings-csrf-cookie-masked-v0",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "settings.CSRF_COOKIE_MASKED",
+ "files": [
+  {
+   "path": "settings.py",
+   "module": null
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.1-deprecated-settings_csrf_cookie_masked"
+ ],
+ "settings_file": "settings.py"
+}

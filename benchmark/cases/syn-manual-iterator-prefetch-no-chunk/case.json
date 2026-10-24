@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-iterator-prefetch-no-chunk",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:iterator_prefetch_no_chunk",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "iterator_prefetch_no_chunk"
+ },
+ "intended": [
+  "django-4.1-deprecated-django_core_handlers_asgi_asgihandler_chunk_size"
+ ]
+}

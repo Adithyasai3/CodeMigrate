@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-sql-query-query-add-annotation-v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.db.models.sql.query.Query.add_annotation",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.2-incompatible-django_db_models_sql_query_query_add_annotation"
+ ]
+}

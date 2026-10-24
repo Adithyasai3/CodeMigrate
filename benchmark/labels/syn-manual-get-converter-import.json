@@ -1,0 +1,52 @@
+{
+ "case_id": "syn-manual-get-converter-import",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:get_converter_import",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 1,
+   "stmt_start": 1,
+   "stmt_end": 1,
+   "symbol": "django.urls.converters.get_converter",
+   "first_version": "5.1.15",
+   "evidence": [
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "ImportError",
+     "message": "cannot import name 'get_converter' from 'django.urls.converters' (/venvs/5.1.15/lib/python3.10/site-packages/django/urls/converters.py)",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 3,
+   "reason": "cascade"
+  }
+ ],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

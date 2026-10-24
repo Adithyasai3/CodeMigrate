@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-query-queryset-iterator-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.db.models.query.QuerySet.iterator",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 0
+ },
+ "intended": [
+  "django-4.1-deprecated-django_core_handlers_asgi_asgihandler_chunk_size"
+ ]
+}

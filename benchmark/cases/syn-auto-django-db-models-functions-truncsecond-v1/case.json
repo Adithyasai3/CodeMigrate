@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-db-models-functions-truncsecond-v1",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "django.db.models.functions.TruncSecond",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_functions_truncsecond"
+ ]
+}

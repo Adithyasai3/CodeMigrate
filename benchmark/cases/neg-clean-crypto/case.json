@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-crypto",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_crypto",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_crypto",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

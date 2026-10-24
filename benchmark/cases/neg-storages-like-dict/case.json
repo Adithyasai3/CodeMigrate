@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-storages-like-dict",
+ "kind": "negative",
+ "split": "dev",
+ "group": "neg:storages_like_dict",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "storages_like_dict",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

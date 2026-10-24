@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-clean-validators",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_validators",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_validators",
+  "negative_kind": "clean"
+ },
+ "intended": []
+}

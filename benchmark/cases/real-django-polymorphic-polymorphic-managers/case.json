@@ -1,0 +1,27 @@
+{
+ "case_id": "real-django-polymorphic-polymorphic-managers",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-polymorphic",
+ "files": [
+  {
+   "path": "polymorphic/managers.py",
+   "module": "polymorphic.managers"
+  }
+ ],
+ "origin": {
+  "package": "django-polymorphic",
+  "version": "3.1.0",
+  "repository": "https://github.com/django-polymorphic/django-polymorphic",
+  "license": "OSI Approved :: BSD License",
+  "sdist": "django-polymorphic-3.1.0.tar.gz",
+  "sdist_sha256": "d6955b5308bf6e41dcb22ba7c96f00b51dfa497a8a5ab1e9c06c7951bf417bf8",
+  "path": "polymorphic/managers.py",
+  "selected_by": "kb_name_grep"
+ },
+ "intended": [],
+ "installed_apps": [
+  "polymorphic"
+ ],
+ "add_case_dir_to_path": false
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-assert-queryset-equal",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:assert_queryset_equal",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "assert_queryset_equal"
+ },
+ "intended": [
+  "django-5.1-removed-django_test_testcases_transactiontestcase_assertque"
+ ]
+}

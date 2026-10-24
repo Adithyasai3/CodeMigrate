@@ -1,0 +1,39 @@
+{
+ "case_id": "syn-auto-django-db-models-base-model-asave-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.db.models.base.Model.asave",
+ "labels": [],
+ "ignored_lines": [
+  {
+   "file": "case.py",
+   "line": 8,
+   "reason": "fails under 4.0: RuntimeError: Model class case.Custom doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS."
+  }
+ ],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   5,
+   8,
+   9
+  ]
+ },
+ "status": "invalid_source",
+ "notes": [
+  "injected usage already fails under 4.0 (e.g. needs GDAL/Oracle, or the API is newer than 4.0)"
+ ],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

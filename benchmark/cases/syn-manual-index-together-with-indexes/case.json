@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-index-together-with-indexes",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:index_together_with_indexes",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "index_together_with_indexes"
+ },
+ "intended": [
+  "django-5.1-removed-meta_index_together"
+ ]
+}

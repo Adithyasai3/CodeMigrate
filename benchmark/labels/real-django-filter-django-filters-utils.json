@@ -1,0 +1,68 @@
+{
+ "case_id": "real-django-filter-django-filters-utils",
+ "kind": "real",
+ "split": "test",
+ "group": "real:django-filter",
+ "labels": [],
+ "ignored_lines": [],
+ "scored_lines": {
+  "<frozen importlib._bootstrap>": [
+   1053,
+   1063,
+   1064,
+   1071,
+   1075,
+   1087
+  ],
+  "django_filters/utils.py": [
+   1,
+   2,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   15,
+   18,
+   22,
+   23,
+   25,
+   29,
+   30,
+   39,
+   41,
+   76,
+   92,
+   95,
+   99,
+   119,
+   129,
+   143,
+   183,
+   224,
+   232,
+   264,
+   291,
+   314
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

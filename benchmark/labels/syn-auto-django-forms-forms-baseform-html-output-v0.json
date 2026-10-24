@@ -1,0 +1,55 @@
+{
+ "case_id": "syn-auto-django-forms-forms-baseform-html-output-v0",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.forms.forms.BaseForm._html_output",
+ "labels": [
+  {
+   "file": "case.py",
+   "line": 7,
+   "stmt_start": 7,
+   "stmt_end": 7,
+   "symbol": "BaseForm._html_output",
+   "first_version": "5.0.14",
+   "evidence": [
+    {
+     "version": "5.0.14",
+     "kind": "error",
+     "type": "AttributeError",
+     "message": "type object 'BaseForm' has no attribute '_html_output'",
+     "attribution": "traceback"
+    },
+    {
+     "version": "5.1.15",
+     "kind": "error",
+     "type": "AttributeError",
+     "message": "type object 'BaseForm' has no attribute '_html_output'",
+     "attribution": "traceback"
+    }
+   ]
+  }
+ ],
+ "ignored_lines": [],
+ "scored_lines": {
+  "case.py": [
+   1,
+   3,
+   5,
+   7
+  ]
+ },
+ "status": "ok",
+ "notes": [],
+ "provenance": {
+  "method": "execution",
+  "versions": [
+   "4.0.10",
+   "4.1.13",
+   "4.2.30",
+   "5.0.14",
+   "5.1.15"
+  ],
+  "python": "3.10.22",
+  "runner": "benchmark/harness/driver.py"
+ }
+}

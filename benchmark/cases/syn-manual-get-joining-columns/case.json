@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-get-joining-columns",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:get_joining_columns",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "get_joining_columns"
+ },
+ "intended": [
+  "django-5.0-deprecated-django_db_models_fields_related_foreignobject_ge"
+ ]
+}

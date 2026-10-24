@@ -1,0 +1,18 @@
+{
+ "case_id": "neg-nulls-last-true",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:nulls_last_true",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "nulls_last_true",
+  "negative_kind": "near_miss"
+ },
+ "intended": []
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-datetimes-is-dst",
+ "kind": "synthetic",
+ "split": "dev",
+ "group": "manual:datetimes_is_dst",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "datetimes_is_dst"
+ },
+ "intended": [
+  "django-5.0-removed-django_db_models_query_queryset_datetimes"
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-auto-django-test-testcases-transactiontestcase-assertquerysetequa-v1",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "django.test.testcases.TransactionTestCase.assertQuerysetEqual",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "kb.usage.usage_for",
+  "variant": 1
+ },
+ "intended": [
+  "django-4.2-deprecated-django_test_testcases_transactiontestcase_assertquerysetequa"
+ ]
+}

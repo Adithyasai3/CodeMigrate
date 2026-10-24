@@ -1,0 +1,19 @@
+{
+ "case_id": "neg-clean-settings-module",
+ "kind": "negative",
+ "split": "test",
+ "group": "neg:clean_settings_module",
+ "files": [
+  {
+   "path": "settings.py",
+   "module": null
+  }
+ ],
+ "origin": {
+  "generator": "negative_snippets.yaml",
+  "name": "clean_settings_module",
+  "negative_kind": "clean"
+ },
+ "intended": [],
+ "settings_file": "settings.py"
+}

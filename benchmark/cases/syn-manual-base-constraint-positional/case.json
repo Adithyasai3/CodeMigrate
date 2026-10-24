@@ -1,0 +1,19 @@
+{
+ "case_id": "syn-manual-base-constraint-positional",
+ "kind": "synthetic",
+ "split": "test",
+ "group": "manual:base_constraint_positional",
+ "files": [
+  {
+   "path": "case.py",
+   "module": "case"
+  }
+ ],
+ "origin": {
+  "generator": "synthetic_snippets.yaml",
+  "name": "base_constraint_positional"
+ },
+ "intended": [
+  "django-5.0-deprecated-django_db_models_constraints_baseconstraint_viol"
+ ]
+}
