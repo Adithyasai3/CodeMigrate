@@ -1,6 +1,7 @@
 # CodeMigrate — Phase 0 Plan
 
-Status: **awaiting approval** before Phase 1.
+Status: phases 0–8 implemented (2026-10-24). Open: LLM runs for systems B/C/D need an API key;
+`docker compose up` and `make paper` not yet run on a machine with Docker / LaTeX.
 
 ## 1. Architecture
 

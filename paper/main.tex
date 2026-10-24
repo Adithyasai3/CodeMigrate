@@ -1,0 +1,116 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{graphicx,booktabs,amsmath,url,xcolor}
+\graphicspath{{../results/figures/}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\begin{document}
+
+\title{CodeMigrate: Evidence-Grounded Detection of Breaking API Changes\\in Django Upgrades}
+\author{\IEEEauthorblockN{\todo{authors}}\IEEEauthorblockA{\todo{affiliation}}}
+\maketitle
+
+\begin{abstract}
+\todo{150--200 words. Problem: upgrading a framework breaks code in ways release notes describe
+but tools do not check. Approach: AST analysis + retrieval over a knowledge base of 310 sourced
+Django changes + an LLM restricted to retrieved evidence + a deterministic citation validator.
+Benchmark: 235 cases labeled by execution under Django 4.0--5.1. Headline numbers from
+Table~\ref{tab:comparison-test} (fill after LLM runs).}
+\end{abstract}
+
+\section{Introduction}
+% Outline:
+% 1. Framework upgrades are frequent and costly; Django ships a feature release every 8 months
+%    and removes deprecated APIs on a fixed schedule.
+% 2. Existing tools: rewriters (django-upgrade, pyupgrade) cover a fixed set of fixers; LLMs
+%    cover everything but hallucinate changes and citations.
+% 3. Idea: let the LLM explain only what the evidence supports, and check every claim
+%    deterministically against the evidence and the code.
+% 4. Contributions:
+%    (C1) a sourced KB of 310 Django 4.0--5.2 changes, every entry linked to the release notes;
+%    (C2) an evidence-only reasoning + citation-validation pipeline;
+%    (C3) a benchmark of 235 cases whose labels come from execution, not from the tool;
+%    (C4) an evaluation against rewriters, an LLM without retrieval, and RAG without validation.
+\todo{write}
+
+\section{Background and Related Work}
+% See docs/RELATED_WORK_TODO.md for the reading list; every citation must be checked.
+% API evolution and breaking changes \cite{dig2006apis}; automated migration tools;
+% retrieval-augmented generation \cite{lewis2020rag}; hallucination and attribution in LLM output;
+% code-change benchmarks.
+\todo{write after the reading list is verified}
+
+\section{Approach}
+\subsection{Knowledge base}
+% Parsed from release-note sources at a pinned commit; RST roles -> canonical dotted paths via an
+% AST index of Django wheels; 293 auto-parsed / 13 corrected / 4 manual; change_type, severity,
+% mechanical_fix. Table: entries by version x type (from `codemigrate kb stats`).
+\subsection{Code analysis}
+% Imports, aliases, attribute chains, subclass method resolution, settings and template refs.
+\subsection{Retrieval}
+% Exact symbol map, BM25 \cite{robertson2009bm25}, dense MiniLM \cite{reimers2019sbert} + FAISS
+% \cite{johnson2019faiss}, hybrid via reciprocal rank fusion \cite{cormack2009rrf};
+% version-range filter (from, to].
+\subsection{Evidence-only reasoning}
+% Prompt contains only the code context and the retrieved entries; strict JSON schema; retries.
+\subsection{Citation validation}
+% Four deterministic rules (PLAN.md, ValidatedFinding); VERIFIED / UNVERIFIED / UNSUPPORTED_CLAIM.
+\subsection{Patching}
+% Mechanical renames only; patches must re-parse.
+\todo{write}
+
+\section{Benchmark}
+% Summarise benchmark/README.md: execution labeling in Docker under 4.0.10--5.1.15, positive /
+% ignored / scored lines, case statuses, real/synthetic/negative, group-hashed dev/test split.
+\todo{distribution table from benchmark/dataset\_card.py}
+
+\section{Evaluation}
+\subsection{Research questions}
+% RQ1 Effectiveness vs. baselines. RQ2 Does the validator reduce hallucination, and at what recall
+% cost? RQ3 Which retriever / top-k works best? RQ4 Latency and cost.
+\subsection{Systems}
+% A: django-upgrade, pyupgrade (findings from diff hunks); B: LLM only; C: RAG without validator;
+% D: full pipeline; D-offline: deterministic reasoner.
+\subsection{Metrics}
+% Line-level P/R/F1 on scored lines with bootstrap CIs; hallucination rate (same matcher for
+% every system); citation accuracy; paired bootstrap and McNemar for C vs. D.
+
+\input{../results/tables/comparison_test.tex}
+\input{../results/tables/ablations_test.tex}
+\input{../results/tables/breakdown_test.tex}
+\input{../results/tables/latency_cost_test.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{f1_hallucination_test.pdf}
+\caption{F1 vs.\ hallucination rate per system (test split).}
+\label{fig:f1-halluc}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{breakdown_version_test.pdf}
+\caption{Recall by the first Django version in which the usage breaks.}
+\label{fig:by-version}
+\end{figure}
+
+\subsection{Results}
+\todo{RQ1--RQ4 answers; fill once LLM systems B/C/D have been run (needs an API key)}
+
+\subsection{Error analysis}
+% Categories from results/error\_cases.md: changes that do not manifest on the executed path,
+% analyzer misses on dynamic access / unknown receivers, KB gaps.
+\todo{write}
+
+\section{Threats to Validity}
+% Internal: execution only observes executed paths; django-upgrade findings derived from diff
+% hunks; some documented removals are silent at runtime.
+% External: one framework, one upgrade range, 13 real packages with few real positives.
+% Construct: line-level matching; behavior changes not labeled.
+\todo{write}
+
+\section{Conclusion}
+\todo{write}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}
