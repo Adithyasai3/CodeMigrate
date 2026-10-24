@@ -18,3 +18,10 @@ benchmark/_work/
 paper/*.aux
 paper/*.log
 paper/*.pdf
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.out
+paper/*.bbl
+paper/*.blg
+frontend/test-results/
+frontend/playwright-report/

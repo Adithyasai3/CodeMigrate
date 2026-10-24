@@ -19,6 +19,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-cov", "ruff", "django-upgrade", "pyupgrade"]
+postgres = ["psycopg[binary]>=3.2"]
 
 [project.scripts]
 codemigrate = "codemigrate.cli:app"
@@ -37,4 +38,5 @@ ignore = ["B008"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-markers = ["slow: needs model downloads or network", "docker: needs docker"]
+addopts = "--cov=codemigrate --cov-fail-under=70"
+markers =["slow: needs model downloads or network", "docker: needs docker"]

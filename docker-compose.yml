@@ -1,0 +1,44 @@
+# docker compose up --build  ->  UI on http://localhost:8080, API on http://localhost:8000
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: codemigrate
+      POSTGRES_PASSWORD: codemigrate
+      POSTGRES_DB: codemigrate
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U codemigrate"]
+      interval: 5s
+      retries: 10
+
+  api:
+    build: .
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_URL: postgresql+psycopg://codemigrate:codemigrate@db:5432/codemigrate
+      JWT_SECRET: ${JWT_SECRET:-change-me}
+      CORS_ORIGINS: http://localhost:8080
+      LLM_CACHE_DIR: .cache/llm
+    volumes:
+      - llmcache:/app/.cache
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  llmcache:
