@@ -17,9 +17,19 @@ export interface Finding {
   patch: string | null
 }
 
+export interface UpdatedFile {
+  path: string
+  content: string
+  diff: string
+  auto_fixed: number[]
+  llm_fixed: number[]
+  manual: number[]
+}
+
 export interface ScanResult {
   findings: Finding[]
   rejected: Finding[]
+  updated_files?: UpdatedFile[]
   files_scanned: number
   file_errors: Record<string, string>
   refs_found: number

@@ -1,6 +1,8 @@
 import ast
 
 from codemigrate.patching.fixer import apply_patch_text, make_patch
+from codemigrate.patching.updater import add_todo_comments, apply_safe_patches
+from codemigrate.pipeline import Pipeline, SystemConfig
 from codemigrate.schemas import CodeRef, Evidence, Finding, FindingStatus, RefKind, ScoredEntry
 from codemigrate.validation.citation_validator import CitationValidator
 from codemigrate.validation.matching import symbol_matches
@@ -92,6 +94,42 @@ def test_patch_cross_module_import_and_attribute(kb):
     patched2 = apply_patch_text(src2, vf2)
     assert "x = datetime.timezone.utc" in patched2 and "import datetime\n" in patched2
     assert make_patch(src2, vf2, "a.py").startswith("--- a/a.py")
+
+
+def test_apply_safe_patches_tracks_shifted_lines(kb):
+    # the utc fix inserts "import datetime" above the second finding; it must still be found
+    src = (
+        "from django.utils import timezone\n\nx = timezone.utc\n\n"
+        "class T:\n    def test(self):\n        self.assertQuerysetEqual(1, 2)\n"
+    )
+    utc = _verified(kb, 3, "django.utils.timezone.utc", UTC_DEP)
+    qs = _verified(kb, 7, "django.test.TestCase.assertQuerysetEqual", QS_EQ)
+    new, fixed, remaining = apply_safe_patches(src, [qs, utc])
+    assert len(fixed) == 2 and not remaining
+    assert "x = datetime.timezone.utc" in new and "assertQuerySetEqual(1, 2)" in new
+    ast.parse(new)
+
+
+def test_todo_comments_never_change_the_code():
+    src = 'def f():\n    s = """\n    text\n    """\n    return s\n'
+    out, done = add_todo_comments(src, {2: "a note", 3: "inside a string"})
+    assert done == [2]  # line 3 is inside the string literal: a comment there would change it
+    assert "    # TODO(codemigrate): a note\n    s = " in out
+    assert ast.dump(ast.parse(out)) == ast.dump(ast.parse(src))
+
+
+def test_pipeline_builds_updated_files_offline(kb):
+    src = (
+        "from django.utils import timezone\n"
+        "from django.utils.itercompat import is_iterable\n\n"
+        "def f(x):\n    return is_iterable(x), timezone.utc\n"
+    )
+    p = Pipeline(SystemConfig(provider="offline", make_updated=True), kb=kb)
+    [u] = p.scan_sources([("a.py", src)], "4.0", "5.1").updated_files
+    assert "datetime.timezone.utc" in u.content and u.auto_fixed == [5]
+    assert u.manual == [2, 5] and u.content.count("# TODO(codemigrate): is_iterable") == 2
+    assert u.diff.startswith("--- a/a.py")
+    ast.parse(u.content)
 
 
 def test_no_patch_without_mechanical_fix(kb):

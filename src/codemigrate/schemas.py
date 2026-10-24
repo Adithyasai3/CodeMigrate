@@ -83,12 +83,24 @@ class ValidatedFinding(Finding):
     patch: str | None = None
 
 
+class UpdatedFile(BaseModel):
+    """A whole updated file: safe patches applied, optional verified LLM rewrite, TODO notes."""
+
+    path: str
+    content: str
+    diff: str
+    auto_fixed: list[int] = Field(default_factory=list)  # original line numbers
+    llm_fixed: list[int] = Field(default_factory=list)
+    manual: list[int] = Field(default_factory=list)  # left as TODO comments
+
+
 class ScanResult(BaseModel):
     from_version: str
     to_version: str
     system: str
     findings: list[ValidatedFinding] = Field(default_factory=list)
     rejected: list[ValidatedFinding] = Field(default_factory=list)
+    updated_files: list[UpdatedFile] = Field(default_factory=list)
     files_scanned: int = 0
     file_errors: dict[str, str] = Field(default_factory=dict)
     refs_found: int = 0

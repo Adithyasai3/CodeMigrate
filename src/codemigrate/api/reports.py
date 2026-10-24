@@ -28,6 +28,11 @@ def to_markdown(scan: Scan, result: dict) -> str:
         if f.get("patch"):
             lines += ["", "```diff", f["patch"].rstrip(), "```"]
         lines.append("")
+    for u in result.get("updated_files") or []:
+        lines += [f"## Updated `{u['path']}`", "",
+                  f"{len(u['auto_fixed'])} fixed automatically, {len(u['llm_fixed'])} fixed by "
+                  f"the LLM (re-checked), {len(u['manual'])} left as `TODO(codemigrate)` notes.",
+                  "", "```python", u["content"].rstrip(), "```", ""]
     if result.get("file_errors"):
         lines += ["## Files that could not be analyzed", ""]
         lines += [f"* `{p}`: {e}" for p, e in result["file_errors"].items()]
@@ -63,5 +68,8 @@ def to_pdf(scan: Scan, result: dict) -> bytes:
         if f.get("patch"):
             story.append(Preformatted(f["patch"], styles["Code"]))
         story.append(Spacer(1, 8))
+    for u in result.get("updated_files") or []:
+        story.append(Paragraph(escape(f"Updated {u['path']}"), styles["Heading2"]))
+        story.append(Preformatted(u["content"], styles["Code"]))
     doc.build(story)
     return buf.getvalue()

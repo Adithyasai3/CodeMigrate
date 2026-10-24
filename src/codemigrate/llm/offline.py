@@ -25,10 +25,14 @@ _ARG_RE = re.compile(
     re.I,
 )
 _POSITIONAL_RE = re.compile(r"positional arguments?", re.I)
+_NO_ARGS_RE = re.compile(r"without\s+(?:passing\s+)?(?:any\s+)?(?:args|arguments)\b", re.I)
 
 
 def argument_condition(description: str) -> tuple[str, set[str]] | None:
-    """Return ("kwarg", names) / ("positional", set()) if an entry concerns call arguments."""
+    """Return ("kwarg", names) / ("positional", set()) / ("no_args", set()) if an entry concerns
+    call arguments."""
+    if _NO_ARGS_RE.search(description):  # e.g. "calling format_html() without passing args"
+        return ("no_args", set())
     if _POSITIONAL_RE.search(description):
         return ("positional", set())
     names = {a or b for a, b in _ARG_RE.findall(description) if (a or b)}
@@ -46,6 +50,8 @@ def applies(ref: dict, ev: dict) -> bool:
     if ref["kind"] not in {"call", "method"}:
         return False  # an import or attribute access doesn't use the argument
     kind, names = cond
+    if kind == "no_args":  # "args" = formatting args after the format string (format_html)
+        return (ref.get("positional_args") or 0) <= 1 and not ref.get("keyword_args")
     if kind == "positional":
         return (ref.get("positional_args") or 0) > 0
     return bool(names & set(ref.get("keyword_args") or []))

@@ -90,6 +90,11 @@ button.link { border: none; background: none; color: var(--accent); padding: 0; 
 .codeview .line { padding: 0 12px; white-space: pre; }
 .codeview .line.hit { background: var(--hit-bg); cursor: pointer; }
 .codeview .line.hit.active { background: var(--hit-active); }
+.codeview .line.todo { background: var(--warn-bg); color: var(--warn); }
+.tabs { gap: 4px; margin: 4px 0 8px; flex-wrap: wrap; }
+.tab { padding: 5px 12px; }
+.tab.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.update-summary { margin: 0 0 8px; }
 .codeview .ln { display: inline-block; width: 3em; color: var(--text-secondary); user-select: none; }
 .diff div { padding: 0 12px; white-space: pre; }
 .diff .add { background: var(--good-bg); color: var(--good); }

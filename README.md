@@ -25,8 +25,16 @@ make install                         # venv + pinned deps (requirements.lock)
 cp .env.example .env                 # optional: add GEMINI_API_KEY / ANTHROPIC_API_KEY / OPENAI_API_KEY
 codemigrate scan path/to/project --from 4.0 --to 5.1          # offline reasoner if no key
 codemigrate scan app.py --to 5.1 --provider gemini --json --show-rejected
+codemigrate scan path/to/project --to 5.1 --write-fixed fixed/   # write updated files (inputs untouched)
 codemigrate kb stats
 ```
+
+**Updated code.** Besides findings, a scan returns each affected file with the fixes applied:
+safe renames are always applied; with an LLM reasoner, the LLM also rewrites the remaining
+lines, and that rewrite is kept only if it parses, changes little else, and a deterministic
+re-scan confirms the flagged lines are fixed with nothing new flagged. Whatever is left is marked
+with a `# TODO(codemigrate): ...` comment. In the web app see the **Updated code** and
+**Changes** tabs (copy / download).
 
 Web app (React UI + FastAPI, JWT auth, async scan jobs, history, compare, PDF/JSON reports):
 

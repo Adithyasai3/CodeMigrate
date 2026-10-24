@@ -12,6 +12,8 @@ export default function ScanView() {
   const [file, setFile] = useState<string | null>(null)
   const [selected, setSelected] = useState<Finding | null>(null)
   const [showRejected, setShowRejected] = useState(false)
+  const [view, setView] = useState<'original' | 'updated' | 'changes'>('original')
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     let timer: number | undefined
@@ -29,6 +31,27 @@ export default function ScanView() {
   const current = file ?? findings[0]?.file ?? files[0]?.path ?? null
   const source = files.find(f => f.path === current)?.content ?? ''
   const flagged = new Map(findings.filter(f => f.file === current).map(f => [f.line, f]))
+  const updated = scan?.result?.updated_files?.find(u => u.path === current) ?? null
+  const shown = updated ? view : 'original'
+
+  const copyUpdated = async () => {
+    if (!updated) return
+    try {
+      await navigator.clipboard.writeText(updated.content)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1500)
+    } catch { /* clipboard blocked: the download button still works */ }
+  }
+
+  const downloadUpdated = () => {
+    if (!updated) return
+    const url = URL.createObjectURL(new Blob([updated.content], { type: 'text/x-python' }))
+    const a = document.createElement('a')
+    a.href = url
+    a.download = updated.path.split('/').pop() ?? 'updated.py'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
 
   if (error) return <p className="error">{error}</p>
   if (!scan) return <p className="muted">Loading…</p>
@@ -114,6 +137,40 @@ export default function ScanView() {
                 </select>
               )}
             </div>
+            {updated && (
+              <>
+                <div className="row tabs" role="tablist">
+                  {(['original', 'updated', 'changes'] as const).map(v => (
+                    <button key={v} role="tab" aria-selected={shown === v}
+                            className={shown === v ? 'tab active' : 'tab'} onClick={() => setView(v)}>
+                      {v === 'original' ? 'Original' : v === 'updated' ? 'Updated code' : 'Changes'}
+                    </button>
+                  ))}
+                </div>
+                <p className="muted update-summary">
+                  {updated.auto_fixed.length} fixed automatically
+                  {updated.llm_fixed.length > 0 && <> · {updated.llm_fixed.length} fixed by the LLM (re-checked)</>}
+                  {updated.manual.length > 0 && <> · {updated.manual.length} left as <code>TODO(codemigrate)</code> notes</>}
+                </p>
+              </>
+            )}
+            {shown === 'updated' && updated && (
+              <>
+                <div className="row">
+                  <button onClick={copyUpdated}>{copied ? 'Copied ✓' : 'Copy'}</button>
+                  <button onClick={downloadUpdated}>Download {updated.path.split('/').pop()}</button>
+                </div>
+                <pre className="codeview" aria-label={`Updated ${current}`}>
+                  {updated.content.split('\n').map((text, i) => (
+                    <div key={i} className={text.includes('# TODO(codemigrate)') ? 'line todo' : 'line'}>
+                      <span className="ln">{i + 1}</span>{text || ' '}
+                    </div>
+                  ))}
+                </pre>
+              </>
+            )}
+            {shown === 'changes' && updated && <DiffView diff={updated.diff} />}
+            {shown === 'original' && (
             <pre className="codeview" aria-label={`Source of ${current}`}>
               {source.split('\n').map((text, i) => {
                 const n = i + 1
@@ -127,7 +184,8 @@ export default function ScanView() {
                 )
               })}
             </pre>
-            {selected?.patch && (
+            )}
+            {shown === 'original' && selected?.patch && (
               <>
                 <h3>Suggested patch (checked to parse)</h3>
                 <DiffView diff={selected.patch} />

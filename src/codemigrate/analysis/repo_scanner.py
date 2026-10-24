@@ -74,6 +74,7 @@ def scan_sources(
     """Analyze (path, text) pairs; syntax errors are recorded per file, never raised."""
     out = []
     for rel, text in sources:
+        text = text.removeprefix("﻿")  # UTF-8 BOM (common on Windows); Python accepts it
         if rel.endswith(".py"):
             try:
                 refs = analyze_source(text, rel, method_names)

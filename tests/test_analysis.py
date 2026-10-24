@@ -1,7 +1,7 @@
 import zipfile
 
 from codemigrate.analysis.ast_analyzer import analyze_source, analyze_template
-from codemigrate.analysis.repo_scanner import scan_path
+from codemigrate.analysis.repo_scanner import scan_path, scan_sources
 from codemigrate.schemas import RefKind
 
 SRC = """import django.utils.timezone as tz
@@ -116,6 +116,11 @@ def test_scanner_skips_venv_and_survives_syntax_errors(tmp_path):
     assert set(files) == {"app/ok.py", "app/bad.py"}
     assert files["app/bad.py"].error.startswith("SyntaxError")
     assert any(r.symbol == "django.utils.timezone.utc" for r in files["app/ok.py"].refs)
+
+
+def test_scanner_accepts_utf8_bom():
+    [f] = scan_sources(iter([("a.py", "﻿import os\n")]), set(), set())
+    assert f.error is None and f.source == "import os\n"
 
 
 def test_scanner_reads_zip(tmp_path):

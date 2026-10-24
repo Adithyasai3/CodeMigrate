@@ -65,6 +65,9 @@ def scan(
     no_validator: bool = typer.Option(False, help="Report unvalidated claims (ablation)."),
     as_json: bool = typer.Option(False, "--json", help="Print the full result as JSON."),
     show_rejected: bool = typer.Option(False, help="Also list rejected claims."),
+    write_fixed: Path = typer.Option(
+        None, help="Write the updated files into this directory (inputs are never modified)."
+    ),
 ) -> None:
     """Scan code for breaking Django API changes between two versions."""
     import os
@@ -78,6 +81,8 @@ def scan(
         top_k=top_k,
         use_validator=not no_validator,
         provider=provider,
+        make_updated=write_fixed is not None,
+        llm_fixes=write_fixed is not None and provider != "offline",
     )
     result = Pipeline(cfg).scan_path(path, from_version, to_version)
     if as_json:
@@ -102,6 +107,15 @@ def scan(
             typer.echo(f"  {r.file}:{r.line} {r.symbol} [{r.status.value}] {r.reject_reason}")
     for p_, err in result.file_errors.items():
         typer.secho(f"skipped {p_}: {err}", fg="red")
+    for u in result.updated_files:
+        out = write_fixed / u.path
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(u.content, encoding="utf-8")
+        typer.secho(
+            f"\nwrote {out}: {len(u.auto_fixed)} auto-fixed, {len(u.llm_fixed)} fixed by LLM "
+            f"(verified), {len(u.manual)} marked TODO",
+            fg="green",
+        )
 
 
 @app.command("llm-check")

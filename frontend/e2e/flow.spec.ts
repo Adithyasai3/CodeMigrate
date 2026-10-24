@@ -20,6 +20,13 @@ test('register, scan pasted code, see verified findings with citations and patch
   await page.getByText('django.utils.timezone.utc').first().click()
   await expect(page.locator('.diff .add').first()).toBeVisible()
 
+  await page.getByRole('tab', { name: 'Updated code' }).click()
+  const updated = page.getByLabel(/^Updated /)
+  await expect(updated).toContainText('datetime.timezone.utc')
+  await expect(page.getByRole('button', { name: /^Download / })).toBeVisible()
+  await page.getByRole('tab', { name: 'Changes' }).click()
+  await expect(page.locator('.diff .add').first()).toBeVisible()
+
   await page.getByRole('link', { name: 'History' }).click()
   await expect(page.getByRole('heading', { name: 'Scan history' })).toBeVisible()
   await page.getByRole('link', { name: 'Compare systems' }).click()

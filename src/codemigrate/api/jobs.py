@@ -32,7 +32,8 @@ def run_scan(scan_id: int) -> None:
         try:
             sources = [tuple(x) for x in json.loads(scan.sources_json)]
             cfg = SystemConfig(name=f"api-{scan.provider}", retriever=scan.retriever,
-                               provider=scan.provider)
+                               provider=scan.provider, make_updated=True,
+                               llm_fixes=scan.provider != "offline")
             result = Pipeline(cfg).scan_sources(sources, scan.from_version, scan.to_version)
             data = result.model_dump(mode="json")
             for f in data["findings"] + data["rejected"]:
