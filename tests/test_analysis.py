@@ -73,6 +73,17 @@ def test_unknown_receiver_distinctive_method():
     assert (RefKind.METHOD, "*.assertQuerysetEqual") in lines[30]
 
 
+def test_dunder_methods_are_not_distinctive():
+    src = (
+        "from django.contrib.sitemaps.views import SitemapIndexItem\n"
+        "class Plain:\n    def __str__(self):\n        return ''\n"
+        "class Item(SitemapIndexItem):\n    def __str__(self):\n        return ''\n"
+    )
+    refs = {(r.line, r.symbol) for r in analyze_source(src, method_names={"__str__"})}
+    assert not any(line == 3 for line, _ in refs)
+    assert (6, "django.contrib.sitemaps.views.SitemapIndexItem.__str__") in refs
+
+
 def test_columns_are_exact():
     ref = next(
         r

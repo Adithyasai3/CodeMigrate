@@ -297,7 +297,9 @@ def analyze_source(
     """
     tree = ast.parse(source, filename=path)
     members = method_names or set()
-    visitor = _Visitor(path, source.splitlines(), members - GENERIC_METHODS, members)
+    # Dunder methods (__str__, __init__, ...) exist on every class, so they are never distinctive.
+    distinctive = {m for m in members - GENERIC_METHODS if not m.startswith("__")}
+    visitor = _Visitor(path, source.splitlines(), distinctive, members)
     visitor.visit(tree)
     return _dedupe(visitor.refs)
 

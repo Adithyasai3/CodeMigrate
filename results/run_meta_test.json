@@ -1,0 +1,15 @@
+{
+ "split": "test",
+ "cases": 160,
+ "llm_providers": [],
+ "seeds": 3,
+ "temperature": 0.5,
+ "usage": {
+  "calls": 1693,
+  "cached_calls": 0,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "cost_usd": 0.0
+ },
+ "models": {}
+}

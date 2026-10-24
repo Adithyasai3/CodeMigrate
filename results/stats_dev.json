@@ -1,0 +1,15 @@
+{
+ "offline/seed0": {
+  "paired_bootstrap_D_minus_C": {
+   "delta_f1_mean": 0.0,
+   "ci_low": 0.0,
+   "ci_high": 0.0,
+   "p_value_one_sided": 1.0
+  },
+  "mcnemar_C_vs_D": {
+   "a_correct_b_wrong": 0,
+   "b_correct_a_wrong": 0,
+   "p_value": 1.0
+  }
+ }
+}

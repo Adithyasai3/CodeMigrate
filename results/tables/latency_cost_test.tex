@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Latency, tokens and cost per case (test split).}
+\label{tab:cost-test}
+\begin{tabular}{lrrrrr}
+\toprule
+System & Latency/case (s) & Tokens/case & Cost/case (USD) & Findings & Rejected claims \\
+\midrule
+A-django-upgrade & 0.3 & 0.0 & 0.00000 & 37.0 & 0.0 \\
+A-pyupgrade & 0.2 & 0.0 & 0.00000 & 129.0 & 0.0 \\
+D-full[offline] & 0.2 & 0.0 & 0.00000 & 158.0 & 0.0 \\
+C-rag-no-validator[offline] & 0.0 & 0.0 & 0.00000 & 158.0 & 0.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

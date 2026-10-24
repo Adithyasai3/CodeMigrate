@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{System comparison on the dev split (execution-labeled).}
+\label{tab:comparison-dev}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+System & Runs & P (\%) & R (\%) & F1 (\%) & F1 95\% CI & Halluc. (\%) & Cit. acc. (\%) & Exact line (\%) \\
+\midrule
+A-django-upgrade & 1 & 20.0 & 1.4 & 2.6 & [0.0, 9.3] & n/a & n/a & 100.0 \\
+A-pyupgrade & 1 & 0.0 & 0.0 & 0.0 & [0.0, 0.0] & n/a & n/a & 0.0 \\
+D-full[offline] & 1 & 75.0 & 83.3 & 78.9 & [71.8, 85.2] & 0.0 & 100.0 & 98.3 \\
+C-rag-no-validator[offline] & 1 & 75.0 & 83.3 & 78.9 & [71.8, 85.2] & 0.0 & n/a & 98.3 \\
+\bottomrule
+\end{tabular}
+\end{table}

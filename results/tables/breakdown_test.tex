@@ -1,0 +1,40 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Recall by label evidence type and first failing version (test).}
+\label{tab:breakdown-test}
+\begin{tabular}{lrrrr}
+\toprule
+system & dimension & value & labels & recall \\
+\midrule
+A-django-upgrade & evidence & error & 74 & 1.4 \\
+A-django-upgrade & evidence & warning only & 22 & 0.0 \\
+A-django-upgrade & first version & 4.0.10 & 14 & 0.0 \\
+A-django-upgrade & first version & 4.1.13 & 21 & 4.8 \\
+A-django-upgrade & first version & 4.2.30 & 15 & 0.0 \\
+A-django-upgrade & first version & 5.0.14 & 22 & 0.0 \\
+A-django-upgrade & first version & 5.1.15 & 24 & 0.0 \\
+A-pyupgrade & evidence & error & 74 & 0.0 \\
+A-pyupgrade & evidence & warning only & 22 & 0.0 \\
+A-pyupgrade & first version & 4.0.10 & 14 & 0.0 \\
+A-pyupgrade & first version & 4.1.13 & 21 & 0.0 \\
+A-pyupgrade & first version & 4.2.30 & 15 & 0.0 \\
+A-pyupgrade & first version & 5.0.14 & 22 & 0.0 \\
+A-pyupgrade & first version & 5.1.15 & 24 & 0.0 \\
+D-full[offline] & evidence & error & 74 & 90.5 \\
+D-full[offline] & evidence & warning only & 22 & 81.8 \\
+D-full[offline] & first version & 4.0.10 & 14 & 71.4 \\
+D-full[offline] & first version & 4.1.13 & 21 & 76.2 \\
+D-full[offline] & first version & 4.2.30 & 15 & 93.3 \\
+D-full[offline] & first version & 5.0.14 & 22 & 100.0 \\
+D-full[offline] & first version & 5.1.15 & 24 & 95.8 \\
+C-rag-no-validator[offline] & evidence & error & 74 & 90.5 \\
+C-rag-no-validator[offline] & evidence & warning only & 22 & 81.8 \\
+C-rag-no-validator[offline] & first version & 4.0.10 & 14 & 71.4 \\
+C-rag-no-validator[offline] & first version & 4.1.13 & 21 & 76.2 \\
+C-rag-no-validator[offline] & first version & 4.2.30 & 15 & 93.3 \\
+C-rag-no-validator[offline] & first version & 5.0.14 & 22 & 100.0 \\
+C-rag-no-validator[offline] & first version & 5.1.15 & 24 & 95.8 \\
+\bottomrule
+\end{tabular}
+\end{table}

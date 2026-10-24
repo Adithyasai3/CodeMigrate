@@ -1,0 +1,29 @@
+system,dimension,value,labels,recall
+A-django-upgrade,evidence,error,45,2.2
+A-django-upgrade,evidence,warning only,27,0.0
+A-django-upgrade,first version,4.0.10,5,0.0
+A-django-upgrade,first version,4.1.13,22,4.5
+A-django-upgrade,first version,4.2.30,20,0.0
+A-django-upgrade,first version,5.0.14,14,0.0
+A-django-upgrade,first version,5.1.15,11,0.0
+A-pyupgrade,evidence,error,45,0.0
+A-pyupgrade,evidence,warning only,27,0.0
+A-pyupgrade,first version,4.0.10,5,0.0
+A-pyupgrade,first version,4.1.13,22,0.0
+A-pyupgrade,first version,4.2.30,20,0.0
+A-pyupgrade,first version,5.0.14,14,0.0
+A-pyupgrade,first version,5.1.15,11,0.0
+D-full[offline],evidence,error,45,91.1
+D-full[offline],evidence,warning only,27,70.4
+D-full[offline],first version,4.0.10,5,100.0
+D-full[offline],first version,4.1.13,22,59.1
+D-full[offline],first version,4.2.30,20,95.0
+D-full[offline],first version,5.0.14,14,92.9
+D-full[offline],first version,5.1.15,11,90.9
+C-rag-no-validator[offline],evidence,error,45,91.1
+C-rag-no-validator[offline],evidence,warning only,27,70.4
+C-rag-no-validator[offline],first version,4.0.10,5,100.0
+C-rag-no-validator[offline],first version,4.1.13,22,59.1
+C-rag-no-validator[offline],first version,4.2.30,20,95.0
+C-rag-no-validator[offline],first version,5.0.14,14,92.9
+C-rag-no-validator[offline],first version,5.1.15,11,90.9

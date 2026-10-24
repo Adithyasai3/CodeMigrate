@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\small
+\caption{Ablations (test split).}
+\label{tab:ablations-test}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+system & ablation & retriever & top\_k & precision & recall & f1 & halluc & findings \\
+\midrule
+D[offline] & retriever & exact & 5 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+D[offline] & retriever & bm25 & 5 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+D[offline] & retriever & tfidf & 5 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+D[offline] & retriever & dense & 5 & 73.3 & 88.5 & 80.2 & 0.0 & 153 \\
+D[offline] & retriever & hybrid\_tfidf & 5 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+D[offline] & retriever & hybrid & 5 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+D[offline] & top\_k & hybrid & 1 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+D[offline] & top\_k & hybrid & 3 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+D[offline] & top\_k & hybrid & 5 & 70.8 & 88.5 & 78.7 & 0.0 & 158 \\
+\bottomrule
+\end{tabular}
+\end{table}
