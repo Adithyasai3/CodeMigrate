@@ -1,5 +1,8 @@
 System,Latency/case (s),Tokens/case,Cost/case (USD),Findings,Rejected claims
-A-django-upgrade,0.3,0.0,0.00000,37.0,0.0
+A-django-upgrade,0.2,0.0,0.00000,37.0,0.0
 A-pyupgrade,0.2,0.0,0.00000,129.0,0.0
-D-full[offline],0.2,0.0,0.00000,158.0,0.0
-C-rag-no-validator[offline],0.0,0.0,0.00000,158.0,0.0
+D-full[offline],0.1,0.0,0.00000,150.0,0.0
+C-rag-no-validator[offline],0.0,0.0,0.00000,150.0,0.0
+B-llm-only[gemini],0.0,1323.0,0.00000,119.0,0.0
+C-rag-no-validator[gemini],0.0,10704.0,0.00000,143.0,0.0
+D-full[gemini],0.0,10704.0,0.00000,135.0,8.0

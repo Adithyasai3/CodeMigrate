@@ -11,5 +11,18 @@
    "b_correct_a_wrong": 0,
    "p_value": 1.0
   }
+ },
+ "gemini/seed0": {
+  "paired_bootstrap_D_minus_C": {
+   "delta_f1_mean": -0.010632680543993845,
+   "ci_low": -0.03457003163646821,
+   "ci_high": 0.010711389920197822,
+   "p_value_one_sided": 0.8205
+  },
+  "mcnemar_C_vs_D": {
+   "a_correct_b_wrong": 4,
+   "b_correct_a_wrong": 3,
+   "p_value": 1.0
+  }
  }
 }

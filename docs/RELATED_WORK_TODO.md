@@ -1,5 +1,8 @@
 # Related work — reading list (TODO)
 
+> Verified papers, a comparison table and the novelty argument are in
+> [RELATED_WORK.md](RELATED_WORK.md) (checked 2026-10-25). Items below are still open.
+
 Nothing here is verified yet. For each item: find the paper, confirm venue/year/authors,
 add a checked BibTeX entry with DOI to `paper/refs.bib`, and write 1–2 sentences on how
 CodeMigrate differs. Do not cite anything that was not read.

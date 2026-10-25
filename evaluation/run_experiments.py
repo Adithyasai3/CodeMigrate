@@ -140,6 +140,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", default="test", choices=["dev", "test"])
     ap.add_argument("--seeds", type=int, default=3)
+    ap.add_argument("--provider-seeds", default="",
+                    help="per-provider override, e.g. 'openai=1' for a slow model")
     ap.add_argument("--temperature", type=float, default=0.5,
                     help="LLM sampling temperature for the repeated runs")
     ap.add_argument("--providers", default="auto",
@@ -180,8 +182,10 @@ def main() -> None:
                "D-full" in name, rows)
 
     # --- LLM systems, >= 3 seeds
+    seeds_for = {p: int(n) for p, n in
+                 (item.split("=") for item in args.provider_seeds.split(",") if item)}
     for prov in llm_providers:
-        for seed in range(args.seeds):
+        for seed in range(seeds_for.get(prov, args.seeds)):
             for maker, cites in ((llm_only, False), (rag_no_validator, True), (full_system, True)):
                 cfg = maker(prov, seed, args.temperature)
                 try:

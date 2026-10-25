@@ -77,12 +77,16 @@ figures in `results/figures/`, `results/error_cases.md`).
 |---|---:|---:|---:|---:|
 | A: django-upgrade (diff hunks) | 0.09 | 0.01 | 0.02 [0.00, 0.06] | – |
 | A: pyupgrade | 0.00 | 0.00 | 0.00 | – |
-| D: full pipeline, offline reasoner | 0.71 | 0.89 | 0.79 [0.72, 0.86] | 0.00 |
+| B: LLM only (gemini-3.5-flash-lite) | 0.68 | 0.74 | 0.71 [0.63, 0.78] | 0.29 |
+| C: RAG, no validator (gemini) | 0.77 | 0.92 | 0.83 [0.77, 0.89] | 0.06 |
+| D: full pipeline (gemini) | 0.78 | 0.88 | 0.82 [0.75, 0.88] | 0.00 |
+| D: full pipeline, offline reasoner | 0.75 | 0.89 | 0.81 [0.74, 0.88] | 0.00 |
 
-These rows use the deterministic offline reasoner only. The LLM systems (B: LLM without
-retrieval; C/D with an LLM) need an API key; with `GEMINI_API_KEY` set,
-`make results` runs them with 3 seeds and caches every call in `.cache/llm/`.
-In the ablations, the dense retriever gives the best offline F1 (0.80) because it retrieves fewer
+The Gemini rows are one run (seed 0, temperature 0) on the free tier; every call is cached in
+`.cache/llm/`, so `python -m evaluation.run_experiments --split test --providers offline,gemini
+--provider-seeds gemini=1` reproduces them without new API calls. Retrieval cuts hallucinated
+findings from 29% (B) to 6% (C) and the citation validator removes the rest (D) at a small
+recall cost. In the ablations, the dense retriever gives the best offline F1 (0.83) because it retrieves fewer
 spurious entries; top-k has no effect on the offline reasoner. With the offline reasoner C and D
 are identical (it never cites outside the evidence), so the validator's effect can only be
 measured with an LLM.
