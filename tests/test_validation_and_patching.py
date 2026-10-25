@@ -132,6 +132,20 @@ def test_pipeline_builds_updated_files_offline(kb):
     ast.parse(u.content)
 
 
+def test_fixed_import_resolves_later_uses_without_duplicate_import(kb):
+    src = (
+        "import datetime\n"
+        "from django.utils.timezone import utc\n\n"
+        "now = datetime.datetime.now(tz=utc)\n"
+    )
+    p = Pipeline(SystemConfig(provider="offline", make_updated=True), kb=kb)
+    [u] = p.scan_sources([("a.py", src)], "4.0", "5.1").updated_files
+    assert u.content == (
+        "import datetime\nutc = datetime.timezone.utc\n\nnow = datetime.datetime.now(tz=utc)\n"
+    )
+    assert u.auto_fixed == [2, 4] and u.manual == []
+
+
 def test_no_patch_without_mechanical_fix(kb):
     vf = _verified(kb, 1, "django.utils.baseconv", "django-5.0-removed-django_utils_baseconv")
     assert make_patch("from django.utils import baseconv\n", vf, "a.py") is None

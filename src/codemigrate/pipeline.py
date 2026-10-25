@@ -187,6 +187,18 @@ class Pipeline:
                 continue
             mine = [f for f in findings if f.file == path]
             current, auto, remaining = apply_safe_patches(source, mine)
+            if auto and remaining:
+                # A fixed import can resolve later uses too (``utc = datetime.timezone.utc``).
+                pos = line_map(source, current)
+                found = self._offline_checker().scan_sources(
+                    [(path, current)], from_version, to_version
+                ).findings
+                flagged = {(f.line, f.symbol) for f in found}
+                resolved = [f for f in remaining
+                            if pos.get(f.line) is not None
+                            and (pos[f.line], f.symbol) not in flagged]
+                auto += resolved
+                remaining = [f for f in remaining if f not in resolved]
             llm_fixed: list[ValidatedFinding] = []
             if self.config.llm_fixes and remaining and self.config.provider != "offline":
                 pos = line_map(source, current)
@@ -224,6 +236,14 @@ class Pipeline:
             ))
         return out
 
+    def _offline_checker(self) -> Pipeline:
+        """Deterministic re-scanner used to check updated code."""
+        return Pipeline(
+            replace(self.config, name="rewrite-check", provider="offline", model=None,
+                    make_patches=False, make_updated=False, llm_fixes=False),
+            kb=list(self.kb),
+        )
+
     def _verify_rewrite(
         self,
         path: str,
@@ -250,11 +270,7 @@ class Pipeline:
         if difflib.SequenceMatcher(None, old_lines, new_lines, autojunk=False).ratio() < 0.7:
             log.info("LLM rewrite of %s rejected: rewrote too much of the file", path)
             return set()
-        checker = Pipeline(
-            replace(self.config, name="rewrite-check", provider="offline", model=None,
-                    make_patches=False, make_updated=False, llm_fixes=False),
-            kb=list(self.kb),
-        )
+        checker = self._offline_checker()
         found_before = checker.scan_sources([(path, before)], from_version, to_version).findings
         found_after = checker.scan_sources([(path, after)], from_version, to_version).findings
         new_symbols = {f.symbol for f in found_after} - {f.symbol for f in found_before}

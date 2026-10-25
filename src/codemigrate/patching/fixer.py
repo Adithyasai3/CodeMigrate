@@ -41,7 +41,7 @@ def _ensure_import(lines: list[str], module: str) -> list[str]:
     return lines[:insert_at] + [stmt] + lines[insert_at:]
 
 
-def _rewrite_line(line: str, entry: KBEntry) -> list[str] | None:
+def _rewrite_line(line: str, entry: KBEntry, imported: bool = False) -> list[str] | None:
     old_path, new_path = entry.affected_api, entry.replacement or ""
     old_parent, old_name = old_path.rsplit(".", 1)
     new_parent, new_name = new_path.rsplit(".", 1) if "." in new_path else ("", new_path)
@@ -70,7 +70,8 @@ def _rewrite_line(line: str, entry: KBEntry) -> list[str] | None:
         out = []
         if kept:
             out.append(f"{indent}from {old_parent} import {', '.join(kept)}{eol or chr(10)}")
-        out.append(f"{indent}import {top}\n")
+        if not imported:
+            out.append(f"{indent}import {top}\n")
         out.append(f"{indent}{alias} = {new_path}{eol}")
         return out
     # Attribute use: ``<alias>.old_name`` -> new_path
@@ -88,14 +89,16 @@ def _patched(source: str, finding: ValidatedFinding) -> tuple[list[str], list[st
     idx = finding.line - 1
     if not 0 <= idx < len(lines):
         return None
-    new_lines = _rewrite_line(lines[idx], entry)
+    top = entry.replacement.split(".")[0]
+    imported = any(line.strip() == f"import {top}" for line in lines)
+    new_lines = _rewrite_line(lines[idx], entry, imported)
     if new_lines is None:
         return None
     patched = lines[:idx] + new_lines + lines[idx + 1 :]
     new_parent = entry.replacement.rsplit(".", 1)[0] if "." in entry.replacement else ""
     old_parent = entry.affected_api.rsplit(".", 1)[0]
     if new_parent and new_parent != old_parent and not lines[idx].lstrip().startswith("from "):
-        patched = _ensure_import(patched, entry.replacement.split(".")[0])
+        patched = _ensure_import(patched, top)
     if patched == lines or not _parses("".join(patched)):
         log.info(
             "patch for %s:%d rejected (no change or does not parse)", finding.file, finding.line
