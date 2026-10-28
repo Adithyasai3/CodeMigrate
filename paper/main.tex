@@ -165,7 +165,7 @@ Django release documentation.
 
 Each entry contains information about an API change,
 including its affected version, change type,
-severity, and possible migration strategy.
+severity, and possible migration strategy (Table~\ref{tab:kb}).
 
 % FACTS: 293 auto-parsed / 13 corrected / 4 manual; Table~\ref{tab:kb}.
 \input{tables/kb.tex}
@@ -223,7 +223,7 @@ The benchmark includes examples of deprecated APIs,
 removed functionality, and compatible code.
 
 The dataset is divided into development and
-testing subsets.
+testing subsets (Table~\ref{tab:dataset}).
 
 \input{tables/dataset.tex}
 
@@ -311,13 +311,6 @@ citation accuracy, execution latency, and cost.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{breakdown_version_test.pdf}
-\caption{Recall by the first Django version in which the usage breaks.}
-\label{fig:by-version}
-\end{figure}
-
-\begin{figure}[t]
-\centering
 \includegraphics[width=0.8\columnwidth]{confusion_D-full_gemini_test.pdf}
 \caption{Line-level confusion matrix of the full pipeline with Gemini (test split).}
 \label{fig:confusion}
@@ -351,7 +344,7 @@ improve the detection.
 The offline system achieved very similar performance with an F1 score of 0.81. This shows we can
 achieve competitive performance using the offline reasoner.
 
-The results in Table~\ref{tab:comparison-test} show CodeMigrate achieves
+The results in Tables~\ref{tab:comparison-test} and~\ref{tab:breakdown-test} show CodeMigrate achieves
 substantially higher F1 scores than the baselines. However, it should be noted
 that \texttt{django-upgrade} performs the modifications directly within the source files. Therefore,
 it is not directly comparable to our system since it was based on the diff hunks.
@@ -361,7 +354,7 @@ it is not directly comparable to our system since it was based on the diff hunks
 The ablation study shows that including retrieving and validating citations reduces the number of
 hallucinations. Using only the LLM gives us a hallucination rate of $\sim$29.4\%. By adding retrieval
 we are able to reduce this to 5.6\%. Finally, using the full system reduces the hallucination rate
-to 0\%.
+to 0\% (Fig.~\ref{fig:f1-halluc}).
 
 The citation validator removed eight claims, four of which were correct findings, dropping the
 recall to 0.88 from 0.92.
@@ -381,7 +374,8 @@ seen is based on the benchmark used.
 The offline reasoner was able to handle each case in $\sim$0.1 seconds. This resulted in an F1 score
 of 0.81 and no cost to the API.
 
-The RAG approach required $\sim$8 times more tokens than the LLM only method. This is due to
+The RAG approach required $\sim$8 times more tokens than the LLM only method
+(Table~\ref{tab:cost-test}). This is due to
 including the release notes in the reasoning step. This causes an increase in tokens but
 substantially reduces hallucinations.
 
@@ -411,7 +405,8 @@ Potential sources of error include dynamic API access,
 incomplete execution coverage, and missing knowledge
 base entries.
 
-The error analysis found 36 errors, 12 false negatives and 24 false positives. One of the largest
+The error analysis found 36 errors, 12 false negatives and 24 false positives
+(Fig.~\ref{fig:confusion}). One of the largest
 sources of error was that whilst some changes were recorded in the release notes, these did not
 necessarily cause the code to fail. For example, changes to \texttt{cached\_property} can be harder to
 classify as they may not cause any error during runtime. This shows a limitation in the benchmark and
