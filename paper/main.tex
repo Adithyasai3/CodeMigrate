@@ -150,9 +150,8 @@ Prior work has shown issues in LLM generated code such as deprecated APIs (Wang 
 al.~\cite{wang2025deprecated}) and fabricated packages (Spracklen et al.~\cite{spracklen2025package}).
 Providing the LLM with API documentation can help improve the code (Chen et
 al.~\cite{chen2025apidocs}) but benchmarks such as CodeUpdateArena~\cite{liu2024codeupdatearena}
-have shown code updates can still be challenging at a repository level.\todo{CodeUpdateArena uses
-synthetic updates to single API functions, not repositories; its finding is that putting the update
-docs in the prompt does not help open-source code LLMs} CodeMigrate ensures all claims are validated
+have shown code updates can still be challenging even when the update documentation is given in the
+prompt. CodeMigrate ensures all claims are validated
 by checking against a retrieved item in the correct Django version release note.
 
 \section{Proposed Approach}
@@ -364,8 +363,8 @@ hallucinations. Using only the LLM gives us a hallucination rate of $\sim$29.4\%
 we are able to reduce this to 5.6\%. Finally, using the full system reduces the hallucination rate
 to 0\%.
 
-The citation validator removed eight false claims,\todo{8 claims were rejected, but 4 of them were
-correct findings (TP 88 to 84); that is why recall dropped} dropping the recall to 0.88 from 0.92.
+The citation validator removed eight claims, four of which were correct findings, dropping the
+recall to 0.88 from 0.92.
 However, this improved the precision to 0.78 from 0.77. The F1 score dropped from 0.83 to 0.82. This
 difference was not statistically significant ($p = 0.82$). We see that adding the deterministic
 validation removes any false claims at the cost of a small decrease in recall.
@@ -373,11 +372,8 @@ validation removes any false claims at the cost of a small decrease in recall.
 \subsubsection{Retrieval Method (RQ3)}
 
 We saw the dense retrieval strategy performed best, achieving a F1 score of 0.83 during the offline
-ablation study (Table~\ref{tab:ablations-test}). This was much higher than the other strategies which
-achieved around 0.81.\todo{0.83 vs.\ 0.81 is a small difference, inside the confidence interval} By
-retrieving less irrelevant items from the release notes, the reasoner was able to ignore any
-distracting information.\todo{not measured; what we measured: dense had fewer false positives
-(24 vs.\ 28)} This highlights that retrieval plays an impact on detection. However, the difference
+ablation study (Table~\ref{tab:ablations-test}). This was slightly higher than the other strategies which
+achieved around 0.81. Dense retrieval also gave fewer false positives (24 vs.\ 28). This highlights that retrieval plays an impact on detection. However, the difference
 seen is based on the benchmark used.
 
 \subsubsection{Cost and Efficiency (RQ4)}
@@ -441,6 +437,8 @@ Django framework upgrades.
 The proposed framework integrates static code analysis,
 structured knowledge retrieval, LLM reasoning,
 and deterministic citation validation.
+
+On 160 test cases it reached an F1 score of 0.82 with 0\% hallucinated findings.
 
 Future work includes extending the approach to
 additional frameworks and improving support for
