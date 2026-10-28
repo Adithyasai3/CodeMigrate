@@ -3,76 +3,120 @@
 \graphicspath{{../results/figures/}}
 \newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 
+% HOW TO USE THIS FILE
+% Comments marked FACTS are notes for the team, not paper text. Write every paragraph in your
+% own words (review rule: AI-generated content < 10%, similarity < 10%). Every number below is
+% copied from results/ or benchmark/ and can be cited as is. Delete the comments when done.
+% Compile: upload paper/ + results/ (keep the folder layout) to Overleaf, main file paper/main.tex.
+
 \begin{document}
 
 \title{CodeMigrate: Evidence-Grounded Detection of Breaking API Changes\\in Django Upgrades}
-\author{\IEEEauthorblockN{\todo{authors}}\IEEEauthorblockA{\todo{affiliation}}}
+\author{\IEEEauthorblockN{\todo{Author 1, Author 2, Author 3, Author 4}}
+\IEEEauthorblockA{\todo{Department, College, City, Country}\\\todo{emails}}}
 \maketitle
 
 \begin{abstract}
-\todo{150--200 words. Problem: upgrading a framework breaks code in ways release notes describe
-but tools do not check. Approach: AST analysis + retrieval over a knowledge base of 310 sourced
-Django changes + an LLM restricted to retrieved evidence + a deterministic citation validator.
-Benchmark: 235 cases labeled by execution under Django 4.0--5.1. Headline numbers from
-Table~\ref{tab:comparison-test} (fill after LLM runs).}
+% FACTS (150--200 words, write last):
+% - problem: upgrading Django 4.0 -> 5.1 breaks code; release notes describe it, tools don't check
+% - approach: AST analysis -> hybrid retrieval over 310 sourced KB entries -> LLM limited to
+%   retrieved evidence -> deterministic citation validator -> patches
+% - benchmark: 235 cases labelled by execution under 5 Django releases (168 positive lines)
+% - result (test, 160 cases): F1 0.82 vs 0.02 (django-upgrade); hallucinated findings
+%   29% (LLM only) -> 6% (RAG) -> 0% (RAG + validator), F1 change not significant
+\todo{write abstract}
 \end{abstract}
 
+\begin{IEEEkeywords}
+\todo{4--6 keywords, e.g. API evolution, software migration, retrieval-augmented generation,
+large language models, hallucination}
+\end{IEEEkeywords}
+
 \section{Introduction}
-% Outline:
-% 1. Framework upgrades are frequent and costly; Django ships a feature release every 8 months
-%    and removes deprecated APIs on a fixed schedule.
-% 2. Existing tools: rewriters (django-upgrade, pyupgrade) cover a fixed set of fixers; LLMs
-%    cover everything but hallucinate changes and citations.
-% 3. Idea: let the LLM explain only what the evidence supports, and check every claim
-%    deterministically against the evidence and the code.
-% 4. Contributions:
-%    (C1) a sourced KB of 310 Django 4.0--5.2 changes, every entry linked to the release notes;
-%    (C2) an evidence-only reasoning + citation-validation pipeline;
-%    (C3) a benchmark of 235 cases whose labels come from execution, not from the tool;
-%    (C4) an evaluation against rewriters, an LLM without retrieval, and RAG without validation.
-\todo{write}
+% FACTS:
+% 1. Django ships a feature release about every 8 months and removes deprecated APIs on a fixed
+%    schedule; code written for 4.0 can fail on 5.x (ImportError, AttributeError, TypeError).
+% 2. Rule-based rewriters \cite{djangoupgrade,pyupgrade} only apply their hand-written fixers:
+%    F1 0.02 and 0.00 on our test split.
+% 3. LLMs know many changes but invent others: Gemini alone, 29% hallucinated findings (ours);
+%    LLMs keep using deprecated APIs \cite{wang2025deprecated}; they hallucinate packages
+%    \cite{spracklen2025package}.
+% 4. Idea: the LLM may only explain what retrieved release-note evidence supports, and a
+%    deterministic check verifies every citation against the evidence and the code line.
+% 5. Contributions:
+%    (C1) a KB of 310 Django 4.0--5.2 changes, each linked to its release-note section;
+%    (C2) evidence-only reasoning + a deterministic citation validator;
+%    (C3) a benchmark of 235 cases labelled by execution, independent of the tool;
+%    (C4) evaluation vs rewriters, an LLM without retrieval, and RAG without validation.
+\todo{write introduction}
 
 \section{Background and Related Work}
-% See docs/RELATED_WORK_TODO.md for the reading list; every citation must be checked.
-% API evolution and breaking changes \cite{dig2006apis}; automated migration tools;
-% retrieval-augmented generation \cite{lewis2020rag}; hallucination and attribution in LLM output;
-% code-change benchmarks.
-\todo{write after the reading list is verified}
+% FACTS (verified notes + numbers: docs/RELATED_WORK.md; read each paper before citing):
+% - API evolution / breaking changes: \cite{dig2006apis}.
+% - Rule-based rewriters: \cite{djangoupgrade,pyupgrade} -- fixed fixers, no evidence, no LLM.
+% - LLMs and outdated APIs: \cite{wang2025deprecated} (deprecated API use in code completion,
+%   7 LLMs, 8 Python libs); \cite{liu2024codeupdatearena} (update docs in prompt don't help
+%   open models); \cite{islah2024gitchameleon} (version-specific generation, GPT-4o pass@10 39.9%).
+% - Hallucination: \cite{spracklen2025package} (>=5.2% commercial / 21.7% open-source package
+%   hallucination over 576k samples).
+% - RAG \cite{lewis2020rag}; RAG over API docs for code \cite{chen2025apidocs} (+83--220%).
+% - Library migration: \cite{islam2025migratelib} (LLM + static/dynamic analysis, 32% fully correct).
+% - Gap to state: those works generate new code or put docs in the prompt; none checks each
+%   LLM claim against the cited evidence and the code line, and none labels by execution
+%   for a framework upgrade. Use the comparison table in docs/RELATED_WORK.md (optional Table).
+\todo{write related work}
 
 \section{Approach}
+% FACTS: pipeline = analyze -> retrieve -> reason -> validate -> patch (one figure helps;
+% draw it yourselves, e.g. in draw.io).
 \subsection{Knowledge base}
-% Parsed from release-note sources at a pinned commit; RST roles -> canonical dotted paths via an
-% AST index of Django wheels; 293 auto-parsed / 13 corrected / 4 manual; change_type, severity,
-% mechanical_fix. Table: entries by version x type (from `codemigrate kb stats`).
+% Parsed from docs/releases/<v>.txt at Django commit 79502d0; RST roles mapped to dotted paths
+% via an AST index of Django wheels; 293 auto-parsed / 13 corrected / 4 manual; 64 items without
+% a code symbol skipped; fields: change_type, severity, mechanical_fix (10 entries). Table~\ref{tab:kb}.
+\input{tables/kb.tex}
 \subsection{Code analysis}
-% Imports, aliases, attribute chains, subclass method resolution, settings and template refs.
+% libcst; imports, aliases, attribute chains, subclass method overrides, settings, templates.
 \subsection{Retrieval}
-% Exact symbol map, BM25 \cite{robertson2009bm25}, dense MiniLM \cite{reimers2019sbert} + FAISS
-% \cite{johnson2019faiss}, hybrid via reciprocal rank fusion \cite{cormack2009rrf};
-% version-range filter (from, to].
+% exact symbol map, BM25 \cite{robertson2009bm25}, dense MiniLM \cite{reimers2019sbert} + FAISS
+% \cite{johnson2019faiss}, fused by reciprocal rank fusion \cite{cormack2009rrf}; filter to
+% versions in (from, to]; top-k = 5.
 \subsection{Evidence-only reasoning}
-% Prompt contains only the code context and the retrieved entries; strict JSON schema; retries.
+% one JSON prompt per file chunk: numbered code + references R1..Rn + their evidence; system
+% rules: use only the evidence, cite entry ids; strict JSON schema; temperature 0; cached.
 \subsection{Citation validation}
-% Four deterministic rules (PLAN.md, ValidatedFinding); VERIFIED / UNVERIFIED / UNSUPPORTED_CLAIM.
+% deterministic; a finding is VERIFIED only if every cited id (1) was retrieved for that
+% reference, (2) its symbol matches the code symbol on that line, (3) is in the version range;
+% else UNVERIFIED (bad citation) or UNSUPPORTED_CLAIM (no citation) and dropped.
 \subsection{Patching}
-% Mechanical renames only; patches must re-parse.
-\todo{write}
+% mechanical renames only; every patch must re-parse; outputs unified diff + full updated file.
+\todo{write approach}
 
 \section{Benchmark}
-% Summarise benchmark/README.md: execution labeling in Docker under 4.0.10--5.1.15, positive /
-% ignored / scored lines, case statuses, real/synthetic/negative, group-hashed dev/test split.
-\todo{distribution table from benchmark/dataset\_card.py}
+% FACTS (benchmark/README.md):
+% - task: code written for Django 4.0, find every line that breaks or warns up to 5.1
+% - labels from benchmark/label_by_execution.py: each case runs under 4.0.10, 4.1.13, 4.2.30,
+%   5.0.14, 5.1.15 (Python 3.10, no network); positive = raises in a later release but not in
+%   4.0, or emits RemovedInDjango* warning
+% - only lines executed under 4.0 are scored (36,264 scored lines)
+% - 235 usable cases, 168 positive labels (Table~\ref{tab:dataset}); 119 error labels, 49
+%   warning-only; dev/test split by group hash
+% - excluded: 116 synthetic cases silent at runtime, 35 invalid sources
+\input{tables/dataset.tex}
+\todo{write benchmark}
 
 \section{Evaluation}
 \subsection{Research questions}
-% RQ1 Effectiveness vs. baselines. RQ2 Does the validator reduce hallucination, and at what recall
-% cost? RQ3 Which retriever / top-k works best? RQ4 Latency and cost.
+% RQ1 effectiveness vs baselines; RQ2 does the validator reduce hallucination, at what recall
+% cost; RQ3 which retriever / top-k; RQ4 latency and cost.
 \subsection{Systems}
-% A: django-upgrade, pyupgrade (findings from diff hunks); B: LLM only; C: RAG without validator;
-% D: full pipeline; D-offline: deterministic reasoner.
+% A: django-upgrade, pyupgrade (findings = changed diff hunks); B: LLM only; C: RAG, no
+% validator; D: full pipeline; D-offline: deterministic reasoner. LLM: gemini-3.5-flash-lite,
+% temperature 0, 1 run (seed 0), free tier.
 \subsection{Metrics}
-% Line-level P/R/F1 on scored lines with bootstrap CIs; hallucination rate (same matcher for
-% every system); citation accuracy; paired bootstrap and McNemar for C vs. D.
+% line-level P/R/F1 on scored lines, 95% bootstrap CI; hallucination rate = findings whose
+% claimed change is not in the KB for that symbol and version range (same matcher for every
+% system); citation accuracy; paired bootstrap + McNemar for C vs D.
+\todo{write systems and metrics}
 
 \input{../results/tables/comparison_test.tex}
 \input{../results/tables/ablations_test.tex}
@@ -93,23 +137,51 @@ Table~\ref{tab:comparison-test} (fill after LLM runs).}
 \label{fig:by-version}
 \end{figure}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\columnwidth]{confusion_D-full_gemini_test.pdf}
+\caption{Line-level confusion matrix of the full pipeline with Gemini (test split).}
+\label{fig:confusion}
+\end{figure}
+
 \subsection{Results}
-\todo{RQ1--RQ4 answers; fill once LLM systems B/C/D have been run (needs an API key)}
+% FACTS (Table~\ref{tab:comparison-test}, test split, 160 cases, 96 positive lines):
+% RQ1: D[gemini] F1 0.82 [0.75, 0.88] (P 0.78, R 0.88); D[offline] 0.81; django-upgrade 0.02
+%      (1 TP, 10 FP), pyupgrade 0.00; B 0.71.
+% RQ2: hallucinated findings B 29.4% -> C 5.6% -> D 0.0%; validator rejected 8 claims;
+%      recall 0.92 -> 0.88, precision 0.77 -> 0.78; paired bootstrap dF1 = -0.011
+%      [-0.035, 0.011], p = 0.82; McNemar 4 vs 3, p = 1.0 -> no significant F1 change.
+%      Citation accuracy C 94.4% -> D 100%.
+% RQ3 (Table~\ref{tab:ablations-test}, offline): dense best F1 0.83, others 0.81; top-k 1/3/5 equal.
+% RQ4 (Table~\ref{tab:cost-test}): offline 0.1 s/case; tokens/case B 1,323 vs C/D
+%      10,704 (RAG context ~8x); cost $0 on free tier; Gemini latency shows 0.0 because the
+%      results were replayed from the response cache -- say so.
+% Fig.~\ref{fig:by-version}: D[gemini] recall 79--96% per version; B only 52% on 4.1 changes;
+%      B recall on warning-only labels 45% vs D 86%.
+\todo{write results (answer RQ1--RQ4)}
 
 \subsection{Error analysis}
-% Categories from results/error\_cases.md: changes that do not manifest on the executed path,
-% analyzer misses on dynamic access / unknown receivers, KB gaps.
-\todo{write}
+% FACTS (results/error_cases.md, D[gemini]): 36 failures = 12 missed + 24 false positives.
+% Categories: documented change that does not show at runtime on that path (e.g.
+% cached_property name argument, 2 FPs in django-polymorphic); analyzer misses on dynamic access
+% / unknown receivers; KB gaps. Pick 2--3 examples from the file.
+\todo{write error analysis}
 
 \section{Threats to Validity}
-% Internal: execution only observes executed paths; django-upgrade findings derived from diff
-% hunks; some documented removals are silent at runtime.
-% External: one framework, one upgrade range, 13 real packages with few real positives.
-% Construct: line-level matching; behavior changes not labeled.
-\todo{write}
+% FACTS:
+% internal: execution only sees executed paths; django-upgrade findings derived from diff hunks;
+%   some documented removals are silent at runtime (116 synthetic cases excluded).
+% external: one framework, one upgrade range; real packages give few positives (15 of 168
+%   labels), most come from synthetic cases.
+% construct: line-level matching; behavior changes without an error/warning are not labelled.
+% conclusion: one Gemini run (seed 0), one model; C/D difference is small.
+\todo{write threats to validity}
 
 \section{Conclusion}
-\todo{write}
+% FACTS: restate C1--C4 and the headline (0% hallucination, F1 0.82 vs 0.02); future work:
+% more frameworks (e.g. other Python libraries), more models / seeds, LLM-written patches
+% verified by re-scan (already implemented, not evaluated).
+\todo{write conclusion}
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs}

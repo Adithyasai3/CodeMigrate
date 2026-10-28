@@ -47,7 +47,8 @@ def save(fig, name: str) -> None:
 def latex_table(df: pd.DataFrame, path: Path, caption: str, label: str) -> None:
     """Minimal booktabs table without extra dependencies."""
     cols = list(df.columns)
-    lines = [r"\begin{table}[t]", r"\centering", r"\small",
+    env = "table*" if len(cols) > 6 else "table"  # wide tables span both IEEE columns
+    lines = [rf"\begin{{{env}}}[t]", r"\centering", r"\small",
              rf"\caption{{{caption}}}", rf"\label{{{label}}}",
              r"\begin{tabular}{" + "l" + "r" * (len(cols) - 1) + "}", r"\toprule",
              " & ".join(c.replace("_", r"\_").replace("%", r"\%") for c in cols) + r" \\",
@@ -56,7 +57,7 @@ def latex_table(df: pd.DataFrame, path: Path, caption: str, label: str) -> None:
         cells = [str(v).replace("_", r"\_").replace("%", r"\%").replace("±", r"$\pm$")
                  for v in row.tolist()]
         lines.append(" & ".join(cells) + r" \\")
-    lines += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
+    lines += [r"\bottomrule", r"\end{tabular}", rf"\end{{{env}}}"]
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
