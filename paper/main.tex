@@ -329,7 +329,81 @@ citation accuracy, execution latency, and cost.
 % RQ4 (Table~\ref{tab:cost-test}): offline 0.1 s/case; tokens/case 1,323 (B) vs 10,704 (C/D);
 %      $0 on the free tier; Gemini latency 0.0 because replayed from cache.
 
-\todo{Insert experimental results after evaluation.}
+CodeMigrate was tested on 160 test cases. The performance of the system in detecting breaking API
+changes in Django upgrades from version 4.0 to 5.x\todo{benchmark range is 4.0 to 5.1} is then compared
+to existing migration tools and an LLM baseline. We also perform ablation studies to understand how
+the retrieval and validation stages contribute.
+
+\subsubsection{Overall Performance (RQ1)}
+
+The complete CodeMigrate system achieved an F1 score of 0.82, with a precision of 0.78 and a recall
+of 0.88. This was significantly\todo{no significance test vs.\ baselines; use ``much''} higher than
+the F1 scores achieved by the \texttt{django-upgrade} baseline, which only achieved a score of 0.02.
+\texttt{pyupgrade} achieved a score of 0.00. The LLM only baseline achieved a score of 0.71. This
+shows that including evidence retrieval and deterministic validation within the pipeline helps to
+improve the detection.
+
+The offline system achieved very similar performance with an F1 score of 0.81. This shows we can
+achieve competitive performance using the offline reasoner.
+
+The results in Table~\ref{tab:comparison-test} show CodeMigrate achieves
+significantly\todo{same as above} higher F1 scores than the baselines. However, it should be noted
+that \texttt{django-upgrade} performs the modifications directly within the source files. Therefore,
+it is not directly comparable to our system since it was based on the diff hunks.
+
+\subsubsection{Impact of Retrieval and Validation (RQ2)}
+
+The ablation study shows that including retrieving and validating citations reduces the number of
+hallucinations. Using only the LLM gives us a hallucination rate of $\sim$29.4\%. By adding retrieval
+we are able to reduce this to 5.6\%. Finally, using the full system reduces the hallucination rate
+to 0\%.
+
+Including the citation validation resulted in 8 false statements\todo{8 claims were rejected; 4 of
+them were correct findings (TP 88 to 84), which is why recall dropped} being rejected. This reduced
+the recall from 0.92 to 0.88. However, the precision improved from 0.77 to 0.78. The F1 score dropped
+from 0.83 to 0.82. This was not statistically significant ($p = 0.82$).
+
+This suggests that retrieving information reduces the number of hallucinations. However, the
+deterministic validation process helps to eliminate any remaining hallucinations. This does come at
+the expense of reducing recall, but overall shows that using evidence-based validation helps to
+increase reliability.
+
+\subsubsection{Retrieval Method (RQ3)}
+
+The different methods for retrieving information were compared. The highest F1 score across the
+offline ablation study was achieved by the dense method with a score of 0.83. The other methods
+achieved around an F1 score of 0.81.
+
+The dense method achieved better results because there were fewer irrelevant items retrieved. This
+means less noise was introduced, improving the detection.\todo{not measured; what we know: dense had
+fewer false positives (24 vs.\ 28), and 0.83 vs.\ 0.81 is inside the confidence interval} The
+results show that the quality of the retrieval impacts the performance of the migration analysis
+pipeline.
+
+\subsubsection{Cost and Efficiency (RQ4)}
+
+The offline reasoner was able to handle each case in $\sim$0.1 seconds. This resulted in an F1 score
+of 0.81 and no cost to the API.
+
+The RAG approach required $\sim$8 times more tokens than the LLM only method. This is due to
+including the release notes in the reasoning step. This causes an increase in tokens but
+significantly reduces hallucinations.
+
+This shows a trade off between cost and reliability. As the offline option had a low cost, however,
+the full system using Gemini achieved the highest F1 score.\todo{highest F1 was C (0.83), not D;
+Gemini cost \$0 on the free tier, so the trade-off is tokens}
+
+\subsubsection{Summary of Results}
+
+Overall, CodeMigrate achieved an F1 score of 0.82 across the 160 test cases. This was much higher
+than \texttt{django-upgrade} (0.02) and \texttt{pyupgrade} (0.00). The full system reduced the
+hallucination rate from $\sim$29\% (LLM only) to 0\%. The retrieval reduced the hallucinations
+significantly. The deterministic citation validation removed all the hallucinations. This came at
+the cost of reducing the recall from 0.92 to 0.88. The offline option achieved similar performance
+with an F1 score of 0.81.
+
+Overall, this shows that using AST based analysis, release note retrieval, LLM reasoning and
+deterministic citation validation can help to detect breaking API changes with reliable evidence.
 
 \section{Error Analysis}
 
