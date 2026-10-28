@@ -25,3 +25,4 @@ paper/*.bbl
 paper/*.blg
 frontend/test-results/
 frontend/playwright-report/
+.vscode/
