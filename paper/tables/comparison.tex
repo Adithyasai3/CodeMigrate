@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{System comparison on the test split (160 cases, values in \%).}
+\label{tab:comparison-test}
+\begin{tabular}{lrrrrrr}
+\toprule
+System & P & R & F1 & F1 95\% CI & Halluc. & Cit. acc. \\
+\midrule
+A: django-upgrade & 9.1 & 1.0 & 1.9 & [0.0, 6.1] & -- & -- \\
+A: pyupgrade & 0.0 & 0.0 & 0.0 & [0.0, 0.0] & -- & -- \\
+B: LLM only & 68.3 & 74.0 & 71.0 & [63.1, 77.6] & 29.4 & -- \\
+C: RAG, no validator & 76.5 & 91.7 & 83.4 & [77.1, 89.0] & 5.6 & 94.4 \\
+D: full (ours) & 77.8 & 87.5 & 82.4 & [75.4, 88.2] & 0.0 & 100.0 \\
+D: full, offline (ours) & 75.2 & 88.5 & 81.3 & [74.0, 88.1] & 0.0 & 100.0 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\parbox{\linewidth}{\scriptsize LLM: gemini-3.5-flash-lite, temperature 0. Halluc. = findings whose claimed change is not in the knowledge base. Rule-based tools make no citations (--).}
+\end{table*}

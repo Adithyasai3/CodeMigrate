@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Retriever and top-$k$ ablation, offline reasoner (test, values in \%).}
+\label{tab:ablations-test}
+\begin{tabular}{lrrrr}
+\toprule
+Retriever & P & R & F1 & Findings \\
+\midrule
+Exact & 75.2 & 88.5 & 81.3 & 150 \\
+BM25 & 75.2 & 88.5 & 81.3 & 150 \\
+TF-IDF & 75.2 & 88.5 & 81.3 & 150 \\
+Dense & 78.0 & 88.5 & 82.9 & 145 \\
+Hybrid (TF-IDF) & 75.2 & 88.5 & 81.3 & 150 \\
+Hybrid & 75.2 & 88.5 & 81.3 & 150 \\
+Hybrid, top-$k$=1 & 75.2 & 88.5 & 81.3 & 150 \\
+Hybrid, top-$k$=3 & 75.2 & 88.5 & 81.3 & 150 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\parbox{\linewidth}{\scriptsize Top-$k$=5 unless stated. Hallucination rate is 0 in every row.}
+\end{table}

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Latency and LLM tokens per case (test split).}
+\label{tab:cost-test}
+\begin{tabular}{lrr}
+\toprule
+System & Latency (s) & Tokens \\
+\midrule
+A: django-upgrade & 0.2 & 0 \\
+A: pyupgrade & 0.2 & 0 \\
+B: LLM only & cached & 1,323 \\
+C: RAG, no validator & cached & 10,704 \\
+D: full (ours) & cached & 10,704 \\
+D: full, offline (ours) & 0.1 & 0 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}\parbox{\linewidth}{\scriptsize Gemini runs were replayed from the response cache, so their latency is not measured. All runs used the free tier (cost \$0).}
+\end{table}

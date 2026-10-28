@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Recall (\%) by evidence type and by the first Django version that fails (test; number of labels in brackets).}
+\label{tab:breakdown-test}
+\begin{tabular}{lrrrrrrr}
+\toprule
+System & Error (74) & Warning (22) & 4.0 (14) & 4.1 (21) & 4.2 (15) & 5.0 (22) & 5.1 (24) \\
+\midrule
+A: django-upgrade & 1.4 & 0.0 & 0.0 & 4.8 & 0.0 & 0.0 & 0.0 \\
+A: pyupgrade & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 & 0.0 \\
+B: LLM only & 82.4 & 45.5 & 100.0 & 52.4 & 73.3 & 77.3 & 75.0 \\
+C: RAG, no validator & 91.9 & 90.9 & 92.9 & 85.7 & 100.0 & 95.5 & 87.5 \\
+D: full (ours) & 87.8 & 86.4 & 78.6 & 85.7 & 93.3 & 95.5 & 83.3 \\
+D: full, offline (ours) & 90.5 & 81.8 & 71.4 & 76.2 & 93.3 & 100.0 & 95.8 \\
+\bottomrule
+\end{tabular}
+\end{table*}
