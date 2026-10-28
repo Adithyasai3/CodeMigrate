@@ -19,7 +19,7 @@ OUT = str(Path(__file__).resolve().parent / "CodeMigrate_Team_Guide.pdf")
 F = "C:/Windows/Fonts/"
 
 LEAD = "Adithya"
-M = {1: "Prabhas", 2: "Dhanush", 3: "Sandhani", 4: "Hemanth", 5: "Sandhani"}
+M = {1: "Dhanush", 2: "Sandhani", 3: "Sandhani", 4: "Prabhas", 5: "Hemanth"}
 pdfmetrics.registerFont(TTFont("Body", F + "segoeui.ttf"))
 pdfmetrics.registerFont(TTFont("Body-Bold", F + "segoeuib.ttf"))
 pdfmetrics.registerFont(TTFont("Mono", F + "consola.ttf"))
@@ -189,7 +189,7 @@ s = []
 # ---------- cover ----------
 s += [Spacer(1, 30 * mm), P("CODEMIGRATE · PROJECT REVIEW", "eyebrow"),
       P("Team Guide: who does what, and how it all works", "h1"),
-      P(f"<b>Project lead: {LEAD}.</b> Team: {M[1]}, {M[2]}, {M[3]}, {M[4]}."),
+      P(f"<b>Project lead: {LEAD}.</b> Team: {M[4]}, {M[2]}, {M[1]}, {M[5]}."),
       P("A simple explanation of the whole project, split into parts with one owner each. "
         "Each part has: what you own, an easy way to explain it, the code to show, the numbers to "
         "remember, likely reviewer questions with answers, and the paper section you write."),
@@ -277,24 +277,26 @@ s.append(Spacer(1, 10))
 
 # ---------- 3 overview ----------
 s += [P("3. Who does what", "h2"),
-      P("Each person owns one or two parts: they learn it, explain it in the review, answer questions on "
-        "it, show it in the demo, and write its section of the paper.")]
-s.append(table([["Name", "Role / owns", "Shows in demo", "Writes in paper"],
-                [f"<b>{LEAD}</b>", "<b>Project lead.</b> Idea, problem research, study of existing tools, "
-                 "architecture, task division, implementation lead. Explains the overall project and leads "
-                 "the team.", "Opens the talk with the full pipeline; closes with summary + questions",
-                 "Reviews the final merged draft"],
-                [M[1], "Part 1: Knowledge Base from release notes", "Open a KB entry and its official link",
-                 "Knowledge Base + Related Work"],
-                [M[2], "Part 2: Benchmark, execution labels, metrics, experiments",
-                 "Show results table and graphs", "Benchmark + Results. Merges all sections in Overleaf"],
-                [M[3], "Part 3: AST analyzer + retrieval. Part 5: fixer, web app, CLI",
-                 "Show findings with exact lines; <b>runs the live demo</b> (Updated code tab)",
-                 "Method: analysis + retrieval; System implementation"],
-                [M[4], "Part 4: LLM reasoner (Gemini), citation validator, pipeline",
-                 "Show a rejected (made-up) Gemini claim",
-                 "Abstract, Introduction, Method: validator, Limitations, Conclusion. Runs the AI + "
-                 "plagiarism checks"]], [0.13, 0.33, 0.27, 0.27]))
+      P("Each person learns their part, explains it in the review, and writes its paper section. "
+        "<b>If mam asks for the code, open the files in the 'Code to open' column</b> and explain them "
+        "using your part's pages in this guide (each has a code walkthrough).")]
+s.append(table([["Name", "Owns", "Code to open", "Writes in paper"],
+                [f"<b>{LEAD}</b>", "<b>Project lead.</b> Idea, research, architecture, task division, "
+                 "implementation lead. Explains the overall project and leads the team.",
+                 "pipeline.py (whole flow)", "Final read-through"],
+                [M[4], "Part 4: Gemini reasoner + citation validator (main novelty). "
+                 "Also explains the novelty table.",
+                 "llm/reasoner.py, llm/prompts.py, validation/citation_validator.py",
+                 "Abstract, Introduction, Related Work, Method: validator"],
+                [M[2], "Part 3: code analysis + retrieval. Part 2: benchmark + results.",
+                 "analysis/ast_analyzer.py, retrieval/hybrid.py, evaluation/metrics.py",
+                 "Method: analysis + retrieval, Benchmark, Results. Merges in Overleaf"],
+                [M[1], "Part 1: Knowledge base (simple)", "kb/schema.py, data/kb/django_changes.jsonl",
+                 "Knowledge Base, Conclusion"],
+                [M[5], "Part 5: web app, CLI, fixer + <b>runs the live demo</b> (simple)",
+                 "api/routes.py, cli.py, patching/fixer.py",
+                 "System implementation, Limitations. Runs the AI + plagiarism checks"]],
+               [0.13, 0.33, 0.29, 0.25]))
 s += [Spacer(1, 6), P("Status: what is done and what is left", "h3")]
 s.append(table([["Work", "Status", "Who"],
                 ["Idea, research, architecture, task division", "Done", LEAD],
@@ -305,9 +307,9 @@ s.append(table([["Work", "Status", "Who"],
                  "Done", LEAD],
                 ["Learn your part and practise a 2-minute explanation", "To do", "Everyone"],
                 ["Write your paper section in your own words (paper/WRITING_PLAN.md)", "To do",
-                 f"{M[1]}, {M[2]}, {M[3]}, {M[4]}"],
+                 f"{M[4]}, {M[2]}, {M[1]}, {M[5]}"],
                 ["Merge sections in Overleaf, compile PDF", "To do", M[2]],
-                ["AI-content + plagiarism reports (both under 10%)", "To do", M[4]],
+                ["AI-content + plagiarism reports (both under 10%)", "To do", M[5]],
                 ["One full practice of talk + demo together", "To do", "Everyone"]],
                [0.62, 0.12, 0.26]))
 s += [Spacer(1, 6)]
@@ -317,8 +319,8 @@ s.append(KeepTogether([P("Review talk order (about 12 minutes)", "h3"), table([[
                 ["3:00-4:30", M[4], "Stages 3-4: Gemini reasoner and citation validator"],
                 ["4:30-5:30", M[1], "Knowledge base"],
                 ["5:30-8:00", M[2], "Benchmark, systems A/B/C/D, results, key result, ablation"],
-                ["8:00-9:00", M[1], "Novelty table"],
-                ["9:00-11:00", M[3], "Live demo (stage 5: Updated code tab)"],
+                ["8:00-9:00", M[4], "Novelty table"],
+                ["9:00-11:00", M[5], "Live demo (scan + Updated code tab)"],
                 ["11:00-12:00", f"{LEAD}, then all", "Limits, summary, questions"]], [0.2, 0.2, 0.6])]))
 
 # ---------- 4 project lead ----------
@@ -411,8 +413,7 @@ class KBEntry(BaseModel):          # src/codemigrate/kb/schema.py (simplified)
      ("Can this work for other libraries?",
       "The design can, as long as the library has structured release notes. We only built and tested it "
       "for Django.")],
-    "Knowledge Base construction (sources, parsing, symbol resolution, manual corrections) and the "
-    "Related Work section (read the papers in docs/RELATED_WORK.md first).")
+    "Knowledge Base (sources, parsing, manual corrections) and the short Conclusion.")
 
 s += member(
     2, "Benchmark and Evaluation",
@@ -572,8 +573,8 @@ for f in findings:
       "lets anyone run the tool without an API key."),
      ("Why temperature 0 and a cache?",
       "To make results repeatable: the same input gives the same output, and cached calls cost nothing.")],
-    "Abstract and Introduction (problem, idea, contributions, headline numbers), Method: the "
-    "LLM reasoner and the citation validator, and Limitations + Conclusion.")
+    "Abstract, Introduction (problem, idea, contributions, headline numbers), Related Work (read the "
+    "papers in docs/RELATED_WORK.md first) and Method: the LLM reasoner and the citation validator.")
 
 s += member(
     5, "Fixing, Web App and CLI",
@@ -628,7 +629,7 @@ $env:WEB_DIR="frontend/dist"
      ("Why no Docker?",
       "It is optional (a docker-compose file exists), but the app runs directly with Python and Node, "
       "which is simpler for the demo.")],
-    "System implementation (API, UI, updated-code feature, testing).")
+    "System implementation (API, UI, updated-code feature, testing) and Limitations.")
 
 # ---------- 9 results ----------
 s += [P("10. Results everyone must know", "h2"),
@@ -662,16 +663,17 @@ s += [P("11. Paper plan and timeline", "h2"),
         "<font name='Mono'>paper/WRITING_PLAN.md</font> gives one cue per sentence.")]
 s.append(table([["Section", "Writer", "Build it from"],
                 ["Abstract, Introduction", M[4], "Problem + goal, contributions, headline numbers"],
-                ["Related Work", M[1], "docs/RELATED_WORK.md (read each paper first)"],
+                ["Related Work", M[4], "docs/RELATED_WORK.md (read each paper first)"],
                 ["Knowledge Base", M[1], "kb/ code, build_report.json"],
                 ["Method: analysis + retrieval", M[3], "analysis/, retrieval/"],
                 ["Method: reasoner + validator", M[4], "llm/, validation/, pipeline.py"],
                 ["Benchmark", M[2], "benchmark/README.md, Table dataset"],
                 ["Experiments + Results", M[2], "results/tables, results/figures, error_cases.md"],
-                ["System implementation", M[3], "api/, frontend/, patching/"],
-                ["Limitations, Conclusion", M[4], "Limits list above"],
+                ["System implementation", M[5], "api/, frontend/, patching/"],
+                ["Limitations", M[5], "Limits list above"],
+                ["Conclusion", M[1], "main result + future work (3 sentences)"],
                 ["Merge in Overleaf", M[2], "everyone's sections"],
-                ["AI + plagiarism reports", M[4], "the compiled PDF"],
+                ["AI + plagiarism reports", M[5], "the compiled PDF"],
                 ["Final read-through", LEAD, "the merged draft"]], [0.3, 0.2, 0.5]))
 s += [P("Rules for writing", "h3")]
 s += bullets(["Write in your own words from the code and results. Do not paste from this guide, the "
